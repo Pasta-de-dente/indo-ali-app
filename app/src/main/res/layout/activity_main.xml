@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/blackPrimary"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+   <LinearLayout
+       android:orientation="vertical"
+       android:layout_margin="30dp"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:textColor="@color/white"
+           android:textSize="28dp"
+           android:text="Aonde vamos?"
+           >
+
+       </TextView>
+       <EditText
+           android:id="@+id/editText"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:background="@drawable/edittext_rounded_corner"
+           android:hint="Digite algo aqui"
+           android:textColor="@color/white"
+           android:textColorHint="@color/white"
+           android:backgroundTint="@color/grey"
+           android:padding="20dp" />
+
+        <Button
+            android:id="@+id/btnAnalisar"
+            android:layout_marginLeft="180dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:backgroundTint="@color/grey"
+            android:text="Analisar"
+            >
+        </Button>
+       <Spinner
+           android:id="@+id/spinner"
+           android:layout_width="match_parent"
+           android:textSize="18dp"
+           android:padding="20dp"
+
+           android:backgroundTint="@color/grey"
+           android:background="@drawable/edittext_rounded_corner"
+           android:layout_height="wrap_content"/>
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="match_parent"
+           android:background="@color/grey"
+           android:minWidth="200dp"
+           android:minHeight="200dp"
+           android:orientation="vertical"
+           android:padding="15dp">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="horizontal"
+
+
+               >
+
+               <LinearLayout
+                   android:layout_width="50dp"
+                   android:layout_height="50dp"
+                   android:background="@color/green"
+                   android:orientation="vertical"
+                   android:padding="15dp">
+
+                   <ImageView
+                       android:layout_width="wrap_content"
+                       android:layout_height="match_parent"
+                       android:src="@drawable/baseline_location_on_24"></ImageView>
+
+
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:orientation="vertical">
+
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="20/02/2020"
+                       android:textColor="@color/white">
+
+                   </TextView>
+
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="Campos do jordam"
+                       android:textColor="@color/white"></TextView>
+               </LinearLayout>
+
+           </LinearLayout>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="horizontal"
+
+
+               >
+
+               <LinearLayout
+                   android:layout_width="50dp"
+                   android:layout_height="50dp"
+                   android:orientation="vertical"
+
+                   android:padding="15dp">
+
+                   <ImageView
+                       android:layout_width="wrap_content"
+                       android:layout_height="match_parent"
+                       android:src="@drawable/baseline_location_on_24"></ImageView>
+
+
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:orientation="vertical">
+
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="20/02/2020"
+                       android:textColor="@color/white">
+
+                   </TextView>
+
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="Campos do jordam"
+                       android:textColor="@color/white"></TextView>
+               </LinearLayout>
+
+           </LinearLayout>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="horizontal"
+
+
+               >
+
+               <LinearLayout
+                   android:layout_width="50dp"
+                   android:layout_height="50dp"
+                   android:orientation="vertical"
+
+                   android:padding="15dp">
+
+                   <ImageView
+                       android:layout_width="wrap_content"
+                       android:layout_height="match_parent"
+                       android:src="@drawable/baseline_location_on_24"></ImageView>
+
+
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:orientation="vertical">
+
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="20/02/2020"
+                       android:textColor="@color/white">
+
+                   </TextView>
+
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:text="Campos do jordam"
+                       android:textColor="@color/white"></TextView>
+               </LinearLayout>
+
+           </LinearLayout>
+
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:orientation="horizontal">
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Total:1200"
+                   android:padding="10dp"
+                   android:textColor="@color/white"
+                   android:background="@color/blackPrimary"
+                   ></TextView>
+    <Button
+
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/blackPrimary"
+        android:text=">"
+        >
+
+    </Button>
+           </LinearLayout>
+       </LinearLayout>
+   </LinearLayout>
+</ScrollView>
