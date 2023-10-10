@@ -4,7 +4,7 @@ public class carroModel {
 
     private static  final String
             TABELA_NOME ="carro";
-    private static  final String
+    public static  final String
             COLUNA_ID="_id",
             COLUNA_TOTAL_ESTIMADO_KM="TotalEstimadoKM",
             COLUNA_MEDIA_KM_LITRO="MediaKMLitro",

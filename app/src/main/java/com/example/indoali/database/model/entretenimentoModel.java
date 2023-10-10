@@ -3,19 +3,19 @@ package com.example.indoali.database.model;
 public class entretenimentoModel {
 
     private static  final String
-            TABELA_NOME ="aviao";
+            TABELA_NOME ="entretenimento";
     private static  final String
             COLUNA_ID="_id",
             COLUNA_CUSTO_POR_PESSOA="CustoEstimadoPessoa",
-            COLUNA_ALUGUEL_VEICULO="AluguelVeiculos",
-            COLUNA_TOTAL_GASTO="TotalGasto";
+            COLUNA_ALUGUEL_VEICULO="AluguelVeiculos";
+
 
     public static final String  CREATE_TABLE=
             "create table "+TABELA_NOME+" ("
                     +COLUNA_ID+  " integer primary key autoincrement,"
                     +    COLUNA_CUSTO_POR_PESSOA+  " double not null,"
                     +    COLUNA_ALUGUEL_VEICULO+  " double not null,"
-                    +  COLUNA_TOTAL_GASTO+ " double not null"
+
 
                     +");";
 

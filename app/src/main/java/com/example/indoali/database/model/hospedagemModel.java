@@ -4,20 +4,20 @@ public class hospedagemModel {
 
     private static  final String
     TABELA_NOME ="hospedagem";
-    private static  final String
+    public static  final String
             COLUNA_ID="_id",
             COLUNA_CUSTO_MEDIO_POR_NOITE="CustoMedioPorNoite",
             COLUNA_TOTAL_DE_NOITE="TotalNoite",
-            COLUNA_TOTAL_QUARTOS="TotalQuartos",
-            COLUNA_TOTAL_GASTO="TotalGastos";
+            COLUNA_TOTAL_QUARTOS="TotalQuartos";
+
 
     public static final String  CREATE_TABLE=
             "create table "+TABELA_NOME+" ("
                 +COLUNA_ID+  " integer primary key autoincrement,"
                 +COLUNA_CUSTO_MEDIO_POR_NOITE+  " double not null,"
                     +COLUNA_TOTAL_DE_NOITE+  " integer not null,"
-                    +COLUNA_TOTAL_QUARTOS+  " integer not null,"
-                    +COLUNA_TOTAL_GASTO+  " double not null"
+                    +COLUNA_TOTAL_QUARTOS+  " integer not null"
+
                     +");";
 
     public static final String
@@ -27,7 +27,7 @@ public class hospedagemModel {
     private double custoMedioPorNoite;
     private int TotalNoite;
     private int totalQuartos;
-    private double totalGasto;
+
 
     public int get_ID() {
         return _ID;
@@ -61,11 +61,4 @@ public class hospedagemModel {
         this.totalQuartos = totalQuartos;
     }
 
-    public double getTotalGasto() {
-        return totalGasto;
-    }
-
-    public void setTotalGasto(double totalGasto) {
-        this.totalGasto = totalGasto;
-    }
 }

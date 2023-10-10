@@ -2,21 +2,19 @@ package com.example.indoali.database.model;
 
 public class refeicaoModel {
 
-    private static  final String
+    public static  final String
             TABELA_NOME ="refeicao";
-    private static  final String
+    public static  final String
             COLUNA_ID="_id",
             COLUNA_CUSTO_ESTIMADO_POR_REFEICAO="custoEstimadoPorRefeicao",
-            COLUNA_QTDA_REFEICAO_POR_DIA="QtdaRefeicaoPorDia",
-            COLUNA_TOTAL_GASTO="TotalRefeicao";
+            COLUNA_QTDA_REFEICAO_POR_DIA="QtdaRefeicaoPorDia";
 
 
     public static final String  CREATE_TABLE=
             "create table "+TABELA_NOME+" ("
                     +COLUNA_ID+  " integer primary key autoincrement,"
                     +COLUNA_CUSTO_ESTIMADO_POR_REFEICAO+  " double not null,"
-                    +COLUNA_QTDA_REFEICAO_POR_DIA+  " integer not null,"
-                    +COLUNA_TOTAL_GASTO+ " double not null"
+                    +COLUNA_QTDA_REFEICAO_POR_DIA+  " integer not null "
                     +");";
 
     public static final String
@@ -25,7 +23,7 @@ public class refeicaoModel {
     private int _ID;
     private double CustoEstimadoPorRefeicao;
     private int qtdaRefeicaoPorDia;
-    private double totalGasto;
+
 
     public int get_ID() {
         return _ID;
@@ -51,11 +49,5 @@ public class refeicaoModel {
         this.qtdaRefeicaoPorDia = qtdaRefeicaoPorDia;
     }
 
-    public double getTotalGasto() {
-        return totalGasto;
-    }
 
-    public void setTotalGasto(double totalGasto) {
-        this.totalGasto = totalGasto;
-    }
 }

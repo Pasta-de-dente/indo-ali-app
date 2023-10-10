@@ -7,16 +7,13 @@ public class aviaoModel {
     public static  final String
             COLUNA_ID="_id",
             COLUNA_CUSTO_POR_PESSOA="CustoEstimadoPessoa",
-            COLUNA_ALUGUEL_VEICULO="AluguelVeiculos",
-            COLUNA_TOTAL_GASTO="TotalGasto";
+            COLUNA_ALUGUEL_VEICULO="AluguelVeiculos";
 
     public static final String  CREATE_TABLE=
             "create table "+TABELA_NOME+" ("
                     +COLUNA_ID+  " integer primary key autoincrement,"
                     +    COLUNA_CUSTO_POR_PESSOA+  " double not null,"
-                    +    COLUNA_ALUGUEL_VEICULO+  " double not null,"
-                    +  COLUNA_TOTAL_GASTO+ " double not null"
-
+                    +    COLUNA_ALUGUEL_VEICULO+  " double not null "
                     +");";
 
     public static final String
@@ -25,7 +22,7 @@ public class aviaoModel {
     private int _id;
     private Double CustoPorPessoa;
     private Double AluguelVeiculo;
-    private Double TotalGasto;
+
 
     public int get_id() {
         return _id;
@@ -51,11 +48,5 @@ public class aviaoModel {
         AluguelVeiculo = aluguelVeiculo;
     }
 
-    public Double getTotalGasto() {
-        return TotalGasto;
-    }
 
-    public void setTotalGasto(Double totalGasto) {
-        TotalGasto = totalGasto;
-    }
 }

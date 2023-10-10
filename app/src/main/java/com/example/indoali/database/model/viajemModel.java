@@ -4,7 +4,7 @@ public class viajemModel {
 
     private static  final String
     TABELA_NOME ="viajem";
-    private static  final String
+    public static  final String
             COLUNA_ID="_id",
             COLUNA_ID_AVIAO="_idTabelaAviao",
             COLUNA_ID_CARRO="_idTabelaCarro",
@@ -24,7 +24,4 @@ public class viajemModel {
 
     public static final String
         DROP_TABLE="drop table if exists " +TABELA_NOME+ ";";
-
-
-
 }

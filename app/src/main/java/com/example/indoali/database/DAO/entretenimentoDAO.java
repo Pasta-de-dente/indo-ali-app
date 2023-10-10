@@ -1,4 +1,7 @@
 package com.example.indoali.database.DAO;
 
-public class entretenimentoDAO {
+import com.example.indoali.database.model.entretenimentoModel;
+
+public class entretenimentoDAO extends AbstrataDAO{
+
 }
