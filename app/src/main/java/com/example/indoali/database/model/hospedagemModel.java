@@ -2,7 +2,7 @@ package com.example.indoali.database.model;
 
 public class hospedagemModel {
 
-    private static  final String
+    public static  final String
     TABELA_NOME ="hospedagem";
     public static  final String
             COLUNA_ID="_id",

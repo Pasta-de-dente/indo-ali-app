@@ -24,6 +24,8 @@ public class aviaoActivity extends AppCompatActivity {
         Button btnNext=findViewById(R.id.nextBtn);
         Button btnSave=findViewById(R.id.save);
 
+        aviaoModel objeto = (aviaoModel) getIntent().getSerializableExtra("meuObjeto");
+
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override

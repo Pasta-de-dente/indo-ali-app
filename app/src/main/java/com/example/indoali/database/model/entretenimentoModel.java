@@ -2,61 +2,50 @@ package com.example.indoali.database.model;
 
 public class entretenimentoModel {
 
-    private static  final String
+    public static  final String
             TABELA_NOME ="entretenimento";
-    private static  final String
+    public static  final String
             COLUNA_ID="_id",
-            COLUNA_CUSTO_POR_PESSOA="CustoEstimadoPessoa",
-            COLUNA_ALUGUEL_VEICULO="AluguelVeiculos";
+            COLUNA_NOME="nome",
+            COLUNA_CUSTO_TOTAL="custoTotal";
 
 
     public static final String  CREATE_TABLE=
             "create table "+TABELA_NOME+" ("
                     +COLUNA_ID+  " integer primary key autoincrement,"
-                    +    COLUNA_CUSTO_POR_PESSOA+  " double not null,"
-                    +    COLUNA_ALUGUEL_VEICULO+  " double not null,"
-
-
+                    +    COLUNA_NOME+  " String not null,"
+                    +    COLUNA_CUSTO_TOTAL+  " double not null "
                     +");";
 
     public static final String
             DROP_TABLE="drop table if exists " +TABELA_NOME+ ";";
 
 
-    private int _ID;
-    private double CustoPorPessoa;
-    private double AluguelVeiculo;
-    private double TotalGasto;
+   private int ID;
+   private String nomeEntretenimento;
+   private double custoTotal;
 
-    public int get_ID() {
-        return _ID;
+    public int getID() {
+        return ID;
     }
 
-    public void set_ID(int _ID) {
-        this._ID = _ID;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
-    public double getCustoPorPessoa() {
-        return CustoPorPessoa;
+    public String getNomeEntretenimento() {
+        return nomeEntretenimento;
     }
 
-    public void setCustoPorPessoa(double custoPorPessoa) {
-        CustoPorPessoa = custoPorPessoa;
+    public void setNomeEntretenimento(String nomeEntretenimento) {
+        this.nomeEntretenimento = nomeEntretenimento;
     }
 
-    public double getAluguelVeiculo() {
-        return AluguelVeiculo;
+    public double getCustoTotal() {
+        return custoTotal;
     }
 
-    public void setAluguelVeiculo(double aluguelVeiculo) {
-        AluguelVeiculo = aluguelVeiculo;
-    }
-
-    public double getTotalGasto() {
-        return TotalGasto;
-    }
-
-    public void setTotalGasto(double totalGasto) {
-        TotalGasto = totalGasto;
+    public void setCustoTotal(double custoTotal) {
+        this.custoTotal = custoTotal;
     }
 }

@@ -2,9 +2,15 @@ package com.example.indoali.database.DAO;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 
 import com.example.indoali.database.DBOpenHelper;
+import com.example.indoali.database.model.carroModel;
+import com.example.indoali.database.model.hospedagemModel;
 import com.example.indoali.database.model.refeicaoModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class RefeicaoDAO extends AbstrataDAO{
@@ -36,5 +42,54 @@ public class RefeicaoDAO extends AbstrataDAO{
         Close();
 
         return rowAffect;
+    }
+
+    public List<refeicaoModel> Select(){
+        List<refeicaoModel> aviaoList = new ArrayList<>();
+
+        Open();
+
+        Cursor cursor = db.query(
+                refeicaoModel.TABELA_NOME, // Tabe name
+                colunas,                 // Columns to retrieve
+                null,                    // Selection (WHERE clause)
+                null,                    // Selection arguments
+                null,                    // Group by
+                null,                    // Having
+                null                     // Order by
+        );
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                int idIndex = cursor.getColumnIndex(carroModel.COLUNA_ID);
+                double CustoEstimadoPorRefeicao = cursor.getColumnIndex(refeicaoModel.COLUNA_CUSTO_ESTIMADO_POR_REFEICAO);
+                int qtdaRefeicaoPorDia = cursor.getColumnIndex(refeicaoModel.COLUNA_QTDA_REFEICAO_POR_DIA);
+
+
+                do {
+                    refeicaoModel model = new refeicaoModel();
+
+                    if (idIndex >= 0) {
+                        model.set_ID(cursor.getInt(idIndex));
+                    }
+
+                    if (CustoEstimadoPorRefeicao >= 0) {
+                        model.setCustoEstimadoPorRefeicao(cursor.getDouble((int) CustoEstimadoPorRefeicao));
+                    }
+
+                    if (qtdaRefeicaoPorDia >= 0) {
+                        model.setQtdaRefeicaoPorDia(cursor.getInt(qtdaRefeicaoPorDia));
+                    }
+
+
+
+                    aviaoList.add(model);
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+        }
+
+        Close();
+
+        return aviaoList;
     }
 }

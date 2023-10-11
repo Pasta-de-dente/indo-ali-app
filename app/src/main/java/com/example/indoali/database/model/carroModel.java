@@ -2,7 +2,7 @@ package com.example.indoali.database.model;
 
 public class carroModel {
 
-    private static  final String
+    public static final String
             TABELA_NOME ="carro";
     public static  final String
             COLUNA_ID="_id",
@@ -28,7 +28,7 @@ public class carroModel {
     private double TotalEstimadoKm;
     private double MediaKmLitro;
     private double custoMedioLitro;
-    private double TotalVeiculo;
+    private int TotalVeiculo;
 
     public int get_id() {
         return _id;
@@ -62,11 +62,11 @@ public class carroModel {
         this.custoMedioLitro = custoMedioLitro;
     }
 
-    public double getTotalVeiculo() {
+    public int getTotalVeiculo() {
         return TotalVeiculo;
     }
 
-    public void setTotalVeiculo(double totalVeiculo) {
+    public void setTotalVeiculo(int totalVeiculo) {
         TotalVeiculo = totalVeiculo;
     }
 }
