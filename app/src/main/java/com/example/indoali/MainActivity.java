@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.indoali.database.DAO.AviaoDAO;
 import com.example.indoali.database.model.aviaoModel;
 import com.example.indoali.javaScreens.aviaoActivity;
+import com.example.indoali.javaScreens.entretenimentoActivity;
 
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-               Intent intent = new Intent(MainActivity.this, aviaoActivity.class);
+               Intent intent = new Intent(MainActivity.this, entretenimentoActivity.class);
 
                 intent.putExtra("Viajem", "Oi teste");
                 startActivity(intent);

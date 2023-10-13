@@ -1,5 +1,7 @@
 package com.example.indoali.database.model;
 
+import java.io.Serializable;
+
 public class aviaoModel {
 
     public static  final String

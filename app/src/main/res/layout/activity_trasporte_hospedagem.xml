@@ -42,7 +42,8 @@
 
         </TextView>
         <EditText
-            android:hint="Custo médio (por noite)"
+            android:id="@+id/custoMedioPorNoiteTxf"
+            android:hint="Custo amédio (por noite)"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
@@ -52,11 +53,22 @@
             android:backgroundTint="@color/grey"
             android:background="@drawable/edittext_rounded_corner"
             />
-           <Spinner
-            android:id="@+id/spinner"
+        <EditText
+
+            android:id="@+id/totalDeNoitesTxf"
             android:layout_width="match_parent"
             android:textSize="18dp"
+            android:inputType="number"
+            android:padding="20dp"
+            android:backgroundTint="@color/grey"
+            android:background="@drawable/edittext_rounded_corner"
+            android:layout_height="wrap_content"/>
 
+        <EditText
+            android:id="@+id/totalDeQuartosTxf"
+            android:layout_width="match_parent"
+            android:textSize="18dp"
+            android:inputType="number"
             android:padding="20dp"
             android:backgroundTint="@color/grey"
             android:background="@drawable/edittext_rounded_corner"

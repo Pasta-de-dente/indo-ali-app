@@ -44,6 +44,7 @@
         </TextView>
 
         <EditText
+            android:id="@+id/custoEstimadoTxf"
             android:hint="Custo estimado por pessoa "
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,6 +58,7 @@
 
         </EditText>
         <EditText
+            android:id="@+id/alguelVeiculoTxf"
             android:hint="Aluguel de veículo "
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

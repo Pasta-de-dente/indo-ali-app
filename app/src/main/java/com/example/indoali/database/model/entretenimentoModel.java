@@ -1,6 +1,8 @@
 package com.example.indoali.database.model;
 
-public class entretenimentoModel {
+import java.io.Serializable;
+
+public class entretenimentoModel implements Serializable {
 
     public static  final String
             TABELA_NOME ="entretenimento";

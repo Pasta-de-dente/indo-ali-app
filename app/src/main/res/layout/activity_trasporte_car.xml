@@ -42,6 +42,7 @@
 
         </TextView>
         <EditText
+            android:id="@+id/TotalEstimadoQuiilometroTxf"
             android:hint="Total Estimado de quilometros"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,6 +54,7 @@
             android:background="@drawable/edittext_rounded_corner"
             />
         <EditText
+            android:id="@+id/MediaQuilometroPorlitroTxf"
             android:hint="Média de quilômetros por litro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -66,6 +68,7 @@
 
         </EditText>
         <EditText
+            android:id="@+id/CustoMedioPorLitrotxf"
             android:hint="Custo médio por litro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -76,8 +79,9 @@
             android:backgroundTint="@color/grey"
             android:background="@drawable/edittext_rounded_corner"
            />
-        <Spinner
-            android:id="@+id/spinner"
+        <EditText
+            android:inputType="number"
+            android:id="@+id/totalDeVeiculotxf"
             android:layout_width="match_parent"
             android:textSize="18dp"
 

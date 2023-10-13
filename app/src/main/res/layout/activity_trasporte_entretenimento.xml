@@ -31,7 +31,11 @@
             android:textColorHint="@color/white"
             android:backgroundTint="@color/grey"
             android:padding="20dp" />
-
+        <Button
+            android:text="Adicionar novo entretenimento"
+            android:id="@+id/addNewEntretenimento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></Button>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,7 +46,8 @@
 
         </TextView>
         <EditText
-            android:hint="Custo estimado por refeição"
+            android:id="@+id/txtCustoEntretenimento"
+            android:hint="Custo Entretenimento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
@@ -52,6 +57,12 @@
             android:backgroundTint="@color/grey"
             android:background="@drawable/edittext_rounded_corner"
             />
+
+        <ListView
+            android:id="@+id/listLugares"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></ListView>
 
 
         <LinearLayout
