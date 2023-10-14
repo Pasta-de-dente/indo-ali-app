@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Indo Ali</string>
+    <string name="aonde_vamos">Aonde vamos?</string>
+    <string name="distancia">Distância</string>
 </resources>
