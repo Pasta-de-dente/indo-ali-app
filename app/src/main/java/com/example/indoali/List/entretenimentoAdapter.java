@@ -51,13 +51,19 @@ public class entretenimentoAdapter extends BaseAdapter {
 
          entretenimento ent = productList.get(i);
 
-        TextView productName = view.findViewById(R.id.productName);
+        TextView productName = view.findViewById(R.id.NameEntretenimento);
         productName.setText(ent.getNome());
 
+        TextView item_preco = view.findViewById(R.id.precoEntretenimento);
+        item_preco.setText("Preço: "+ent.getPreco());
 
+        TextView item_qtda_pessoas = view.findViewById(R.id.qtdaPessoasEntretenimento);
+        item_qtda_pessoas.setText("Qtda Pessoa: "+ent.getQtdaPessoas());
 
+        TextView item_Qtda_vezes = view.findViewById(R.id.qtdaVezesEntretenimento);
+        item_Qtda_vezes.setText("Qtda Vezes: "+ent.getQtdaVezes());
 
-        Button btnDetails = view.findViewById(R.id.btnDetails);
+        Button btnDetails = view.findViewById(R.id.btnDeletar);
         btnDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

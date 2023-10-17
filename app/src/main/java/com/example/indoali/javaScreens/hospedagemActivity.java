@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +22,8 @@ public class hospedagemActivity  extends AppCompatActivity {
 
         Button btnNext=findViewById(R.id.nextBtn);
         ObjectViajem viagem=(ObjectViajem) getIntent().getSerializableExtra("Viajem");
+        TextView txt=findViewById(R.id.totalGastoTxf);
+
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

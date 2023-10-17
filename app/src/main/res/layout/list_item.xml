@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="5dp"
-    android:background="#efefef"
+    android:padding="25dp"
+    android:backgroundTint="@color/grey"
+    android:background="@drawable/edittext_rounded_corner"
     >
     <LinearLayout
+        android:padding="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
+            android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nome do Produto:"
@@ -18,68 +21,43 @@
             android:layout_marginEnd="5dp"
             />
         <TextView
-            android:id="@+id/productName"
+            android:textColor="@color/white"
+            android:id="@+id/NameEntretenimento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="XXXXXXXXXXXXXX"
             />
-    </LinearLayout>
 
-    <LinearLayout
+    </LinearLayout>
+    <TextView
+        android:textColor="@color/white"
+        android:id="@+id/qtdaPessoasEntretenimento"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Código de barra:"
-            android:textStyle="bold"
-            android:layout_marginEnd="5dp"
-            />
-        <TextView
-            android:id="@+id/productCode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="XXXXXXXXXXXXXX"
-            />
-    </LinearLayout>
-
-    <LinearLayout
+        android:layout_height="wrap_content"></TextView>
+    <TextView
+        android:textColor="@color/white"
+        android:id="@+id/precoEntretenimento"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Valor:"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginEnd="5dp"
-            android:textColor="#00A54F"
-            />
-        <TextView
-            android:id="@+id/productValue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="R$ 0,00"
-            android:textColor="#00A54F"
-            />
-        <TextView
-            android:id="@+id/qtdaVezes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="R$ 0,00"
-            android:textColor="#00A54F"
-            />
-    </LinearLayout>
-
+        android:layout_height="wrap_content"></TextView>
+    <TextView
+        android:textColor="@color/white"
+        android:id="@+id/qtdaVezesEntretenimento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></TextView>
+    <TextView
+        android:textColor="@color/white"
+        android:id="@+id/totalEntretenimento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></TextView>
     <Button
-        android:id="@+id/btnDetails"
+        android:id="@+id/btnDeletar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:text="Detalhes"
+        android:text="X"
         />
+
+
+
+
 </LinearLayout>

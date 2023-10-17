@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +22,9 @@ public class carroActivity  extends AppCompatActivity {
 
         Button btnNext=findViewById(R.id.nextBtn);
         ObjectViajem objeto = (ObjectViajem) getIntent().getSerializableExtra("Viajem");
+        TextView totalGasto=findViewById(R.id.custoListro);
+
+        totalGasto.setText(objeto.getCustoPorPessoa().toString());
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
