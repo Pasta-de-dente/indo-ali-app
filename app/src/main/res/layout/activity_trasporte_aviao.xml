@@ -21,17 +21,7 @@
             >
 
         </TextView>
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edittext_rounded_corner"
-            android:hint="Digite algo aqui"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:backgroundTint="@color/grey"
 
-            android:padding="20dp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -44,6 +34,7 @@
         </TextView>
 
         <EditText
+            android:inputType="number"
             android:id="@+id/custoEstimadoTxf"
             android:hint="Custo estimado por pessoa "
             android:layout_width="match_parent"
@@ -58,6 +49,7 @@
 
         </EditText>
         <EditText
+            android:inputType="number"
             android:id="@+id/alguelVeiculoTxf"
             android:hint="Aluguel de veículo "
             android:layout_width="match_parent"

@@ -50,7 +50,7 @@ public class aviaoActivity extends AppCompatActivity {
                 ObjectViajem viajem=new ObjectViajem();
                 EditText txfCustoEstimado=findViewById(R.id.custoEstimadoTxf);
                 EditText txfAlguelVeiculo=findViewById(R.id.alguelVeiculoTxf);
-                viajem.setAluguelVeiculo(Double.parseDouble (txfCustoEstimado.getText().toString()));
+                viajem.setCustoPorPessoa(Double.parseDouble (txfCustoEstimado.getText().toString()));
                 viajem.setAluguelVeiculo(Double.parseDouble(txfAlguelVeiculo.getText().toString()));
                 intent.putExtra("Viajem",viajem);
                 startActivity(intent);

@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-               Intent intent = new Intent(MainActivity.this, entretenimentoActivity.class);
+               Intent intent = new Intent(MainActivity.this, aviaoActivity.class);
 
                 intent.putExtra("Viajem", "Oi teste");
                 startActivity(intent);

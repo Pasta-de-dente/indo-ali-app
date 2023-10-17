@@ -21,16 +21,7 @@
             >
 
         </TextView>
-        <EditText
-            android:id="@+id/hospedagem"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edittext_rounded_corner"
-            android:hint="Digite algo aqui"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:backgroundTint="@color/grey"
-            android:padding="20dp" />
+
 
         <TextView
             android:layout_width="match_parent"
@@ -42,8 +33,9 @@
 
         </TextView>
         <EditText
+            android:inputType="numberDecimal"
             android:id="@+id/custoMedioPorNoiteTxf"
-            android:hint="Custo amédio (por noite)"
+            android:hint="Custo médio (por noite)"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
@@ -59,7 +51,9 @@
             android:layout_width="match_parent"
             android:textSize="18dp"
             android:inputType="number"
+            android:hint="Total de noites"
             android:padding="20dp"
+            android:textColorHint="@color/white"
             android:backgroundTint="@color/grey"
             android:background="@drawable/edittext_rounded_corner"
             android:layout_height="wrap_content"/>
@@ -70,6 +64,8 @@
             android:textSize="18dp"
             android:inputType="number"
             android:padding="20dp"
+            android:hint="Total de quartos"
+            android:textColorHint="@color/white"
             android:backgroundTint="@color/grey"
             android:background="@drawable/edittext_rounded_corner"
             android:layout_height="wrap_content"/>
@@ -101,7 +97,7 @@
 
             </TextView>
             <TextView
-                android:id="@+id/totalGasto"
+                android:id="@+id/totalGastoTxf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"

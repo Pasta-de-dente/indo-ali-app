@@ -21,16 +21,7 @@
             >
 
         </TextView>
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edittext_rounded_corner"
-            android:hint="Digite algo aqui"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:backgroundTint="@color/grey"
-            android:padding="20dp" />
+
 
         <TextView
             android:layout_width="match_parent"
@@ -46,6 +37,7 @@
             android:hint="Custo estimado por refeição"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
             android:textSize="18dp"
             android:textColorHint="@color/white"
             android:textColor="@color/white"
@@ -59,6 +51,8 @@
             android:textSize="18dp"
             android:inputType="number"
             android:padding="20dp"
+               android:textColorHint="@color/white"
+               android:hint="Quantidade de refeição por dia"
             android:backgroundTint="@color/grey"
             android:background="@drawable/edittext_rounded_corner"
             android:layout_height="wrap_content"/>
@@ -90,7 +84,7 @@
 
             </TextView>
             <TextView
-                android:id="@+id/totalGasto"
+                android:id="@+id/totalGastoTxf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"

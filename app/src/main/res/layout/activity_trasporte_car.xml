@@ -21,16 +21,6 @@
             >
 
         </TextView>
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edittext_rounded_corner"
-            android:hint="Digite algo aqui"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:backgroundTint="@color/grey"
-            android:padding="20dp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -43,6 +33,7 @@
         </TextView>
         <EditText
             android:id="@+id/TotalEstimadoQuiilometroTxf"
+            android:inputType="numberDecimal"
             android:hint="Total Estimado de quilometros"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,6 +48,7 @@
             android:id="@+id/MediaQuilometroPorlitroTxf"
             android:hint="Média de quilômetros por litro"
             android:layout_width="match_parent"
+            android:inputType="number"
             android:layout_height="wrap_content"
             android:textSize="18dp"
             android:textColorHint="@color/white"
@@ -70,6 +62,7 @@
         <EditText
             android:id="@+id/CustoMedioPorLitrotxf"
             android:hint="Custo médio por litro"
+            android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
@@ -84,7 +77,8 @@
             android:id="@+id/totalDeVeiculotxf"
             android:layout_width="match_parent"
             android:textSize="18dp"
-
+            android:hint="Quantidade de veiculos"
+            android:textColorHint="@color/white"
             android:padding="20dp"
             android:backgroundTint="@color/grey"
             android:background="@drawable/edittext_rounded_corner"
@@ -93,8 +87,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
-
             android:backgroundTint="@color/grey"
             android:background="@drawable/edittext_rounded_corner"
             android:minWidth="200sp"
