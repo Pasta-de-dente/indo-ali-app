@@ -8,12 +8,12 @@ public class viajemToEntretenimentoModel implements Serializable {
             TABELA_NOME ="viajemEntretenimento";
     public static  final String
             COLUNA_ID="_id",
-            COLUNA_ID_VIAJEM_ENTRETENIMENTO="_idTabelaViajemEntretenimento";
+            COLUNA_ID_VIAJEM_ENTRETENIMENTO="idTabelaViajemEntretenimento";
 
     public static final String  CREATE_TABLE=
             "create table "+TABELA_NOME+" ("
                     +COLUNA_ID+  " integer primary key autoincrement,"
-                    +COLUNA_ID_VIAJEM_ENTRETENIMENTO+  "integer not null "
+                    +COLUNA_ID_VIAJEM_ENTRETENIMENTO+  " integer not null "
                     +");";
 
     public int ID;
@@ -34,4 +34,6 @@ public class viajemToEntretenimentoModel implements Serializable {
     public void setID_VIAJEM_ENTRETENIMENTO(int ID_VIAJEM_ENTRETENIMENTO) {
         this.ID_VIAJEM_ENTRETENIMENTO = ID_VIAJEM_ENTRETENIMENTO;
     }
+    public static final String
+            DROP_TABLE="drop table if exists " +TABELA_NOME+ ";";
 }

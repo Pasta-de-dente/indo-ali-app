@@ -28,12 +28,13 @@ public class ViajemToEntretenimentoDAO extends  AbstrataDAO{
         long rowAffect = 0; // Se for maior que 0, é pq o insert funcionou;
         Open();
 
-        ContentValues values = new ContentValues();
-        values.put("id_entretenimento", rowAffect);
+            ContentValues values = new ContentValues();
+        values.put("idTabelaViajemEntretenimento", model);
+
 
         rowAffect = db.insert(viajemToEntretenimentoModel.TABELA_NOME, null, values);
 
-           Close();
+           //Close();
         return rowAffect;
     }
 

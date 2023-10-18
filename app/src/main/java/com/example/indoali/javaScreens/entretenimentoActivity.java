@@ -20,6 +20,7 @@ import com.example.indoali.database.DAO.CarroDAO;
 import com.example.indoali.database.DAO.HospedagemDAO;
 import com.example.indoali.database.DAO.RefeicaoDAO;
 import com.example.indoali.database.DAO.ViajemToEntretenimentoDAO;
+import com.example.indoali.database.DAO.entretenimentoDAO;
 import com.example.indoali.javaScreens.objects.ObjectViajem;
 import com.example.indoali.javaScreens.objects.entretenimento;
 import com.example.indoali.database.model.*;
@@ -147,13 +148,26 @@ public class entretenimentoActivity  extends AppCompatActivity {
                 HospedagemModel .setTotalNoite(objeto.getTotalNoite());
                 HospedagemModel .setTotalQuartos(objeto.getTotalQuartos());
                 HospedagemModel .setCustoMedioPorNoite(objeto.getCustoMedioPorNoite());
-               long  rowAffect= hospedagemDAO.Insert(HospedagemModel);
+               long rowAffect= hospedagemDAO.Insert(HospedagemModel);
 
-                if (rowAffect > 0) {
+               if (rowAffect > 0) {
                     // Inserção do entretenimento bem-sucedida.
+
+
                     ViajemToEntretenimentoDAO viajemDAO=new ViajemToEntretenimentoDAO(entretenimentoActivity.this);
 
                     viajemDAO.Insert(rowAffect);
+                    for(int i =0;i<arl.size();i++){
+                        entretenimentoModel ent1 = new entretenimentoModel();
+
+                        ent1.setNome(arl.get(i).getNome());
+                        ent1.setPreco(arl.get(i).getPreco());
+                        ent1.setQtdaPessoas(arl.get(i).getQtdaPessoas());
+                        ent1.setQtdaVezes(arl.get(i).getQtdaVezes());
+                        entretenimentoDAO entret=new entretenimentoDAO(entretenimentoActivity.this);
+
+                        entret.Insert(ent1, rowAffect);
+                    }
 
 
 

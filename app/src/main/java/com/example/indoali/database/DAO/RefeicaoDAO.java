@@ -35,11 +35,10 @@ public class RefeicaoDAO extends AbstrataDAO{
         Open();
 
         ContentValues values = new ContentValues();
-        values.put(  refeicaoModel.COLUNA_ID, model.get_ID()); // Não precisa pois é autoincrement
         values.put(  refeicaoModel.COLUNA_QTDA_REFEICAO_POR_DIA, model.getQtdaRefeicaoPorDia());
         values.put(  refeicaoModel.COLUNA_CUSTO_ESTIMADO_POR_REFEICAO, model.getCustoEstimadoPorRefeicao());
         rowAffect = db.insert(refeicaoModel.TABELA_NOME, null, values);
-        Close();
+       // Close();
 
         return rowAffect;
     }

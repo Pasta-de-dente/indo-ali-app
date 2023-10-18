@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.indoali.database.model.aviaoModel;
+import com.example.indoali.database.model.*;
 
 public class DBOpenHelper extends SQLiteOpenHelper {
     private static final String
@@ -20,6 +20,12 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(aviaoModel.CREATE_TABLE);
+        sqLiteDatabase.execSQL(carroModel.CREATE_TABLE);
+        sqLiteDatabase.execSQL(refeicaoModel.CREATE_TABLE);
+        sqLiteDatabase.execSQL(hospedagemModel.CREATE_TABLE);
+        sqLiteDatabase.execSQL(viajemModel.CREATE_TABLE);
+        sqLiteDatabase.execSQL(viajemToEntretenimentoModel.CREATE_TABLE);
+        sqLiteDatabase.execSQL(entretenimentoModel.CREATE_TABLE);
     }
 
     @Override
@@ -29,6 +35,24 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL(aviaoModel.DROP_TABLE);
         sqLiteDatabase.execSQL(aviaoModel.CREATE_TABLE);
+
+        sqLiteDatabase.execSQL(carroModel.DROP_TABLE);
+        sqLiteDatabase.execSQL(carroModel.CREATE_TABLE);
+
+        sqLiteDatabase.execSQL(refeicaoModel.DROP_TABLE);
+        sqLiteDatabase.execSQL(refeicaoModel.CREATE_TABLE);
+
+        sqLiteDatabase.execSQL(hospedagemModel.DROP_TABLE);
+        sqLiteDatabase.execSQL(hospedagemModel.CREATE_TABLE);
+
+        sqLiteDatabase.execSQL(viajemModel.DROP_TABLE);
+        sqLiteDatabase.execSQL(viajemModel.CREATE_TABLE);
+
+        sqLiteDatabase.execSQL(viajemToEntretenimentoModel.DROP_TABLE);
+        sqLiteDatabase.execSQL(viajemToEntretenimentoModel.CREATE_TABLE);
+
+        sqLiteDatabase.execSQL(entretenimentoModel.DROP_TABLE);
+        sqLiteDatabase.execSQL(entretenimentoModel.CREATE_TABLE);
     }
 
 }

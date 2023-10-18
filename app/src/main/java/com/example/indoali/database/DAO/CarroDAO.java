@@ -36,15 +36,14 @@ public class CarroDAO extends AbstrataDAO{
                 Open();
 
                 ContentValues values = new ContentValues();
-                values.put(carroModel.COLUNA_ID, model.get_id()); // Não precisa pois é autoincrement
                 values.put(carroModel.COLUNA_CUSTO_MEDIO_LITRO, model.getCustoMedioLitro());
                 values.put(carroModel.COLUNA_MEDIA_KM_LITRO, model.getMediaKmLitro());
                 values.put(carroModel.COLUNA_TOTAL_VEICULO, model.getTotalVeiculo());
                 values.put(carroModel.COLUNA_TOTAL_ESTIMADO_KM, model.getTotalEstimadoKm());
 
-                rowAffect = db.insert(aviaoModel.TABELA_NOME, null, values);
+                rowAffect = db.insert(carroModel.TABELA_NOME, null, values);
 
-                Close();
+//              Close();
 
                 return rowAffect;
         }

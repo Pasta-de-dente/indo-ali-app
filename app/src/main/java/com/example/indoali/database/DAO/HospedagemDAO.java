@@ -35,15 +35,15 @@ public class HospedagemDAO extends AbstrataDAO {
         Open();
 
         ContentValues values = new ContentValues();
-        values.put(hospedagemModel.COLUNA_ID, model.get_ID()); // Não precisa pois é autoincrement
+
         values.put(hospedagemModel.COLUNA_CUSTO_MEDIO_POR_NOITE, model.getCustoMedioPorNoite());
         values.put(hospedagemModel.COLUNA_TOTAL_DE_NOITE, model.getTotalNoite());
         values.put(hospedagemModel.COLUNA_TOTAL_QUARTOS, model.getTotalQuartos());
 
 
-        rowAffect = db.insert(aviaoModel.TABELA_NOME, null, values);
+        rowAffect = db.insert(hospedagemModel.TABELA_NOME, null, values);
 
-        Close();
+      //  Close();
 
         return rowAffect;
     }

@@ -31,12 +31,11 @@ public class AviaoDAO extends AbstrataDAO{
         Open();
 
         ContentValues values = new ContentValues();
-        values.put(aviaoModel.COLUNA_ID, model.get_id()); // Não precisa pois é autoincrement
         values.put(aviaoModel.COLUNA_CUSTO_POR_PESSOA, model.getCustoPorPessoa());
         values.put(aviaoModel.COLUNA_ALUGUEL_VEICULO, model.getAluguelVeiculo());
         rowAffect = db.insert(aviaoModel.TABELA_NOME, null, values);
 
-        Close();
+      //  Close();
 
         return rowAffect;
     }
@@ -85,7 +84,7 @@ public class AviaoDAO extends AbstrataDAO{
             cursor.close();
         }
 
-        Close();
+       // Close();
 
         return aviaoList;
     }

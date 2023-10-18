@@ -18,8 +18,7 @@ public class hospedagemModel implements Serializable {
                 +COLUNA_ID+  " integer primary key autoincrement,"
                 +COLUNA_CUSTO_MEDIO_POR_NOITE+  " double not null,"
                     +COLUNA_TOTAL_DE_NOITE+  " integer not null,"
-                    +COLUNA_TOTAL_QUARTOS+  " integer not null"
-
+                    +COLUNA_TOTAL_QUARTOS+  " integer not null "
                     +");";
 
     public static final String

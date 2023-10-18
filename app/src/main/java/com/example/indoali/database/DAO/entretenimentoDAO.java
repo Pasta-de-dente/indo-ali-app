@@ -21,20 +21,21 @@ public class entretenimentoDAO extends AbstrataDAO{
         Open();
     }
 
-    public long Insert(entretenimentoModel model) {
+    public long Insert(entretenimentoModel model,long rows) {
         long rowAffect = 0; // Se for maior que 0, é pq o insert funcionou;
 
         Open();
 
         ContentValues values = new ContentValues();
-        values.put(entretenimentoModel.COLUNA_ID, model.ID); // Não precisa pois é autoincrement=
         values.put(entretenimentoModel.COLUNA_NOME, model.getNome());
         values.put(entretenimentoModel.COLUNA_PRECO, model.getPreco());
         values.put(entretenimentoModel.COLUNA_QTDA_PESSOAS, model.getQtdaPessoas());
         values.put(entretenimentoModel.COLUNA_QTDA_VEZES, model.getQtdaVezes());
+        values.put(entretenimentoModel.COLUNA_ID_VIAJEM,rows);
+
         rowAffect = db.insert(entretenimentoModel.TABELA_NOME, null, values);
 
-        Close();
+      //  Close();
 
         return rowAffect;
     }

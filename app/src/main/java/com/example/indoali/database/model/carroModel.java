@@ -19,8 +19,8 @@ public class carroModel implements Serializable {
                     +COLUNA_ID+  " integer primary key autoincrement,"
                     +   COLUNA_TOTAL_ESTIMADO_KM+  " double not null,"
                     +    COLUNA_MEDIA_KM_LITRO+  " double not null,"
-                    +  COLUNA_CUSTO_MEDIO_LITRO+ " double not null"
-                    +   COLUNA_TOTAL_VEICULO+ " integer not null"
+                    +  COLUNA_CUSTO_MEDIO_LITRO+ " double not null,"
+                    +   COLUNA_TOTAL_VEICULO+ " integer not null "
                     +");";
 
     public static final String
