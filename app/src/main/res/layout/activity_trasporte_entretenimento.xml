@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/blackPrimary"
+    android:background="@color/black"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
@@ -27,13 +27,14 @@
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_rounded_corner"
             android:hint="Digite algo aqui"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:backgroundTint="@color/grey"
+            android:textColor="@color/light_gray"
+            android:textColorHint="@color/light_gray"
+            android:backgroundTint="@color/white"
             android:padding="20dp" />
         <Button
             android:text="Adicionar novo entretenimento"
             android:id="@+id/addNewEntretenimento"
+            android:backgroundTint="@color/steel_blue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></Button>
         <TextView
@@ -51,16 +52,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
-            android:textColorHint="@color/white"
-            android:textColor="@color/white"
+            android:textColorHint="@color/light_gray"
+            android:textColor="@color/light_gray"
             android:padding="20dp"
-            android:backgroundTint="@color/grey"
+            android:backgroundTint="@color/white"
             android:background="@drawable/edittext_rounded_corner"
             />
 
         <ListView
             android:id="@+id/listLugares"
-            android:background="@color/white"
+            android:background="@color/light_gray"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></ListView>
 
@@ -70,7 +71,7 @@
             android:layout_height="match_parent"
 
 
-            android:backgroundTint="@color/grey"
+            android:backgroundTint="@color/dark_gray"
             android:background="@drawable/edittext_rounded_corner"
             android:minWidth="200sp"
             android:minHeight="150sp"
@@ -118,7 +119,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:textSize="18dp"
-                android:backgroundTint="@color/grey"
+                android:backgroundTint="@color/dark_gray"
                 android:text="Save"
                 >
             </Button>
@@ -128,7 +129,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:textSize="18dp"
-                android:backgroundTint="@color/green"
+                android:backgroundTint="@color/mentha_green"
                 android:text="Salvar Viajem"
                 >
             </Button>

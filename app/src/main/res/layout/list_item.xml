@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="25dp"
-    android:backgroundTint="@color/grey"
+    android:backgroundTint="@color/light_gray"
     android:background="@drawable/edittext_rounded_corner"
     >
     <LinearLayout
@@ -55,6 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:text="X"
+        android:backgroundTint="@color/black"
         />
 
 

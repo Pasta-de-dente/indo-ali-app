@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/blackPrimary"
+    android:background="@color/black"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
@@ -17,8 +17,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:textSize="28dp"
-            android:text="Transporte"
-            >
+            android:text="Transporte">
 
         </TextView>
 
@@ -40,10 +39,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
-            android:textColorHint="@color/white"
-            android:textColor="@color/white"
+            android:textColorHint="@color/light_gray"
+            android:textColor="@color/light_gray"
             android:padding="20dp"
-            android:backgroundTint="@color/grey"
+            android:backgroundTint="@color/white"
             android:background="@drawable/edittext_rounded_corner"
             >
 
@@ -55,10 +54,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
-            android:textColorHint="@color/white"
-            android:textColor="@color/white"
+            android:textColorHint="@color/light_gray"
+            android:textColor="@color/light_gray"
             android:padding="20dp"
-            android:backgroundTint="@color/grey"
+            android:backgroundTint="@color/white"
             android:background="@drawable/edittext_rounded_corner"
             >
 
@@ -71,7 +70,7 @@
             android:layout_height="match_parent"
 
 
-            android:backgroundTint="@color/grey"
+            android:backgroundTint="@color/white"
             android:background="@drawable/edittext_rounded_corner"
             android:minWidth="200sp"
             android:minHeight="150sp"
@@ -85,7 +84,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/light_gray"
                 android:textSize="20dp"
                 android:text="Total Gasto"
 
@@ -96,7 +95,7 @@
                 android:id="@+id/totalAlguelCarro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/light_gray"
                 android:textSize="20dp"
                 android:text="0"
                 android:gravity="center"
@@ -112,7 +111,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
+                    android:textColor="@color/light_gray"
                     android:textSize="20dp"
                     android:text="Data viajem"
 
@@ -123,7 +122,7 @@
                     android:id="@+id/dataViajem"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
+                    android:textColor="@color/light_gray"
                     android:textSize="20dp"
                     android:text="0"
                     android:gravity="center"
@@ -140,7 +139,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
+                    android:textColor="@color/light_gray"
                     android:textSize="20dp"
                     android:text="Custo veiculos"
 
@@ -151,7 +150,7 @@
                     android:id="@+id/totalGasto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
+                    android:textColor="@color/light_gray"
                     android:textSize="20dp"
                     android:text="0"
                     android:gravity="center"
@@ -172,7 +171,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:textSize="18dp"
-                android:backgroundTint="@color/grey"
+                android:backgroundTint="@color/dark_gray"
                 android:text="Save"
                 >
             </Button>
@@ -182,7 +181,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:textSize="18dp"
-                android:backgroundTint="@color/green"
+                android:backgroundTint="@color/mentha_green"
                 android:text="Refeições"
                 >
             </Button>

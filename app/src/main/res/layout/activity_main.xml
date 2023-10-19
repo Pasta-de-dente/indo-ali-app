@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blackPrimary"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -27,7 +27,6 @@
                     android:layout_height="50dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
-                    android:backgroundTint="@color/transparent"
                     android:drawableLeft="@drawable/baseline_logout_24"
                     android:paddingStart="10dp" />
 
@@ -63,12 +62,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edittext_rounded_corner"
-                android:backgroundTint="@color/grey"
-                android:hint="Digite algo aqui"
+                android:backgroundTint="@color/white"
+                android:hint="Insira o destino"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="15dp"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white" />
+                android:textColor="@color/black"
+                android:textColorHint="@color/black" />
 
             <Button
                 android:id="@+id/btnAnalisar"
@@ -78,19 +77,11 @@
                 android:layout_marginStart="180dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"
-                android:backgroundTint="@color/grey"
+                android:backgroundTint="@color/mentha_green"
                 android:text="Analisar"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/edittext_rounded_corner"
-                android:backgroundTint="@color/grey"
-                android:padding="20dp"
-                android:textSize="18sp" />
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
@@ -106,7 +97,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
-                        android:background="@color/grey"
+                        android:background="@color/dark_gray"
                         android:minWidth="200dp"
                         android:minHeight="200dp"
                         android:orientation="vertical"
@@ -241,7 +232,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="10dp"
-                                android:background="@color/blackPrimary"
+                                android:background="@color/black"
                                 android:padding="10dp"
                                 android:text="Total: 1200"
                                 android:textColor="@color/white" />
@@ -249,7 +240,7 @@
                             <Button
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:backgroundTint="@color/blackPrimary"
+                                android:backgroundTint="@color/black"
                                 android:drawableEnd="@drawable/baseline_arrow_forward_ios_24"
                                 android:paddingEnd="10dp" />
                         </LinearLayout>
@@ -259,7 +250,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
-                        android:background="@color/grey"
+                        android:background="@color/dark_gray"
                         android:minWidth="200dp"
                         android:minHeight="200dp"
                         android:orientation="vertical"
@@ -394,7 +385,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="10dp"
-                                android:background="@color/blackPrimary"
+                                android:background="@color/black"
                                 android:padding="10dp"
                                 android:text="Total: 1200"
                                 android:textColor="@color/white" />
@@ -402,7 +393,7 @@
                             <Button
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:backgroundTint="@color/blackPrimary"
+                                android:backgroundTint="@color/black"
                                 android:drawableEnd="@drawable/baseline_arrow_forward_ios_24"
                                 android:paddingEnd="10dp" />
                         </LinearLayout>
