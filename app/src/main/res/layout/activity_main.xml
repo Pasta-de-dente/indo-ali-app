@@ -21,14 +21,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <Button
+                <ImageButton
                     android:id="@+id/btnLogout"
                     android:layout_width="40dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
-                    android:drawableLeft="@drawable/baseline_logout_24"
-                    android:paddingStart="10dp" />
+                    android:backgroundTint="@color/transparent"
+                    android:src="@drawable/baseline_logout_24" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -36,8 +36,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_gravity="end"
                     android:src="@drawable/paodeacucar" />
-            </RelativeLayout>
 
+            </RelativeLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -49,6 +49,7 @@
                 android:textColor="@color/white"
                 android:textSize="30sp"
                 android:textStyle="bold" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -62,12 +63,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edittext_rounded_corner"
-                android:backgroundTint="@color/white"
-                android:hint="Insira o destino"
+                android:backgroundTint="@color/dark_gray"
+                android:hint="@string/insertDestiny"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="15dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black" />
+                android:textColor="@color/white"
+                android:textColorHint="@color/medium_gray" />
 
             <Button
                 android:id="@+id/btnAnalisar"
@@ -78,7 +79,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"
                 android:backgroundTint="@color/mentha_green"
-                android:text="Analisar"
+                android:text="@string/analyze"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
@@ -96,12 +97,12 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginEnd="10dp"
                         android:background="@color/dark_gray"
                         android:minWidth="200dp"
                         android:minHeight="200dp"
                         android:orientation="vertical"
-                        android:padding="15dp">
+                        android:padding="10dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -113,6 +114,7 @@
                                 android:layout_height="50dp"
                                 android:layout_marginEnd="5dp"
                                 android:background="@drawable/circle_background"
+                                android:backgroundTint="@color/dark_green"
                                 android:orientation="vertical"
                                 android:padding="15dp">
 
@@ -121,6 +123,7 @@
                                     android:layout_height="match_parent"
                                     android:src="@drawable/baseline_location_on_24"
                                     app:tint="@color/white" />
+
                             </FrameLayout>
 
                             <LinearLayout
@@ -136,7 +139,7 @@
                                     android:textColor="@color/white" />
 
                                 <TextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:ellipsize="end"
                                     android:maxLines="1"
@@ -153,6 +156,7 @@
                             <LinearLayout
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
+                                android:layout_marginEnd="5dp"
                                 android:orientation="vertical"
                                 android:padding="15dp">
 
@@ -161,6 +165,7 @@
                                     android:layout_height="match_parent"
                                     android:src="@drawable/baseline_moving_24"
                                     app:tint="@color/white" />
+
                             </LinearLayout>
 
                             <LinearLayout
@@ -192,6 +197,7 @@
                             <LinearLayout
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
+                                android:layout_marginEnd="5dp"
                                 android:orientation="vertical"
                                 android:padding="15dp">
 
@@ -211,7 +217,7 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Horário"
+                                    android:text="@string/time"
                                     android:textColor="@color/white"
                                     android:textStyle="bold" />
 
@@ -226,6 +232,9 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center"
                             android:orientation="horizontal">
 
                             <TextView
@@ -237,24 +246,25 @@
                                 android:text="Total: 1200"
                                 android:textColor="@color/white" />
 
-                            <Button
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:backgroundTint="@color/black"
-                                android:drawableEnd="@drawable/baseline_arrow_forward_ios_24"
-                                android:paddingEnd="10dp" />
+                            <ImageButton
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:background="@drawable/circle_background"
+                                android:backgroundTint="@color/mentha_green"
+                                android:src="@drawable/baseline_arrow_forward_ios_24" />
+
                         </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginEnd="10dp"
                         android:background="@color/dark_gray"
                         android:minWidth="200dp"
                         android:minHeight="200dp"
                         android:orientation="vertical"
-                        android:padding="15dp">
+                        android:padding="10dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -266,6 +276,7 @@
                                 android:layout_height="50dp"
                                 android:layout_marginEnd="5dp"
                                 android:background="@drawable/circle_background"
+                                android:backgroundTint="@color/dark_green"
                                 android:orientation="vertical"
                                 android:padding="15dp">
 
@@ -274,6 +285,7 @@
                                     android:layout_height="match_parent"
                                     android:src="@drawable/baseline_location_on_24"
                                     app:tint="@color/white" />
+
                             </FrameLayout>
 
                             <LinearLayout
@@ -289,7 +301,7 @@
                                     android:textColor="@color/white" />
 
                                 <TextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:ellipsize="end"
                                     android:maxLines="1"
@@ -306,6 +318,7 @@
                             <LinearLayout
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
+                                android:layout_marginEnd="5dp"
                                 android:orientation="vertical"
                                 android:padding="15dp">
 
@@ -314,6 +327,7 @@
                                     android:layout_height="match_parent"
                                     android:src="@drawable/baseline_moving_24"
                                     app:tint="@color/white" />
+
                             </LinearLayout>
 
                             <LinearLayout
@@ -345,6 +359,7 @@
                             <LinearLayout
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
+                                android:layout_marginEnd="5dp"
                                 android:orientation="vertical"
                                 android:padding="15dp">
 
@@ -364,7 +379,7 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Horário"
+                                    android:text="@string/time"
                                     android:textColor="@color/white"
                                     android:textStyle="bold" />
 
@@ -379,6 +394,9 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center"
                             android:orientation="horizontal">
 
                             <TextView
@@ -390,18 +408,17 @@
                                 android:text="Total: 1200"
                                 android:textColor="@color/white" />
 
-                            <Button
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:backgroundTint="@color/black"
-                                android:drawableEnd="@drawable/baseline_arrow_forward_ios_24"
-                                android:paddingEnd="10dp" />
+                            <ImageButton
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:background="@drawable/circle_background"
+                                android:backgroundTint="@color/mentha_green"
+                                android:src="@drawable/baseline_arrow_forward_ios_24" />
+
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </HorizontalScrollView>
-
         </LinearLayout>
-
     </LinearLayout>
 </ScrollView>

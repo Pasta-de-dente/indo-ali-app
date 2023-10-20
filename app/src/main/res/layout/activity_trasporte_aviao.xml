@@ -1,199 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/black"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/topLinearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_margin="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="28dp"
-            android:text="Transporte">
-
-        </TextView>
-
+        android:gravity="fill_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bottomLinearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/planeTransportText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/planeTransport"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            android:text="Valores"
-            >
+            android:textSize="28sp" />
 
-        </TextView>
+        <TextView
+            android:id="@+id/valuesText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/values"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
         <EditText
-            android:inputType="number"
             android:id="@+id/custoEstimadoTxf"
-            android:hint="Custo estimado por pessoa "
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:textColorHint="@color/light_gray"
-            android:textColor="@color/light_gray"
-            android:padding="20dp"
-            android:backgroundTint="@color/white"
+            android:layout_marginTop="20dp"
             android:background="@drawable/edittext_rounded_corner"
-            >
-
-        </EditText>
-        <EditText
+            android:backgroundTint="@color/dark_gray"
+            android:hint="@string/estimatedCostPerPerson"
             android:inputType="number"
+            android:padding="20dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/medium_gray"
+            android:textSize="18sp" />
+
+        <EditText
             android:id="@+id/alguelVeiculoTxf"
-            android:hint="Aluguel de veículo "
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:textColorHint="@color/light_gray"
-            android:textColor="@color/light_gray"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext_rounded_corner"
+            android:backgroundTint="@color/dark_gray"
+            android:hint="@string/vehicleRental"
+            android:inputType="number"
             android:padding="20dp"
-            android:backgroundTint="@color/white"
-            android:background="@drawable/edittext_rounded_corner"
-            >
-
-        </EditText>
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-
-            android:backgroundTint="@color/white"
-            android:background="@drawable/edittext_rounded_corner"
-            android:minWidth="200sp"
-            android:minHeight="150sp"
-            android:gravity="center"
-            android:orientation="horizontal">
-            <LinearLayout
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/light_gray"
-                android:textSize="20dp"
-                android:text="Total Gasto"
-
-                >
-
-            </TextView>
-            <TextView
-                android:id="@+id/totalAlguelCarro"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/light_gray"
-                android:textSize="20dp"
-                android:text="0"
-                android:gravity="center"
-                >
-
-            </TextView>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/light_gray"
-                    android:textSize="20dp"
-                    android:text="Data viajem"
-
-                    >
-
-                </TextView>
-                <TextView
-                    android:id="@+id/dataViajem"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/light_gray"
-                    android:textSize="20dp"
-                    android:text="0"
-                    android:gravity="center"
-                    >
-
-                </TextView>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/light_gray"
-                    android:textSize="20dp"
-                    android:text="Custo veiculos"
-
-                    >
-
-                </TextView>
-                <TextView
-                    android:id="@+id/totalGasto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/light_gray"
-                    android:textSize="20dp"
-                    android:text="0"
-                    android:gravity="center"
-                    >
-
-                </TextView>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:gravity="center"
-            android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/save"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="18dp"
-                android:backgroundTint="@color/dark_gray"
-                android:text="Save"
-                >
-            </Button>
-            <Button
-                android:id="@+id/nextBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="18dp"
-                android:backgroundTint="@color/mentha_green"
-                android:text="Refeições"
-                >
-            </Button>
-        </LinearLayout>
-
-
-
-
-
-
-
+            android:textColor="@color/white"
+            android:textColorHint="@color/medium_gray"
+            android:textSize="18sp" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/bottomLinearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topLinearLayout">
 
-</ScrollView>
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:backgroundTint="@color/dark_gray"
+            android:text="@string/goBack"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/nextBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/mentha_green"
+            android:text="@string/meals"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

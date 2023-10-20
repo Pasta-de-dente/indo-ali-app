@@ -12,8 +12,6 @@ import android.widget.Switch;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.indoali.javaScreens.entretenimentoActivity;
-
 public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,13 +42,13 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 // IMPLEMENTAR VERIFICAÇÃO COM O BANCO SQLITE
-                else if(edtEmail.getText().toString().equals("admin") && edtPassword.getText().toString().equals("admin")) {
+                else if (edtEmail.getText().toString().equals("admin") && edtPassword.getText().toString().equals("admin")) {
                     if (switchLembrar.isChecked()) {
                         edit.putString("KEY_EMAIL", edtEmail.getText().toString()).apply();
                         edit.putString("KEY_PASSWORD", edtPassword.getText().toString()).apply();
                     } else {
                         edit.remove("KEY_EMAIL").apply();
-                        edit.remove("KEY_SENHA").apply();
+                        edit.remove("KEY_PASSWORD").apply();
                     }
 
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);

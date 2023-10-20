@@ -2,6 +2,7 @@
 <resources>
     <color name="black">#07070A</color>
     <color name="white">#E5E4E4</color>
+    <color name="medium_gray">#969696</color>
     <color name="dark_gray">#24272B</color>
     <color name="light_gray">#4A525A</color>
     <color name="cobalt_blue">#004BA8</color>
@@ -10,4 +11,5 @@
     <color name="deep_green">#0B5D1E</color>
     <color name="mentha_green">#139A43</color>
     <color name="munsell_green">#0DAB76</color>
+    <color name="transparent">#00000000</color>
 </resources>
