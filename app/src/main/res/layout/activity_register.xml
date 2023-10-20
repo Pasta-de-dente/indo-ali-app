@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blackPrimary">
+    android:background="@color/black">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,8 +20,10 @@
                 android:id="@+id/btnBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/transparent"
+                android:backgroundTint="@color/black"
+                android:contentDescription="@string/goBack"
                 android:src="@drawable/baseline_arrow_back_24" />
+
         </RelativeLayout>
 
         <LinearLayout
@@ -35,12 +37,14 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/paoDeAcucar"
                 android:src="@drawable/paodeacucar" />
 
             <ImageView
                 android:layout_width="200dp"
                 android:layout_height="80dp"
                 android:src="@drawable/brand" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -61,14 +65,14 @@
                     android:layout_marginBottom="20dp"
                     android:autofillHints="emailAddress"
                     android:background="@drawable/edittext_rounded_corner"
-                    android:backgroundTint="@color/grey"
+                    android:backgroundTint="@color/dark_gray"
                     android:drawableStart="@drawable/baseline_person_24"
                     android:drawablePadding="10dp"
-                    android:hint="Digite o seu nome"
+                    android:hint="@string/insertYourName"
                     android:inputType="textEmailAddress"
                     android:padding="10dp"
                     android:textColor="@color/white"
-                    android:textColorHint="@color/whiteSecond" />
+                    android:textColorHint="@color/medium_gray" />
 
                 <EditText
                     android:id="@+id/edtRegisterEmail"
@@ -77,14 +81,14 @@
                     android:layout_marginBottom="20dp"
                     android:autofillHints="emailAddress"
                     android:background="@drawable/edittext_rounded_corner"
-                    android:backgroundTint="@color/grey"
+                    android:backgroundTint="@color/dark_gray"
                     android:drawableStart="@drawable/baseline_email_24"
                     android:drawablePadding="10dp"
                     android:hint="@string/insertEmail"
                     android:inputType="textEmailAddress"
                     android:padding="10dp"
                     android:textColor="@color/white"
-                    android:textColorHint="@color/whiteSecond" />
+                    android:textColorHint="@color/medium_gray" />
 
                 <EditText
                     android:id="@+id/edtRegisterPassword"
@@ -93,14 +97,14 @@
                     android:layout_marginBottom="20dp"
                     android:autofillHints="password"
                     android:background="@drawable/edittext_rounded_corner"
-                    android:backgroundTint="@color/grey"
+                    android:backgroundTint="@color/dark_gray"
                     android:drawableStart="@drawable/baseline_lock_24"
                     android:drawablePadding="10dp"
                     android:hint="@string/insertPassword"
                     android:inputType="textPassword"
                     android:padding="10dp"
                     android:textColor="@color/white"
-                    android:textColorHint="@color/whiteSecond" />
+                    android:textColorHint="@color/medium_gray" />
 
                 <EditText
                     android:id="@+id/edtRegisterPasswordConfirm"
@@ -108,22 +112,22 @@
                     android:layout_height="wrap_content"
                     android:autofillHints="password"
                     android:background="@drawable/edittext_rounded_corner"
-                    android:backgroundTint="@color/grey"
+                    android:backgroundTint="@color/dark_gray"
                     android:drawableStart="@drawable/baseline_lock_24"
                     android:drawablePadding="10dp"
-                    android:hint="Confirme a sua senha"
+                    android:hint="@string/passwordConfirmation"
                     android:inputType="textPassword"
                     android:padding="10dp"
                     android:textColor="@color/white"
-                    android:textColorHint="@color/whiteSecond" />
+                    android:textColorHint="@color/medium_gray" />
 
                 <Button
                     android:id="@+id/btnRegisterConfirm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:backgroundTint="@color/green"
-                    android:text="Cadastrar"
+                    android:backgroundTint="@color/mentha_green"
+                    android:text="@string/register"
                     android:textColor="@color/white" />
             </LinearLayout>
         </LinearLayout>

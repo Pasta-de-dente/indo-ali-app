@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,7 +64,7 @@ public class entretenimentoAdapter extends BaseAdapter {
         TextView item_Qtda_vezes = view.findViewById(R.id.qtdaVezesEntretenimento);
         item_Qtda_vezes.setText("Qtda Vezes: "+ent.getQtdaVezes());
 
-        Button btnDetails = view.findViewById(R.id.btnDeletar);
+        ImageButton btnDetails = view.findViewById(R.id.btnDeletar);
         btnDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

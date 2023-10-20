@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blackPrimary">
+    android:background="@color/black">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,12 +20,14 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/paoDeAcucar"
                 android:src="@drawable/paodeacucar" />
 
             <ImageView
                 android:layout_width="200dp"
                 android:layout_height="80dp"
-                android:src="@drawable/brand" />
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/brand_indo_ali" />
         </LinearLayout>
 
         <LinearLayout
@@ -38,38 +40,37 @@
                 android:id="@+id/edtEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:autofillHints="emailAddress"
                 android:background="@drawable/edittext_rounded_corner"
-                android:backgroundTint="@color/grey"
+                android:backgroundTint="@color/dark_gray"
                 android:drawableStart="@drawable/baseline_email_24"
                 android:drawablePadding="10dp"
                 android:hint="@string/insertEmail"
                 android:inputType="textEmailAddress"
-                android:padding="10dp"
+                android:padding="15dp"
                 android:textColor="@color/white"
-                android:textColorHint="@color/whiteSecond" />
+                android:textColorHint="@color/medium_gray" />
 
             <EditText
                 android:id="@+id/edtPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:autofillHints="password"
                 android:background="@drawable/edittext_rounded_corner"
-                android:backgroundTint="@color/grey"
+                android:backgroundTint="@color/dark_gray"
                 android:drawableStart="@drawable/baseline_lock_24"
                 android:drawablePadding="10dp"
                 android:hint="@string/insertPassword"
                 android:inputType="textPassword"
-                android:padding="10dp"
+                android:padding="15dp"
                 android:textColor="@color/white"
-                android:textColorHint="@color/whiteSecond" />
+                android:textColorHint="@color/medium_gray" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginTop="10dp">
+                android:layout_gravity="end">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -80,8 +81,8 @@
 
                 <Switch
                     android:id="@+id/switchLembrar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:thumbTint="@color/white"
                     android:trackTint="@color/white" />
             </LinearLayout>
@@ -90,8 +91,7 @@
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="@color/green"
+                android:backgroundTint="@color/mentha_green"
                 android:text="@string/login"
                 android:textColor="@color/white" />
 
@@ -99,8 +99,8 @@
                 android:id="@+id/btnRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/greySecond"
-                android:text="@string/register"
+                android:backgroundTint="@color/dark_gray"
+                android:text="@string/signup"
                 android:textColor="@color/white" />
         </LinearLayout>
     </LinearLayout>

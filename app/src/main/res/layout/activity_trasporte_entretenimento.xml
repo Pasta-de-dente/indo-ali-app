@@ -1,146 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/blackPrimary"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/topLinearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_margin="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:gravity="fill_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bottomLinearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/entertainment"
             android:textColor="@color/white"
-            android:textSize="28dp"
-            android:text="Entretenimento"
-            >
+            android:textSize="28sp" />
 
-        </TextView>
-        <EditText
-            android:id="@+id/editText"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/edittext_rounded_corner"
-            android:hint="Digite algo aqui"
+            android:text="@string/values"
             android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:backgroundTint="@color/grey"
-            android:padding="20dp" />
+            android:textSize="20sp" />
+
         <Button
-            android:text="Adicionar novo entretenimento"
             android:id="@+id/addNewEntretenimento"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></Button>
-        <TextView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:text="Valores"
-            >
+            android:backgroundTint="@color/steel_blue"
+            android:text="@string/addEntertainment" />
 
-        </TextView>
-        <EditText
-            android:id="@+id/txtCustoEntretenimento"
-            android:hint="Custo Entretenimento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:textColorHint="@color/white"
-            android:textColor="@color/white"
-            android:padding="20dp"
-            android:backgroundTint="@color/grey"
-            android:background="@drawable/edittext_rounded_corner"
-            />
 
         <ListView
             android:id="@+id/listLugares"
-            android:background="@color/white"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></ListView>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-
-            android:backgroundTint="@color/grey"
-            android:background="@drawable/edittext_rounded_corner"
-            android:minWidth="200sp"
-            android:minHeight="150sp"
-            android:gravity="center"
-            android:orientation="horizontal">
-            <LinearLayout
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="20dp"
-                android:text="Total Gasto"
-
-                >
-
-            </TextView>
-            <TextView
-                android:id="@+id/ttvtotalGasto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="20dp"
-                android:text="0"
-                android:gravity="center"
-                >
-
-            </TextView>
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:gravity="center"
-            android:layout_height="wrap_content">
-            <Button
-            android:id="@+id/save"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="18dp"
-                android:backgroundTint="@color/grey"
-                android:text="Save"
-                >
-            </Button>
-            <Button
-                android:id="@+id/nextBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="18dp"
-                android:backgroundTint="@color/green"
-                android:text="Salvar Viajem"
-                >
-            </Button>
-        </LinearLayout>
-
-
-
-
-
-
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:background="@drawable/listview_rounded_corner" />
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/bottomLinearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topLinearLayout">
 
-</ScrollView>
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:backgroundTint="@color/dark_gray"
+            android:text="@string/goBack"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/nextBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/mentha_green"
+            android:text="@string/saveTravel"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,33 +13,31 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.indoali.R;
 import com.example.indoali.javaScreens.objects.ObjectViajem;
 
-public class carroActivity  extends AppCompatActivity {
+public class carroActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trasporte_car);
 
-        Button btnNext=findViewById(R.id.nextBtn);
+        Button btnNext = findViewById(R.id.nextBtn);
         ObjectViajem objeto = (ObjectViajem) getIntent().getSerializableExtra("Viajem");
-        TextView totalGasto=findViewById(R.id.custoListro);
 
-        totalGasto.setText(objeto.getCustoPorPessoa().toString());
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(carroActivity.this, refeicaoActivity.class);
-                EditText totalEstimadoKm=findViewById(R.id.TotalEstimadoQuiilometroTxf);
-                EditText mediQuilometroPorLitro=findViewById(R.id.MediaQuilometroPorlitroTxf);
-                EditText custoMedioPorLitro=findViewById(R.id.CustoMedioPorLitrotxf);
-                EditText totalDeVeiculos=findViewById(R.id.totalDeVeiculotxf);
+                EditText totalEstimadoKm = findViewById(R.id.TotalEstimadoQuiilometroTxf);
+                EditText mediQuilometroPorLitro = findViewById(R.id.MediaQuilometroPorlitroTxf);
+                EditText custoMedioPorLitro = findViewById(R.id.CustoMedioPorLitrotxf);
+                EditText totalDeVeiculos = findViewById(R.id.totalDeVeiculotxf);
 
                 objeto.setTotalEstimadoKm(Double.parseDouble(totalEstimadoKm.getText().toString()));
                 objeto.setMediaKmLitro(Double.parseDouble(mediQuilometroPorLitro.getText().toString()));
                 objeto.setCustoMedioLitro(Double.parseDouble(custoMedioPorLitro.getText().toString()));
                 objeto.setTotalVeiculo(Integer.parseInt(totalDeVeiculos.getText().toString()));
 
-                intent.putExtra("Viajem",objeto);
+                intent.putExtra("Viajem", objeto);
                 startActivity(intent);
             }
         });

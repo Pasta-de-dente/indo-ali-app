@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="whiteSecond">#969696</color>
-    <color name="blackPrimary">#171717</color>
-    <color name="grey">#2C2C30</color>
-    <color name="greySecond">#3C4046</color>
-    <color name="green">#239D45</color>
-    <color name="blue">#1F45EE</color>
+    <color name="black">#07070A</color>
+    <color name="white">#E5E4E4</color>
+    <color name="medium_gray">#969696</color>
+    <color name="dark_gray">#24272B</color>
+    <color name="light_gray">#4A525A</color>
+    <color name="cobalt_blue">#004BA8</color>
+    <color name="steel_blue">#3E78B2</color>
+    <color name="dark_green">#053B06</color>
+    <color name="deep_green">#0B5D1E</color>
+    <color name="mentha_green">#139A43</color>
+    <color name="munsell_green">#0DAB76</color>
     <color name="transparent">#00000000</color>
 </resources>
