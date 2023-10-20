@@ -86,11 +86,14 @@
 
             <ListView
                 android:id="@+id/list_viajens"
-                android:background="@color/white"
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp">
+                android:layout_marginTop="100dp"
+                android:background="@color/white" />
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="wrap_content"

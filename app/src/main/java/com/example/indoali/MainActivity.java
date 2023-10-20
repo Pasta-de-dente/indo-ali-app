@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.indoali.List.entretenimentoAdapter;
@@ -23,9 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
     private ListView productList;
-
     private entretenimentoAdapter adapter;
     ArrayList<entretenimento> arl;
 
@@ -50,16 +49,12 @@ public class MainActivity extends AppCompatActivity {
 //        adapter.notifyDataSetChanged();
 //
 
-        Button btnAnalise=findViewById(R.id.btnAnalisar);
-        TextView txt=findViewById(R.id.editText);
-
         Button btnAnalise = findViewById(R.id.btnAnalisar);
-        ImageButton btnLogout = findViewById(R.id.btnLogout);
         TextView txt = findViewById(R.id.editText);
+        ImageButton btnLogout = findViewById(R.id.btnLogout);
 
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
         SharedPreferences.Editor edit = pref.edit();
-
 
         btnAnalise.setOnClickListener(new View.OnClickListener() {
             @Override

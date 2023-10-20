@@ -150,26 +150,26 @@ public class entretenimentoActivity extends AppCompatActivity {
                 HospedagemDAO hospedagemDAO = new HospedagemDAO(entretenimentoActivity.this);
                 hospedagemModel HospedagemModel = new hospedagemModel();
 
-                HospedagemModel .setTotalNoite(objeto.getTotalNoite());
-                HospedagemModel .setTotalQuartos(objeto.getTotalQuartos());
-                HospedagemModel .setCustoMedioPorNoite(objeto.getCustoMedioPorNoite());
-               long rowAffect= hospedagemDAO.Insert(HospedagemModel);
+                HospedagemModel.setTotalNoite(objeto.getTotalNoite());
+                HospedagemModel.setTotalQuartos(objeto.getTotalQuartos());
+                HospedagemModel.setCustoMedioPorNoite(objeto.getCustoMedioPorNoite());
+                long rowAffect = hospedagemDAO.Insert(HospedagemModel);
 
 
-               if (rowAffect > 0) {
+                if (rowAffect > 0) {
                     // Inserção do entretenimento bem-sucedida.
-                    ViajemToEntretenimentoDAO viajemDAO=new ViajemToEntretenimentoDAO(entretenimentoActivity.this);
+                    ViajemToEntretenimentoDAO viajemDAO = new ViajemToEntretenimentoDAO(entretenimentoActivity.this);
 
 
                     viajemDAO.Insert(rowAffect);
-                    for(int i =0;i<arl.size();i++){
+                    for (int i = 0; i < arl.size(); i++) {
                         entretenimentoModel ent1 = new entretenimentoModel();
 
                         ent1.setNome(arl.get(i).getNome());
                         ent1.setPreco(arl.get(i).getPreco());
                         ent1.setQtdaPessoas(arl.get(i).getQtdaPessoas());
                         ent1.setQtdaVezes(arl.get(i).getQtdaVezes());
-                        entretenimentoDAO entret=new entretenimentoDAO(entretenimentoActivity.this);
+                        entretenimentoDAO entret = new entretenimentoDAO(entretenimentoActivity.this);
 
                         entret.Insert(ent1, rowAffect);
                     }
