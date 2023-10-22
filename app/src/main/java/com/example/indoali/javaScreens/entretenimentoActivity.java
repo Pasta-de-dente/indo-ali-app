@@ -42,11 +42,10 @@ public class entretenimentoActivity  extends AppCompatActivity {
 
         Button btnNext = findViewById(R.id.nextBtn);
         Button btnAddNewEntretenimento= findViewById(R.id.addNewEntretenimento);
-        ObjectViajem objeto = (ObjectViajem) getIntent().getSerializableExtra("Viajem");
         productList = findViewById(R.id.listLugares);
-        adapter = new entretenimentoAdapter(entretenimentoActivity.this);
-        TextView a =findViewById(R.id.ttvtotalGasto);
+        ObjectViajem objeto = (ObjectViajem) getIntent().getSerializableExtra("Viajem");
 
+        adapter = new entretenimentoAdapter(entretenimentoActivity.this);
         arl = new ArrayList<entretenimento>();
         adapter.setProductList(arl);
         productList.setAdapter(adapter);
@@ -71,17 +70,16 @@ public class entretenimentoActivity  extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         // Obtenha o texto dos EditText
 
-
                         String nome=  nomeTxf.getText().toString();
-                     //   String qtdaVezes=qtdaVezesTxf.getText().toString();
+                        String qtdaVezes=qtdaVezesTxf.getText().toString();
                         String preco=precoTxf.getText().toString();
-                   //     String qtdaPessoas=qtdaPessoaTxf.getText().toString();
-                        entretenimento ent=new entretenimento();
+                        String qtdaPessoas=qtdaPessoaTxf.getText().toString();
+                         entretenimento ent=new entretenimento();
 
                         ent.setNome(nome);
                         ent.setPreco(Double.parseDouble(preco));
-//                        ent.setQtdaVezes(Integer.parseInt(qtdaVezes));
-//                        ent.setQtdaPessoas(Integer.parseInt(qtdaPessoas));
+                        ent.setQtdaVezes(Integer.parseInt(qtdaVezes));
+                        ent.setQtdaPessoas(Integer.parseInt(qtdaPessoas));
                         arl.add(ent);
                         adapter.notifyDataSetChanged();
 
@@ -103,77 +101,14 @@ public class entretenimentoActivity  extends AppCompatActivity {
         });
         Button saveBtn=findViewById(R.id.save);
 
-        saveBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AviaoDAO dao = new  AviaoDAO(entretenimentoActivity.this);
 
-                List<aviaoModel> aviaolist= dao.Select();
-
-                for(int i=0;i<aviaolist.size();i++){
-
-                   if(aviaolist.get(i).getAluguelVeiculo() !=null){
-                       a.setText(aviaolist.get(i).getAluguelVeiculo()+"");
-                   }
-                }
-            }
-        });
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                AviaoDAO dao = new  AviaoDAO(entretenimentoActivity.this);
-                aviaoModel pessoaModel = new aviaoModel();
-
-                pessoaModel.setAluguelVeiculo(objeto.getAluguelVeiculo());
-                pessoaModel.setCustoPorPessoa(objeto.getCustoPorPessoa());
-                dao.Insert(pessoaModel);
-
-                CarroDAO carro = new  CarroDAO(entretenimentoActivity.this);
-                carroModel carroModel = new carroModel();
-                carroModel.setTotalEstimadoKm(objeto.getTotalEstimadoKm());
-                carroModel.setMediaKmLitro(objeto.getMediaKmLitro());
-                carroModel.setCustoMedioLitro(objeto.getCustoMedioLitro());
-                carroModel.setTotalVeiculo(objeto.getTotalVeiculo());
-                carro.Insert(carroModel);
-
-                RefeicaoDAO refeicao = new  RefeicaoDAO(entretenimentoActivity.this);
-                refeicaoModel RefeicaoModel = new refeicaoModel();
-                RefeicaoModel .setCustoEstimadoPorRefeicao(objeto.getCustoEstimadoPorRefeicao());
-                RefeicaoModel .setQtdaRefeicaoPorDia(objeto.getQtdaRefeicaoPorDia());
-                refeicao.Insert(RefeicaoModel);
-
-                HospedagemDAO hospedagemDAO = new  HospedagemDAO(entretenimentoActivity.this);
-                hospedagemModel HospedagemModel = new hospedagemModel();
-                HospedagemModel .setTotalNoite(objeto.getTotalNoite());
-                HospedagemModel .setTotalQuartos(objeto.getTotalQuartos());
-                HospedagemModel .setCustoMedioPorNoite(objeto.getCustoMedioPorNoite());
-               long rowAffect= hospedagemDAO.Insert(HospedagemModel);
-
-               if (rowAffect > 0) {
-                    // Inserção do entretenimento bem-sucedida.
-
-
-                    ViajemToEntretenimentoDAO viajemDAO=new ViajemToEntretenimentoDAO(entretenimentoActivity.this);
-
-                    viajemDAO.Insert(rowAffect);
-                    for(int i =0;i<arl.size();i++){
-                        entretenimentoModel ent1 = new entretenimentoModel();
-
-                        ent1.setNome(arl.get(i).getNome());
-                        ent1.setPreco(arl.get(i).getPreco());
-                        ent1.setQtdaPessoas(arl.get(i).getQtdaPessoas());
-                        ent1.setQtdaVezes(arl.get(i).getQtdaVezes());
-                        entretenimentoDAO entret=new entretenimentoDAO(entretenimentoActivity.this);
-
-                        entret.Insert(ent1, rowAffect);
-                    }
-
-
-
-                } else {
-                    // Ocorreu um erro durante a inserção do entretenimento.
-                }
+                Intent intent = new Intent(entretenimentoActivity.this,resumeActivity.class);
+                objeto.listEntretenimento=arl;
+               intent.putExtra("Viajem",objeto);
+                startActivity(intent);
             }
         });
 

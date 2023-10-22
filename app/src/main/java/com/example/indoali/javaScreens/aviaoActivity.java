@@ -25,37 +25,19 @@ public class aviaoActivity extends AppCompatActivity {
 
         Button btnNext=findViewById(R.id.nextBtn);
         Button btnSave=findViewById(R.id.save);
-
-
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                AviaoDAO dao= new AviaoDAO(aviaoActivity.this);
-                 //INSERT
-                aviaoModel pessoaModel = new aviaoModel();
-                pessoaModel.setCustoPorPessoa(12.3);
-
-                pessoaModel.setAluguelVeiculo(12.0);
-                dao.Insert(pessoaModel);
-
-            }
-        });
-
+        ObjectViajem viajem=(ObjectViajem) getIntent().getSerializableExtra("Viajem");
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(aviaoActivity.this, carroActivity.class);
-                ObjectViajem viajem=new ObjectViajem();
+
                 EditText txfCustoEstimado=findViewById(R.id.custoEstimadoTxf);
                 EditText txfAlguelVeiculo=findViewById(R.id.alguelVeiculoTxf);
                 viajem.setCustoPorPessoa(Double.parseDouble (txfCustoEstimado.getText().toString()));
                 viajem.setAluguelVeiculo(Double.parseDouble(txfAlguelVeiculo.getText().toString()));
                 intent.putExtra("Viajem",viajem);
                 startActivity(intent);
-
-
             }
         });
 

@@ -63,16 +63,20 @@ public class entretenimentoAdapter extends BaseAdapter {
         TextView item_Qtda_vezes = view.findViewById(R.id.qtdaVezesEntretenimento);
         item_Qtda_vezes.setText("Qtda Vezes: "+ent.getQtdaVezes());
 
-        Button btnDetails = view.findViewById(R.id.btnDeletar);
-        btnDetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(activity,
-                        "Clicou no produto: " + productList.get(i).getNome(),
-                        Toast.LENGTH_SHORT
-                ).show();
-            }
-        });
+        TextView total = view.findViewById(R.id.totalEntretenimento);
+        total.setText("TOTAL: "+(( ent.getPreco()*ent.getQtdaPessoas()))*ent.getQtdaVezes());
+
+
+//        Button btnDetails = view.findViewById(R.id.btnDeletar);
+//        btnDetails.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(activity,
+//                        "Clicou no produto: " + productList.get(i).getNome(),
+//                        Toast.LENGTH_SHORT
+//                ).show();
+//            }
+//        });
 
         return view;
     }

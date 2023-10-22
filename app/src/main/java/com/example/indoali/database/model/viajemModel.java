@@ -4,28 +4,30 @@ import java.io.Serializable;
 
 public class viajemModel implements Serializable {
 
-    private static  final String
+    public static  final String
     TABELA_NOME ="viajem";
     public static  final String
             COLUNA_ID="_id",
             COLUNA_DESTINO="destino",
             COLUNA_DATA="data",
+            COLUNA_ID_PROFILE="_idProfile",
             COLUNA_ID_AVIAO="_idTabelaAviao",
             COLUNA_ID_CARRO="_idTabelaCarro",
             COLUNA_ID_REFEICAO="_idTabelaRefeicao",
-            COLUNA_ID_ENTRETENIMENTO="_idTabelaEntretenimento",
+            COLUNA_ID_VIAJEM_ENTRETENIMENTO="_idTabelaViajemToEntretenimento",
             COLUNA_ID_HOSPEDAGEM="_idTabelaHospedagem";
 
     public static final String  CREATE_TABLE=
             "create table "+TABELA_NOME+" ("
-                    +COLUNA_ID+  " integer primary key autoincrement,"
-                    +COLUNA_DESTINO+"String not null,"
-                    +COLUNA_DATA+"String not null,"
+                    +COLUNA_ID+  " integer primary key autoincrement, "
+                    +COLUNA_DESTINO+" String not null,"
+                    +COLUNA_DATA+" String not null,"
+                    +COLUNA_ID_PROFILE+" integer not null,"
                     +COLUNA_ID_AVIAO+  " integer not null,"
                     +COLUNA_ID_CARRO+  " integer not null,"
                     +COLUNA_ID_REFEICAO+  " integer not null,"
-                    +COLUNA_ID_ENTRETENIMENTO+  " integer not null,"
-                    +COLUNA_ID_HOSPEDAGEM +  " integer not null "
+                    +COLUNA_ID_VIAJEM_ENTRETENIMENTO+  " integer not null,"
+                    +COLUNA_ID_HOSPEDAGEM +  " integer "
                     +");";
 
     public static final String
@@ -34,11 +36,13 @@ public class viajemModel implements Serializable {
     private int ID;
     private String destinario;
     private String data;
+
+    private int idProfile;
     private int idCarro;
     private int idAviao;
     private int idRefeicao;
     private int idHospedagem;
-    private int idEntretenimento;
+    private int idViajemToEntretenimento;
 
     public int getID() {
         return ID;
@@ -54,6 +58,14 @@ public class viajemModel implements Serializable {
 
     public void setDestinario(String destinario) {
         this.destinario = destinario;
+    }
+
+    public int getIdProfile() {
+        return idProfile;
+    }
+
+    public void setIdProfile(int idProfile) {
+        this.idProfile = idProfile;
     }
 
     public String getData() {
@@ -96,11 +108,11 @@ public class viajemModel implements Serializable {
         this.idHospedagem = idHospedagem;
     }
 
-    public int getIdEntretenimento() {
-        return idEntretenimento;
+    public int getIdViajemToEntretenimento() {
+        return idViajemToEntretenimento;
     }
 
-    public void setIdEntretenimento(int idEntretenimento) {
-        this.idEntretenimento = idEntretenimento;
+    public void setIdViajemToEntretenimento(int idViajemToEntretenimento) {
+        this.idViajemToEntretenimento =idViajemToEntretenimento;
     }
 }

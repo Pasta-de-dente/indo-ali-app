@@ -8,10 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
+import com.example.indoali.database.model.profileModel;
+import com.example.indoali.database.DAO.ProfileDAO;
 import com.example.indoali.javaScreens.entretenimentoActivity;
 
 public class LoginActivity extends AppCompatActivity {
@@ -41,22 +43,31 @@ public class LoginActivity extends AppCompatActivity {
                     edtEmail.setError("Campo de e-mail obrigatório");
                 } else if (edtPassword.getText().toString().isEmpty()) {
                     edtPassword.setError("Campo de senha obrigatório");
-                }
+                } else {
+                    ProfileDAO profile = new ProfileDAO(LoginActivity.this);
+                    profileModel profileModel = profile.login(edtEmail.getText().toString(), edtPassword.getText().toString());
 
-                // IMPLEMENTAR VERIFICAÇÃO COM O BANCO SQLITE
-                else if(edtEmail.getText().toString().equals("admin") && edtPassword.getText().toString().equals("admin")) {
-                    if (switchLembrar.isChecked()) {
-                        edit.putString("KEY_EMAIL", edtEmail.getText().toString()).apply();
-                        edit.putString("KEY_PASSWORD", edtPassword.getText().toString()).apply();
+                    if (profileModel != null) {
+                        // Login bem-sucedido
+                        if (switchLembrar.isChecked()) {
+                            edit.putString("KEY_EMAIL", edtEmail.getText().toString()).apply();
+                            edit.putString("KEY_PASSWORD", edtPassword.getText().toString()).apply();
+
+                        } else {
+                            edit.remove("KEY_EMAIL").apply();
+                            edit.remove("KEY_PASSWORD").apply();
+                        }
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
+
                     } else {
-                        edit.remove("KEY_EMAIL").apply();
-                        edit.remove("KEY_SENHA").apply();
-                    }
+                        // Login falhou
 
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
+                        Toast.makeText(LoginActivity.this, "Login falhou. Verifique suas credenciais.", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
+
         });
 
         btnRegister.setOnClickListener(new View.OnClickListener() {

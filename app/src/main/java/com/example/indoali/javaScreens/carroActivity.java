@@ -22,9 +22,8 @@ public class carroActivity  extends AppCompatActivity {
 
         Button btnNext=findViewById(R.id.nextBtn);
         ObjectViajem objeto = (ObjectViajem) getIntent().getSerializableExtra("Viajem");
-        TextView totalGasto=findViewById(R.id.custoListro);
 
-        totalGasto.setText(objeto.getCustoPorPessoa().toString());
+
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -33,7 +33,7 @@ public class entretenimentoModel implements Serializable {
     public double preco;
     public double qtdaVezes;
     public double qtdaPessoas;
-
+    public int idViajemToEntretenimento;
     public int getID() {
         return ID;
     }
@@ -68,6 +68,14 @@ public class entretenimentoModel implements Serializable {
 
     public double getQtdaPessoas() {
         return qtdaPessoas;
+    }
+
+    public int getIdViajemToEntretenimento() {
+        return idViajemToEntretenimento;
+    }
+
+    public void setIdViajemToEntretenimento(int idViajemToEntretenimento) {
+        this.idViajemToEntretenimento = idViajemToEntretenimento;
     }
 
     public void setQtdaPessoas(double qtdaPessoas) {

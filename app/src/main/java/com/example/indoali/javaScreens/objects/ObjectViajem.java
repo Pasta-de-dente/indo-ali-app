@@ -1,6 +1,7 @@
 package com.example.indoali.javaScreens.objects;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class ObjectViajem implements Serializable {
 
@@ -8,7 +9,7 @@ public class ObjectViajem implements Serializable {
     private Double CustoPorPessoa;
     private Double AluguelVeiculo;
 
-
+    public List<entretenimento> listEntretenimento;
     public int get_id() {
         return _id;
     }

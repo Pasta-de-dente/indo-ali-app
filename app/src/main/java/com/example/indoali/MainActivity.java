@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import com.example.indoali.database.DAO.AviaoDAO;
 import com.example.indoali.database.model.aviaoModel;
 import com.example.indoali.javaScreens.aviaoActivity;
 import com.example.indoali.javaScreens.entretenimentoActivity;
+import com.example.indoali.javaScreens.objects.ObjectViajem;
 import com.example.indoali.javaScreens.objects.entretenimento;
 
 import java.util.ArrayList;
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         productList = findViewById(R.id.list_viajens);
         adapter = new entretenimentoAdapter(MainActivity.this);
 
-
+        ObjectViajem viajem=new ObjectViajem();
         arl = new ArrayList<entretenimento>();
         adapter.setProductList(arl);
         productList.setAdapter(adapter);
@@ -45,14 +47,18 @@ public class MainActivity extends AppCompatActivity {
 //
 
         Button btnAnalise=findViewById(R.id.btnAnalisar);
-        TextView txt=findViewById(R.id.editText);
+        EditText txtData=findViewById(R.id.txtDataViajem);
+        EditText txtDestino=findViewById(R.id.lugarViajem);
+
+        txtData.getText();
         btnAnalise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                Intent intent = new Intent(MainActivity.this, aviaoActivity.class);
-
-                intent.putExtra("Viajem", "Oi teste");
+                viajem.setData(txtData.getText().toString());
+                viajem.setDestinario(txtDestino.getText().toString());
+                intent.putExtra("Viajem", viajem);
                 startActivity(intent);
 
             }

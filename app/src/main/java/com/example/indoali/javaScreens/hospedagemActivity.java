@@ -22,7 +22,7 @@ public class hospedagemActivity  extends AppCompatActivity {
 
         Button btnNext=findViewById(R.id.nextBtn);
         ObjectViajem viagem=(ObjectViajem) getIntent().getSerializableExtra("Viajem");
-        TextView txt=findViewById(R.id.totalGastoTxf);
+     
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,138 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/blackPrimary"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/topLinearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_margin="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="28dp"
-            android:text="Refeição"
-            >
-
-        </TextView>
-
+        android:gravity="fill_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bottomLinearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/meals"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            android:text="Valores"
-            >
+            android:textSize="28sp" />
 
-        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/values"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
         <EditText
             android:id="@+id/custoEstimadoPorRefeicao"
-            android:hint="Custo estimado por refeição"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:textSize="18dp"
-            android:textColorHint="@color/white"
-            android:textColor="@color/white"
-            android:padding="20dp"
-            android:backgroundTint="@color/grey"
+            android:layout_marginTop="20dp"
             android:background="@drawable/edittext_rounded_corner"
-            />
-           <EditText
+            android:backgroundTint="@color/dark_gray"
+            android:hint="@string/estimatedCostPerMeal"
+            android:inputType="numberDecimal"
+            android:padding="20dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/medium_gray"
+            android:textSize="18sp" />
+
+        <EditText
             android:id="@+id/refeicaoPorDia"
             android:layout_width="match_parent"
-            android:textSize="18dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext_rounded_corner"
+            android:backgroundTint="@color/dark_gray"
+            android:hint="@string/quantityOfMealPerDay"
             android:inputType="number"
             android:padding="20dp"
-               android:textColorHint="@color/white"
-               android:hint="Quantidade de refeição por dia"
-            android:backgroundTint="@color/grey"
-            android:background="@drawable/edittext_rounded_corner"
-            android:layout_height="wrap_content"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-
-            android:backgroundTint="@color/grey"
-            android:background="@drawable/edittext_rounded_corner"
-            android:minWidth="200sp"
-            android:minHeight="150sp"
-            android:gravity="center"
-            android:orientation="horizontal">
-            <LinearLayout
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="20dp"
-                android:text="Total Gasto"
-
-                >
-
-            </TextView>
-            <TextView
-                android:id="@+id/totalGastoTxf"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="20dp"
-                android:text="0"
-                android:gravity="center"
-                >
-
-            </TextView>
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:gravity="center"
-            android:layout_height="wrap_content">
-            <Button
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="18dp"
-                android:backgroundTint="@color/grey"
-                android:text="Save"
-                >
-            </Button>
-            <Button
-                android:id="@+id/nextBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="18dp"
-                android:backgroundTint="@color/green"
-                android:text="Diversos"
-                >
-            </Button>
-        </LinearLayout>
-
-
-
-
-
-
-
+            android:textColor="@color/white"
+            android:textColorHint="@color/medium_gray"
+            android:textSize="18sp" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/bottomLinearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topLinearLayout">
 
-</ScrollView>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:backgroundTint="@color/dark_gray"
+            android:text="@string/goBack"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/nextBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/mentha_green"
+            android:text="@string/accommodation"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
