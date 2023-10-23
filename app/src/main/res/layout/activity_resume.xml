@@ -1,185 +1,279 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="vertical"
+    android:layout_height="match_parent"
     android:background="@color/black"
-    android:layout_height="match_parent">
+    android:orientation="vertical">
+
     <LinearLayout
-        android:layout_marginHorizontal="30dp"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/ResumeDestino"
-            android:textColor="@color/white"
-            android:text="Destino"
-            android:textSize="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>
-        <TextView
-            android:id="@+id/ResumeData"
-            android:textColor="@color/white"
-            android:text="Data"
-            android:textSize="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="30dp"
+        android:orientation="vertical">
 
         <TextView
+            android:id="@+id/ResumeDestino"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Destino"
             android:textColor="@color/white"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/ResumeData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Data"
+            android:textColor="@color/white"
+            android:textSize="24dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Avião"
-            android:textSize="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>   <Space
-        android:layout_width="match_parent"
-        android:layout_height="30px"></Space>
-        <TextView
             android:textColor="@color/white"
-            android:text="Estimado Pessoa"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>
-        <TextView
-            android:backgroundTint="@color/dark_gray"
-            android:background="@drawable/edittext_rounded_corner"
-            android:id="@+id/txtEstimadoPessoa"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>
+            android:textSize="24dp" />
+
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30px"></Space>
+            android:layout_height="30px" />
+
         <TextView
-            android:textColor="@color/white"
-            android:text="Alguel Veiculo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>
+            android:layout_height="wrap_content"
+            android:text="Estimado Pessoa"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/txtEstimadoPessoa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_rounded_corner"
+            android:backgroundTint="@color/dark_gray"
+            android:padding="5sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30px" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Alguel Veiculo"
+            android:textColor="@color/white" />
+
         <TextView
             android:id="@+id/txtAlguelVeiculo"
             android:layout_width="match_parent"
-            android:backgroundTint="@color/dark_gray"
+            android:layout_height="wrap_content"
             android:background="@drawable/edittext_rounded_corner"
-            android:layout_height="wrap_content"></TextView>
+            android:backgroundTint="@color/dark_gray"
+            android:padding="5sp" />
+
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30px"></Space>
+            android:layout_height="30px" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total Viajante"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/txtTotalViajante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_rounded_corner"
+            android:backgroundTint="@color/dark_gray"
+            android:padding="5sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30px" />
+
         <TextView
             android:id="@+id/txtcustoTotalTarifaArea"
-            android:textColor="@color/deep_green"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Custo total Tarifa Área:"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>
+            android:textColor="@color/deep_green" />
+
         <TextView
-            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Carro"
-            android:textSize="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>   <Space
-        android:layout_width="match_parent"
-        android:layout_height="30px"></Space>
-        <TextView
             android:textColor="@color/white"
-            android:text="Total Estimado KM"
+            android:textSize="24dp" />
+
+        <Space
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>
+            android:layout_height="30px" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total Estimado KM"
+            android:textColor="@color/white" />
+
         <TextView
             android:id="@+id/txtTotalEstimadoKM"
             android:layout_width="match_parent"
-            android:backgroundTint="@color/dark_gray"
+            android:layout_height="wrap_content"
             android:background="@drawable/edittext_rounded_corner"
-            android:layout_height="wrap_content"></TextView>
+            android:backgroundTint="@color/dark_gray"
+            android:padding="5sp" />
+
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30px"></Space>
+            android:layout_height="10dp" />
 
         <TextView
-            android:textColor="@color/white"
-            android:text="Media Km litros"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>
+            android:layout_height="wrap_content"
+            android:text="Media Km litros"
+            android:textColor="@color/white" />
+
         <TextView
             android:id="@+id/txtMediaKMLitro"
             android:layout_width="match_parent"
-            android:backgroundTint="@color/dark_gray"
+            android:layout_height="wrap_content"
             android:background="@drawable/edittext_rounded_corner"
-            android:layout_height="wrap_content"></TextView>
+            android:backgroundTint="@color/dark_gray"
+            android:padding="5sp" />
+
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30px"></Space>
+            android:layout_height="30px" />
 
         <TextView
-            android:textColor="@color/white"
-            android:text="Custo Medio Litro"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>
+            android:layout_height="wrap_content"
+            android:text="Custo Medio Litro"
+            android:textColor="@color/white" />
+
         <TextView
             android:id="@+id/txtCustoMedioLitro"
             android:layout_width="match_parent"
-            android:backgroundTint="@color/dark_gray"
+            android:layout_height="wrap_content"
             android:background="@drawable/edittext_rounded_corner"
-            android:layout_height="wrap_content"></TextView>
+            android:backgroundTint="@color/dark_gray"
+            android:padding="5sp" />
+
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30px"></Space>
+            android:layout_height="30px" />
 
         <TextView
-            android:textColor="@color/white"
-            android:text="Total Veiculos"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>
+            android:layout_height="wrap_content"
+            android:text="Total Veiculos"
+            android:textColor="@color/white" />
+
         <TextView
             android:id="@+id/txtTotalVeiculos"
             android:layout_width="match_parent"
-            android:backgroundTint="@color/dark_gray"
+            android:layout_height="wrap_content"
             android:background="@drawable/edittext_rounded_corner"
-            android:layout_height="wrap_content"></TextView>
+            android:backgroundTint="@color/dark_gray"
+            android:padding="5sp" />
+
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30px"></Space>
+            android:layout_height="30px" />
+
         <TextView
             android:id="@+id/custoTotalDaGasolina"
-            android:textColor="@color/deep_green"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Custo total da Gasolina:"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>
+            android:textColor="@color/deep_green" />
+
         <TextView
-            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Refeição"
-            android:textSize="22dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>
-        <TextView
             android:textColor="@color/white"
-            android:text="Custo Estimado Por Pessoa"
+            android:textSize="22dp" />
+
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>
+            android:layout_height="wrap_content"
+            android:text="Custo Estimado Por Pessoa"
+            android:textColor="@color/white" />
+
         <TextView
             android:id="@+id/txtCustoEstimadoPorRefeicao"
             android:layout_width="match_parent"
-            android:backgroundTint="@color/dark_gray"
+            android:layout_height="wrap_content"
             android:background="@drawable/edittext_rounded_corner"
-            android:layout_height="wrap_content"></TextView>
+            android:backgroundTint="@color/dark_gray"
+            android:padding="5sp" />
+
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30px"></Space>
+            android:layout_height="30px" />
 
         <TextView
-            android:textColor="@color/white"
-            android:text="Qtda Refeicao Por Dia"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>
+            android:layout_height="wrap_content"
+            android:text="Quantidade de viajantes"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/txtQtdaViajanteResume"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_rounded_corner"
+            android:backgroundTint="@color/dark_gray"
+            android:padding="5sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30px" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Duração Viajem"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/txtDuracaoViajemResume"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_rounded_corner"
+            android:backgroundTint="@color/dark_gray"
+            android:padding="5sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30px" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Qtda Refeicao Por Dia"
+            android:textColor="@color/white" />
+
         <TextView
             android:id="@+id/txtQtdaRefeicaoPorDia"
             android:layout_width="match_parent"
-            android:backgroundTint="@color/dark_gray"
+            android:layout_height="wrap_content"
             android:background="@drawable/edittext_rounded_corner"
-            android:layout_height="wrap_content"></TextView>
+            android:backgroundTint="@color/dark_gray"
+            android:padding="5sp" />
+
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30px"></Space>
+            android:layout_height="30px" />
+
         <TextView
             android:id="@+id/txtCustoTotalRefeicao"
-            android:textColor="@color/deep_green"
-            android:text="Custo total Refeições:"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>
+            android:layout_height="wrap_content"
+            android:text="Custo total Refeições:"
+            android:textColor="@color/deep_green" />
 
         <TextView
 
@@ -187,31 +281,35 @@
             android:layout_height="wrap_content"
             android:text="Hospedagem"
             android:textColor="@color/white"
-            android:textSize="22dp"></TextView>
+            android:textSize="22dp" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30px"></Space>
+            android:layout_height="30px" />
+
         <TextView
-            android:textColor="@color/white"
-            android:text="Custo Medio Por Noite"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>
+            android:layout_height="wrap_content"
+            android:text="Custo Medio Por Noite"
+            android:textColor="@color/white"></TextView>
+
         <TextView
             android:id="@+id/txtCustoMedioPorNoite"
             android:layout_width="match_parent"
-            android:backgroundTint="@color/dark_gray"
+            android:layout_height="wrap_content"
             android:background="@drawable/edittext_rounded_corner"
-            android:layout_height="wrap_content"></TextView>
+            android:backgroundTint="@color/dark_gray"
+            android:padding="5sp" />
+
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30px"></Space>
+            android:layout_height="30px" />
 
         <TextView
-            android:textColor="@color/white"
-            android:text="Total de Noites"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>
+            android:layout_height="wrap_content"
+            android:text="Total de Noites"
+            android:textColor="@color/white" />
 
         <Space
             android:layout_width="match_parent"
@@ -220,58 +318,68 @@
         <TextView
             android:id="@+id/txtTotalNoite"
             android:layout_width="match_parent"
-            android:backgroundTint="@color/dark_gray"
+            android:layout_height="wrap_content"
             android:background="@drawable/edittext_rounded_corner"
-            android:layout_height="wrap_content" />
+            android:backgroundTint="@color/dark_gray"
+            android:padding="5sp" />
+
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30px"></Space>
+            android:layout_height="30px" />
 
         <TextView
-            android:textColor="@color/white"
-            android:text="Total de quartos"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>
+            android:layout_height="wrap_content"
+            android:text="Total de quartos"
+            android:textColor="@color/white" />
+
         <TextView
             android:id="@+id/txtTotalQuartos"
             android:layout_width="match_parent"
-            android:backgroundTint="@color/dark_gray"
+            android:layout_height="wrap_content"
             android:background="@drawable/edittext_rounded_corner"
-            android:layout_height="wrap_content"></TextView>
+            android:backgroundTint="@color/dark_gray"
+            android:padding="5sp" />
+
         <Space
-        android:layout_width="match_parent"
-        android:layout_height="30px"></Space>
-        <TextView
-            android:id="@+id/txtCustoTotalHospedagem"
-            android:textColor="@color/deep_green"
-            android:text="Custo total Hospedagem:"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>
+            android:layout_height="30px" />
 
         <TextView
-            android:textColor="@color/white"
-            android:text="Entretenimentos"
-            android:textSize="22dp"
+            android:id="@+id/txtCustoTotalHospedagem"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>
+            android:layout_height="wrap_content"
+
+            android:text="Custo total Hospedagem:"
+            android:textColor="@color/deep_green" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Entretenimentos"
+            android:textColor="@color/white"
+            android:textSize="22dp" />
+
         <TextView
             android:id="@+id/txtCustoTotalEntretenimento"
-            android:textColor="@color/deep_green"
-            android:text="Custo total Hospedagem:"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>
+            android:layout_height="wrap_content"
+            android:text="Custo total Entretenimento:"
+            android:textColor="@color/deep_green" />
 
         <ListView
             android:id="@+id/listEntretenimentos"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginVertical="5dp"
             android:background="@drawable/listview_rounded_corner" />
-            <Button
-                android:id="@+id/btnNext"
-                android:backgroundTint="@color/deep_green"
-                android:text="Adicionar Viagem"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"></Button>
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/deep_green"
+            android:text="Adicionar Viagem"
+            android:textColor="@color/white" />
     </LinearLayout>
 </ScrollView>

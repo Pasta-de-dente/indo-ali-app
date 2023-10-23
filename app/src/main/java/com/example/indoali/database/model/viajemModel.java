@@ -22,11 +22,11 @@ public class viajemModel implements Serializable {
                     +COLUNA_ID+  " integer primary key autoincrement, "
                     +COLUNA_DESTINO+" String not null,"
                     +COLUNA_DATA+" String not null,"
-                    +COLUNA_ID_PROFILE+" integer not null,"
-                    +COLUNA_ID_AVIAO+  " integer not null,"
-                    +COLUNA_ID_CARRO+  " integer not null,"
-                    +COLUNA_ID_REFEICAO+  " integer not null,"
-                    +COLUNA_ID_VIAJEM_ENTRETENIMENTO+  " integer not null,"
+                    +COLUNA_ID_PROFILE+" integer,"
+                    +COLUNA_ID_AVIAO+  " integer,"
+                    +COLUNA_ID_CARRO+  " integer,"
+                    +COLUNA_ID_REFEICAO+  " integer,"
+                    +COLUNA_ID_VIAJEM_ENTRETENIMENTO+  " integer,"
                     +COLUNA_ID_HOSPEDAGEM +  " integer "
                     +");";
 

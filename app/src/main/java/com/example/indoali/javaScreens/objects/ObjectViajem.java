@@ -5,6 +5,65 @@ import java.util.List;
 
 public class ObjectViajem implements Serializable {
 
+
+
+    private int TotalViajanteAviao;
+    private int TotalViajanteRefeicao;
+    private int DuraçãodaViagem;
+
+    public int getTotalViajanteAviao() {
+        return TotalViajanteAviao;
+    }
+
+    public void setTotalViajanteAviao(int totalViajanteAviao) {
+        TotalViajanteAviao = totalViajanteAviao;
+    }
+
+    public int getTotalViajanteRefeicao() {
+        return TotalViajanteRefeicao;
+    }
+
+    public void setTotalViajanteRefeicao(int totalViajanteRefeicao) {
+        TotalViajanteRefeicao = totalViajanteRefeicao;
+    }
+
+    public int getDuraçãodaViagem() {
+        return DuraçãodaViagem;
+    }
+
+    public void setDuraçãodaViagem(int duraçãodaViagem) {
+        DuraçãodaViagem = duraçãodaViagem;
+    }
+
+    private int KEY_ID_PROFILE;
+    private String KEY_NOME_PROFILE;
+    private String KEY_EMAIL_PROFILE;
+
+    List<ObjectViajem> listaViajens;
+    public int getKEY_ID_PROFILE() {
+        return KEY_ID_PROFILE;
+    }
+
+    public void setKEY_ID_PROFILE(int KEY_ID_PROFILE) {
+        this.KEY_ID_PROFILE = KEY_ID_PROFILE;
+    }
+
+    public String getKEY_NOME_PROFILE() {
+        return KEY_NOME_PROFILE;
+    }
+
+    public void setKEY_NOME_PROFILE(String KEY_NOME_PROFILE) {
+        this.KEY_NOME_PROFILE = KEY_NOME_PROFILE;
+    }
+
+    public String getKEY_EMAIL_PROFILE() {
+        return KEY_EMAIL_PROFILE;
+    }
+
+    public void setKEY_EMAIL_PROFILE(String KEY_EMAIL_PROFILE) {
+        this.KEY_EMAIL_PROFILE = KEY_EMAIL_PROFILE;
+    }
+
     private int _id;
     private Double CustoPorPessoa;
     private Double AluguelVeiculo;

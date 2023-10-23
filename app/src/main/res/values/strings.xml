@@ -17,6 +17,8 @@
     <string name="values">Valores</string>
     <string name="estimatedCostPerPerson">Custo estimado por pessoa</string>
     <string name="vehicleRental">Aluguel de veículo</string>
+    <string name="totalPeoples"> Total de Viajantes</string>
+    <string name="Travelduration"> Duração da Viajem</string>
     <string name="meals">Refeições</string>
     <string name="carTransport">Transporte carro</string>
     <string name="estimatedTotalKm">Total estimado de quilômetros</string>

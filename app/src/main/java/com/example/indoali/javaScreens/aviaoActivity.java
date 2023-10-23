@@ -23,21 +23,26 @@ public class aviaoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trasporte_aviao);
 
-        Button btnNext=findViewById(R.id.nextBtn);
-        Button btnSave=findViewById(R.id.save);
-        ObjectViajem viajem=(ObjectViajem) getIntent().getSerializableExtra("Viajem");
+        Button btnNext = findViewById(R.id.nextBtn);
+        Button btnSave = findViewById(R.id.save);
+        ObjectViajem viajem = (ObjectViajem) getIntent().getSerializableExtra("Viajem");
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(aviaoActivity.this, carroActivity.class);
 
-                EditText txfCustoEstimado=findViewById(R.id.custoEstimadoTxf);
-                EditText txfAlguelVeiculo=findViewById(R.id.alguelVeiculoTxf);
-                viajem.setCustoPorPessoa(Double.parseDouble (txfCustoEstimado.getText().toString()));
-                viajem.setAluguelVeiculo(Double.parseDouble(txfAlguelVeiculo.getText().toString()));
-                intent.putExtra("Viajem",viajem);
-                startActivity(intent);
+                EditText txfCustoEstimado = findViewById(R.id.custoEstimadoTxf);
+                EditText txfAlguelVeiculo = findViewById(R.id.alguelVeiculoTxf);
+                EditText txftotalviajante = findViewById(R.id.totalDeViajanteAviaoTxf);
+
+
+                    viajem.setCustoPorPessoa(Double.parseDouble(txfCustoEstimado.getText().toString()));
+                    viajem.setAluguelVeiculo(Double.parseDouble(txfAlguelVeiculo.getText().toString()));
+                    viajem.setTotalViajanteAviao(Integer.parseInt(txftotalviajante.getText().toString()));
+                    intent.putExtra("Viajem", viajem);
+                    startActivity(intent);
+
             }
         });
 

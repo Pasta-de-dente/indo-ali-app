@@ -20,7 +20,7 @@ public class CarroDAO extends AbstrataDAO{
                 carroModel.COLUNA_CUSTO_MEDIO_LITRO,
                 carroModel.COLUNA_MEDIA_KM_LITRO,
                 carroModel.COLUNA_TOTAL_VEICULO,
-                carroModel.COLUNA_TOTAL_ESTIMADO_KM,
+                carroModel.COLUNA_TOTAL_ESTIMADO_KM
         };
         public CarroDAO(Context context){
                 db_helper = new DBOpenHelper(context);
@@ -40,7 +40,6 @@ public class CarroDAO extends AbstrataDAO{
                 values.put(carroModel.COLUNA_MEDIA_KM_LITRO, model.getMediaKmLitro());
                 values.put(carroModel.COLUNA_TOTAL_VEICULO, model.getTotalVeiculo());
                 values.put(carroModel.COLUNA_TOTAL_ESTIMADO_KM, model.getTotalEstimadoKm());
-
                 rowAffect = db.insert(carroModel.TABELA_NOME, null, values);
 
 //              Close();
@@ -68,6 +67,7 @@ public class CarroDAO extends AbstrataDAO{
                                 int totalVeiculo = cursor.getColumnIndex(carroModel.COLUNA_TOTAL_VEICULO);
                                 double mediaKmLitro = cursor.getColumnIndex(carroModel.COLUNA_MEDIA_KM_LITRO);
                                 double totalEstimadoKm = cursor.getColumnIndex(carroModel.COLUNA_TOTAL_ESTIMADO_KM);
+
                                 do {
                                         carroModel model = new carroModel();
 

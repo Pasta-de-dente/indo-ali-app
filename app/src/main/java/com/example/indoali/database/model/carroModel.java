@@ -10,17 +10,19 @@ public class carroModel implements Serializable {
             COLUNA_ID="_id",
             COLUNA_TOTAL_ESTIMADO_KM="TotalEstimadoKM",
             COLUNA_MEDIA_KM_LITRO="MediaKMLitro",
+
             COLUNA_CUSTO_MEDIO_LITRO="CustoMedioLitro",
             COLUNA_TOTAL_VEICULO="TotalVeiculos";
+
 
 
     public static final String  CREATE_TABLE=
             "create table "+TABELA_NOME+" ("
                     +COLUNA_ID+  " integer primary key autoincrement,"
-                    +   COLUNA_TOTAL_ESTIMADO_KM+  " double not null,"
-                    +    COLUNA_MEDIA_KM_LITRO+  " double not null,"
-                    +  COLUNA_CUSTO_MEDIO_LITRO+ " double not null,"
-                    +   COLUNA_TOTAL_VEICULO+ " integer not null "
+                    +   COLUNA_TOTAL_ESTIMADO_KM+  " double,"
+                    +    COLUNA_MEDIA_KM_LITRO+  " double,"
+                    +  COLUNA_CUSTO_MEDIO_LITRO+ " double,"
+                    +   COLUNA_TOTAL_VEICULO+ " integer "
                     +");";
 
     public static final String
@@ -31,6 +33,7 @@ public class carroModel implements Serializable {
     private double MediaKmLitro;
     private double custoMedioLitro;
     private int TotalVeiculo;
+
 
     public int get_id() {
         return _id;

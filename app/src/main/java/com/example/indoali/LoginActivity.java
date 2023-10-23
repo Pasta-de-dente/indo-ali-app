@@ -15,13 +15,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.indoali.database.model.profileModel;
 import com.example.indoali.database.DAO.ProfileDAO;
 import com.example.indoali.javaScreens.entretenimentoActivity;
+import com.example.indoali.javaScreens.objects.ObjectViajem;
 
 public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        ObjectViajem viajem=new ObjectViajem();
         EditText edtEmail = findViewById(R.id.edtEmail);
         EditText edtPassword = findViewById(R.id.edtPassword);
         Button btnLogin = findViewById(R.id.btnLogin);
@@ -31,8 +32,14 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
         SharedPreferences.Editor edit = pref.edit();
 
-        if (pref.getString("KEY_EMAIL", "").equals("admin") && pref.getString("KEY_PASSWORD", "").equals("admin")) {
+        if (pref.getString("KEY_EMAIL", "")!="" && pref.getString("KEY_NOME", "")!="") {
+
+            viajem.setKEY_EMAIL_PROFILE(pref.getString("KEY_EMAIL", ""));
+            viajem.setKEY_NOME_PROFILE(pref.getString("KEY_NOME", ""));
+            viajem.setKEY_ID_PROFILE(pref.getInt("KEY_ID", 0));
+
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            intent.putExtra("Viajem", viajem);
             startActivity(intent);
         }
 
@@ -48,16 +55,22 @@ public class LoginActivity extends AppCompatActivity {
                     profileModel profileModel = profile.login(edtEmail.getText().toString(), edtPassword.getText().toString());
 
                     if (profileModel != null) {
+                        viajem.setKEY_EMAIL_PROFILE(edtEmail.getText().toString());
+                        viajem.setKEY_NOME_PROFILE(profileModel.getNome());
+                        viajem.setKEY_ID_PROFILE(profileModel.get_id());
+
                         // Login bem-sucedido
                         if (switchLembrar.isChecked()) {
+                            edit.putInt("KEY_ID", profileModel.get_id()).apply();
                             edit.putString("KEY_EMAIL", edtEmail.getText().toString()).apply();
-                            edit.putString("KEY_PASSWORD", edtPassword.getText().toString()).apply();
-
+                            edit.putString("KEY_NOME",  profileModel.getNome()).apply();
                         } else {
+                            edit.remove("KEY_ID").apply();
                             edit.remove("KEY_EMAIL").apply();
-                            edit.remove("KEY_PASSWORD").apply();
+                            edit.remove("KEY_NOME").apply();
                         }
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        intent.putExtra("Viajem", viajem);
                         startActivity(intent);
 
                     } else {

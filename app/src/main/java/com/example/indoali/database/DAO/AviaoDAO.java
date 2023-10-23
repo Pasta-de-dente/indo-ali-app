@@ -14,7 +14,8 @@ public class AviaoDAO extends AbstrataDAO{
     private final String[] colunas = {
             aviaoModel.COLUNA_ID,
             aviaoModel.COLUNA_CUSTO_POR_PESSOA,
-            aviaoModel.COLUNA_ALUGUEL_VEICULO
+            aviaoModel.COLUNA_ALUGUEL_VEICULO,
+            aviaoModel.COLUNA_TOTAL_VIAJANTE_AVIAO
     };
 
     public AviaoDAO(Context context){
@@ -33,6 +34,7 @@ public class AviaoDAO extends AbstrataDAO{
         ContentValues values = new ContentValues();
         values.put(aviaoModel.COLUNA_CUSTO_POR_PESSOA, model.getCustoPorPessoa());
         values.put(aviaoModel.COLUNA_ALUGUEL_VEICULO, model.getAluguelVeiculo());
+        values.put(aviaoModel.COLUNA_TOTAL_VIAJANTE_AVIAO, model.getTotalViajanteAviao());
         rowAffect = db.insert(aviaoModel.TABELA_NOME, null, values);
 
       //  Close();
@@ -59,7 +61,7 @@ public class AviaoDAO extends AbstrataDAO{
                 int idIndex = cursor.getColumnIndex(aviaoModel.COLUNA_ID);
                 int custoPorPessoaIndex = cursor.getColumnIndex(aviaoModel.COLUNA_CUSTO_POR_PESSOA);
                 int aluguelVeiculoIndex = cursor.getColumnIndex(aviaoModel.COLUNA_ALUGUEL_VEICULO);
-
+                int qtdaViajenteIndex = cursor.getColumnIndex(aviaoModel.COLUNA_TOTAL_VIAJANTE_AVIAO);
 
                 do {
                     aviaoModel model = new aviaoModel();
@@ -75,7 +77,12 @@ public class AviaoDAO extends AbstrataDAO{
                     if (aluguelVeiculoIndex >= 0) {
                         model.setAluguelVeiculo(cursor.getDouble(aluguelVeiculoIndex));
                     }
-
+                    if (aluguelVeiculoIndex >= 0) {
+                        model.setAluguelVeiculo(cursor.getDouble(aluguelVeiculoIndex));
+                    }
+                    if(qtdaViajenteIndex>=0){
+                        model.setTotalViajanteAviao(cursor.getInt(qtdaViajenteIndex));
+                    }
 
 
                     aviaoList.add(model);

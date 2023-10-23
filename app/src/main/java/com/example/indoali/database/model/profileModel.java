@@ -12,9 +12,9 @@ public class profileModel {
         public static final String  CREATE_TABLE=
                 "create table "+TABELA_NOME+" ("
                         +COLUNA_ID+  " integer primary key autoincrement,"
-                        +    COLUNA_NOME+  " String not null,"
-                        +    COLUNA_EMAIL+  " String not null,"
-                        +    COLUNA_SENHA+  " String not null "
+                        +    COLUNA_NOME+  " String ,"
+                        +    COLUNA_EMAIL+  " String ,"
+                        +    COLUNA_SENHA+  " String "
                         +");";
 
         public static final String

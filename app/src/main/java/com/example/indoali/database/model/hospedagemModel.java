@@ -16,9 +16,9 @@ public class hospedagemModel implements Serializable {
     public static final String  CREATE_TABLE=
             "create table "+TABELA_NOME+" ("
                 +COLUNA_ID+  " integer primary key autoincrement,"
-                +COLUNA_CUSTO_MEDIO_POR_NOITE+  " double not null,"
-                    +COLUNA_TOTAL_DE_NOITE+  " integer not null,"
-                    +COLUNA_TOTAL_QUARTOS+  " integer not null "
+                +COLUNA_CUSTO_MEDIO_POR_NOITE+  " double,"
+                    +COLUNA_TOTAL_DE_NOITE+  " integer,"
+                    +COLUNA_TOTAL_QUARTOS+  " integer "
                     +");";
 
     public static final String

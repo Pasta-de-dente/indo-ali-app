@@ -60,6 +60,32 @@
             android:textColor="@color/white"
             android:textColorHint="@color/medium_gray"
             android:textSize="18sp" />
+        <EditText
+            android:id="@+id/totalDeViajanteRefeicaoTxf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext_rounded_corner"
+            android:backgroundTint="@color/dark_gray"
+            android:hint="@string/totalPeoples"
+            android:inputType="number"
+            android:padding="20dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/medium_gray"
+            android:textSize="18sp" />
+        <EditText
+            android:id="@+id/duracaoViajemTxf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext_rounded_corner"
+            android:backgroundTint="@color/dark_gray"
+            android:hint="@string/Travelduration"
+            android:inputType="number"
+            android:padding="20dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/medium_gray"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
