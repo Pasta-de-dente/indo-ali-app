@@ -214,17 +214,16 @@ public class resumeActivity extends AppCompatActivity {
                 if (  objeto.getKEY_ID_PROFILE() !=0){
 
                     viajemModel.setIdProfile(objeto.getKEY_ID_PROFILE());
-                        long rowAffectViajem=viajemDAO.Insert(viajemModel);
+                    long rowAffectViajem=viajemDAO.Insert(viajemModel);
 
                     if (rowAffectViajem>0) {
-                        Toast.makeText(resumeActivity.this, "Salvo com Sucesos.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(resumeActivity.this, "Salvo com Sucesso.", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(resumeActivity.this, MainActivity.class);
-
+                        objeto.RemoverObjectViajem();
                         intent.putExtra("Viajem",objeto);
                         startActivity(intent);
                     }
                  }else{
-
                     Intent intent = new Intent(resumeActivity.this, LoginActivity.class);
                     startActivity(intent);
                 }

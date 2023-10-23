@@ -349,7 +349,6 @@
             android:id="@+id/txtCustoTotalHospedagem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:text="Custo total Hospedagem:"
             android:textColor="@color/deep_green" />
 
@@ -373,7 +372,6 @@
             android:layout_height="match_parent"
             android:layout_marginVertical="5dp"
             android:background="@drawable/listview_rounded_corner" />
-
         <Button
             android:id="@+id/btnNext"
             android:layout_width="match_parent"

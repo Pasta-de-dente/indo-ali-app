@@ -71,10 +71,10 @@ public class ViajemDAO extends AbstrataDAO {
                 " LEFT JOIN " + "hospedagem" + " ON " + "viajem" + "." + "_idTabelaHospedagem" + " = " + "hospedagem" + "." + "_id" +
                 " WHERE " + "viajem" + "." + "_idProfile" + " = " + profileId;
 
-//Execute a consulta SQL para buscar os resultados pelo id do usuario
-        Cursor cursor = db.rawQuery(query, null);
+            //Execute a consulta SQL para buscar os resultados pelo id do usuario
+                    Cursor cursor = db.rawQuery(query, null);
 
-//vrifique se há resultados
+            //vrifique se há resultados
         if (cursor.moveToFirst()) {
             do {
                 String data = "erro";

@@ -25,6 +25,8 @@ import com.example.indoali.javaScreens.objects.ObjectViajem;
 import com.example.indoali.javaScreens.objects.entretenimento;
 import com.example.indoali.javaScreens.resumeActivity;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -48,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
         productList = findViewById(R.id.list_viajens);
         adapter = new viajemAdapter(MainActivity.this);
 
-
-        adapter = new viajemAdapter(MainActivity.this);
         arl = new ArrayList<ObjectViajem>();
         adapter.setProductList(arl);
         productList.setAdapter(adapter);
@@ -59,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
             arl.add(teste.get(i));
             adapter.notifyDataSetChanged();
         }}
+
+
 
         Button btnAnalise = findViewById(R.id.btnAnalisar);
         txtData = findViewById(R.id.txtDataViajem);
@@ -73,7 +75,9 @@ public class MainActivity extends AppCompatActivity {
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                edit.remove("KEY_ID").apply();
+                edit.remove("KEY_EMAIL").apply();
+                edit.remove("KEY_NOME").apply();
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
             }

@@ -41,7 +41,10 @@ public class aviaoActivity extends AppCompatActivity {
                     viajem.setAluguelVeiculo(Double.parseDouble(txfAlguelVeiculo.getText().toString()));
                     viajem.setTotalViajanteAviao(Integer.parseInt(txftotalviajante.getText().toString()));
                     intent.putExtra("Viajem", viajem);
+
+
                     startActivity(intent);
+
 
             }
         });

@@ -12,7 +12,6 @@ public class entretenimento implements Serializable {
     public entretenimento(){
 
     }
-
     public int getIdViajemToEntretenimento() {
         return idViajemToEntretenimento;
     }

@@ -15,7 +15,7 @@ public class aviaoModel {
     public static final String  CREATE_TABLE=
             "create table "+TABELA_NOME+" ("
                     +COLUNA_ID+  " integer primary key autoincrement,"
-                    +    COLUNA_CUSTO_POR_PESSOA+  " double,"
+                    +    COLUNA_CUSTO_POR_PESSOA+  " double, "
                     +    COLUNA_ALUGUEL_VEICULO+  " double, "
                     +     COLUNA_TOTAL_VIAJANTE_AVIAO+  " integer  "
                     +");";
