@@ -32,7 +32,7 @@ public class hospedagemActivity extends AppCompatActivity {
                 EditText totalDeQuarto = findViewById(R.id.totalDeQuartosTxf);
                 viagem.setCustoMedioPorNoite(Double.parseDouble(custoPorNoite.getText().toString()));
                 viagem.setTotalNoite(Integer.parseInt(totalDeNoite.getText().toString()));
-                viagem.setTotalQuartos(Integer.parseInt(totalDeQuarto.getText().toString()));
+                viagem.setTotalQuartos(Integer.parseInt(totalDeNoite.getText().toString()));
 
                 intent.putExtra("Viajem", viagem);
                 startActivity(intent);

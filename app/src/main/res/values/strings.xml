@@ -10,12 +10,15 @@
     <string name="rememberLogin">Lembrar login</string>
     <string name="passwordConfirmation">Confirme a sua senha</string>
     <string name="insertDestiny">Insira o seu destino</string>
+    <string name="insertData">Insira a data</string>
     <string name="analyze">Analisar</string>
     <string name="insertYourName">Digite o seu nome</string>
     <string name="planeTransport">Transporte avião</string>
     <string name="values">Valores</string>
     <string name="estimatedCostPerPerson">Custo estimado por pessoa</string>
     <string name="vehicleRental">Aluguel de veículo</string>
+    <string name="totalPeoples"> Total de Viajantes</string>
+    <string name="Travelduration"> Duração da Viajem</string>
     <string name="meals">Refeições</string>
     <string name="carTransport">Transporte carro</string>
     <string name="estimatedTotalKm">Total estimado de quilômetros</string>

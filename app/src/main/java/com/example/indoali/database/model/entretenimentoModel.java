@@ -18,10 +18,10 @@ public class entretenimentoModel implements Serializable {
     public static final String  CREATE_TABLE=
             "create table "+TABELA_NOME+" ("
                     +    COLUNA_ID+  " integer primary key autoincrement,"
-                    +    COLUNA_NOME+  " String not null,"
-                    +    COLUNA_PRECO+  " String not null,"
-                    +    COLUNA_QTDA_PESSOAS+  " String not null,"
-                    +    COLUNA_QTDA_VEZES+  " String not null, "
+                    +    COLUNA_NOME+  " String,"
+                    +    COLUNA_PRECO+  " String,"
+                    +    COLUNA_QTDA_PESSOAS+  " String,"
+                    +    COLUNA_QTDA_VEZES+  " String, "
                     +    COLUNA_ID_VIAJEM + " integer not null "
                     +");";
 
@@ -33,7 +33,7 @@ public class entretenimentoModel implements Serializable {
     public double preco;
     public double qtdaVezes;
     public double qtdaPessoas;
-
+    public int idViajemToEntretenimento;
     public int getID() {
         return ID;
     }
@@ -68,6 +68,14 @@ public class entretenimentoModel implements Serializable {
 
     public double getQtdaPessoas() {
         return qtdaPessoas;
+    }
+
+    public int getIdViajemToEntretenimento() {
+        return idViajemToEntretenimento;
+    }
+
+    public void setIdViajemToEntretenimento(int idViajemToEntretenimento) {
+        this.idViajemToEntretenimento = idViajemToEntretenimento;
     }
 
     public void setQtdaPessoas(double qtdaPessoas) {

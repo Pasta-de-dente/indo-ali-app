@@ -13,7 +13,7 @@ import java.util.List;
 public class ViajemToEntretenimentoDAO extends  AbstrataDAO{
     private final String[] colunas={
             viajemToEntretenimentoModel.COLUNA_ID,
-            viajemToEntretenimentoModel.COLUNA_ID_VIAJEM_ENTRETENIMENTO
+            viajemToEntretenimentoModel.COLUNA_DATA_VIAJEM
 
     };
     public ViajemToEntretenimentoDAO(Context context){
@@ -24,13 +24,13 @@ public class ViajemToEntretenimentoDAO extends  AbstrataDAO{
         Open();
     }
 
-    public long Insert(long model) {
+    public long Insert(viajemToEntretenimentoModel model) {
         long rowAffect = 0; // Se for maior que 0, é pq o insert funcionou;
         Open();
 
             ContentValues values = new ContentValues();
-        values.put("idTabelaViajemEntretenimento", model);
 
+        values.put("idDataViajem", model.getDataViajem());
 
         rowAffect = db.insert(viajemToEntretenimentoModel.TABELA_NOME, null, values);
 

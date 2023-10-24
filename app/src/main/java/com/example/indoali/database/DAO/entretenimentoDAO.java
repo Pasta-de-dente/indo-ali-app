@@ -21,7 +21,7 @@ public class entretenimentoDAO extends AbstrataDAO{
         Open();
     }
 
-    public long Insert(entretenimentoModel model,long rows) {
+    public long Insert(entretenimentoModel model) {
         long rowAffect = 0; // Se for maior que 0, é pq o insert funcionou;
 
         Open();
@@ -31,7 +31,7 @@ public class entretenimentoDAO extends AbstrataDAO{
         values.put(entretenimentoModel.COLUNA_PRECO, model.getPreco());
         values.put(entretenimentoModel.COLUNA_QTDA_PESSOAS, model.getQtdaPessoas());
         values.put(entretenimentoModel.COLUNA_QTDA_VEZES, model.getQtdaVezes());
-        values.put(entretenimentoModel.COLUNA_ID_VIAJEM,rows);
+        values.put(entretenimentoModel.COLUNA_ID_VIAJEM,model.getIdViajemToEntretenimento());
 
         rowAffect = db.insert(entretenimentoModel.TABELA_NOME, null, values);
 

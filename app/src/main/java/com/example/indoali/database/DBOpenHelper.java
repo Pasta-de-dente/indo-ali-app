@@ -26,6 +26,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(viajemModel.CREATE_TABLE);
         sqLiteDatabase.execSQL(viajemToEntretenimentoModel.CREATE_TABLE);
         sqLiteDatabase.execSQL(entretenimentoModel.CREATE_TABLE);
+        sqLiteDatabase.execSQL(profileModel.CREATE_TABLE);
     }
 
     @Override
@@ -53,6 +54,9 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL(entretenimentoModel.DROP_TABLE);
         sqLiteDatabase.execSQL(entretenimentoModel.CREATE_TABLE);
+
+        sqLiteDatabase.execSQL(profileModel.DROP_TABLE);
+        sqLiteDatabase.execSQL(profileModel.CREATE_TABLE);
     }
 
 }
