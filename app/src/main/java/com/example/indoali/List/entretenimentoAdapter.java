@@ -5,25 +5,23 @@ import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.indoali.R;
-import com.example.indoali.javaScreens.objects.entretenimento;
+import com.example.indoali.javaScreens.objects.Entretenimento;
 
 import java.util.ArrayList;
 
 public class entretenimentoAdapter extends BaseAdapter {
 
-    private ArrayList<entretenimento> productList;
+    private ArrayList<Entretenimento> productList;
     private final Activity activity;
 
     public entretenimentoAdapter(final Activity activity) {
         this.activity = activity;
     }
 
-    public void setProductList(final ArrayList<entretenimento> products) {
+    public void setProductList(final ArrayList<Entretenimento> products) {
         productList = products;
     }
 
@@ -49,22 +47,22 @@ public class entretenimentoAdapter extends BaseAdapter {
             view = activity.getLayoutInflater().inflate(R.layout.list_item, viewGroup, false);
         }
 
-         entretenimento ent = productList.get(i);
+        Entretenimento ent = productList.get(i);
 
         TextView productName = view.findViewById(R.id.NameEntretenimento);
         productName.setText(ent.getNome());
 
         TextView item_preco = view.findViewById(R.id.precoEntretenimento);
-        item_preco.setText("Preço: "+ent.getPreco());
+        item_preco.setText("Preço: " + ent.getPreco());
 
         TextView item_qtda_pessoas = view.findViewById(R.id.qtdaPessoasEntretenimento);
-        item_qtda_pessoas.setText("Qtda Pessoa: "+ent.getQtdaPessoas());
+        item_qtda_pessoas.setText("Qtda Pessoa: " + ent.getQtdaPessoas());
 
         TextView item_Qtda_vezes = view.findViewById(R.id.qtdaVezesEntretenimento);
-        item_Qtda_vezes.setText("Qtda Vezes: "+ent.getQtdaVezes());
+        item_Qtda_vezes.setText("Qtda Vezes: " + ent.getQtdaVezes());
 
         TextView total = view.findViewById(R.id.totalEntretenimento);
-        total.setText("TOTAL: "+(( ent.getPreco()*ent.getQtdaPessoas()))*ent.getQtdaVezes());
+        total.setText("TOTAL: " + ((ent.getPreco() * ent.getQtdaPessoas())) * ent.getQtdaVezes());
 
 
 //        Button btnDetails = view.findViewById(R.id.btnDeletar);

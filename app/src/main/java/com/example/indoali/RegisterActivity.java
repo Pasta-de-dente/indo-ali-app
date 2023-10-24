@@ -10,11 +10,11 @@ import android.widget.Toast;
 
 import com.example.indoali.database.DAO.ProfileDAO;
 import com.example.indoali.database.model.profileModel;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class RegisterActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +51,8 @@ public class RegisterActivity extends AppCompatActivity {
 
                     if (result != -1) {
                         Toast.makeText(RegisterActivity.this, "Registro bem-sucedido.", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                        startActivity(intent);
                     } else {
                         Toast.makeText(RegisterActivity.this, "Erro ao registrar. Verifique os detalhes.", Toast.LENGTH_SHORT).show();
                     }

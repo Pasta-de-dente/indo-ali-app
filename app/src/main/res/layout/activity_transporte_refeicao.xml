@@ -74,6 +74,7 @@
             android:textColor="@color/white"
             android:textColorHint="@color/medium_gray"
             android:textSize="18sp" />
+
         <EditText
             android:id="@+id/duracaoViagemTxf"
             android:layout_width="match_parent"

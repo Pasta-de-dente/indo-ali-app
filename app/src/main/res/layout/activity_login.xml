@@ -85,6 +85,7 @@
                     android:layout_height="50dp"
                     android:thumbTint="@color/white"
                     android:trackTint="@color/white" />
+
             </LinearLayout>
 
             <Button

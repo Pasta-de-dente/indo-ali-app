@@ -34,7 +34,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/TotalEstimadoQuiilometroTxf"
+            android:id="@+id/TotalEstimadoQuilometrosTxf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -48,7 +48,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/MediaQuilometroPorlitroTxf"
+            android:id="@+id/MediaQuilometrosPorLitroTxf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
