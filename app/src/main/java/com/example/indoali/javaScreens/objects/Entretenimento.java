@@ -2,22 +2,24 @@ package com.example.indoali.javaScreens.objects;
 
 import java.io.Serializable;
 
-public class entretenimento implements Serializable {
+public class Entretenimento implements Serializable {
     public String nome;
     public double preco;
     public int qtdaPessoas;
     public int qtdaVezes;
 
-    public int idViajemToEntretenimento;
-    public entretenimento(){
+    public int idViagemToEntretenimento;
+
+    public Entretenimento() {
 
     }
-    public int getIdViajemToEntretenimento() {
-        return idViajemToEntretenimento;
+
+    public int getIdViagemToEntretenimento() {
+        return idViagemToEntretenimento;
     }
 
-    public void setIdViajemToEntretenimento(int idViajemToEntretenimento) {
-        this.idViajemToEntretenimento = idViajemToEntretenimento;
+    public void setIdViagemToEntretenimento(int idViagemToEntretenimento) {
+        this.idViagemToEntretenimento = idViagemToEntretenimento;
     }
 
     public String getNome() {

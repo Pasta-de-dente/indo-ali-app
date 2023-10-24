@@ -23,8 +23,8 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(carroModel.CREATE_TABLE);
         sqLiteDatabase.execSQL(refeicaoModel.CREATE_TABLE);
         sqLiteDatabase.execSQL(hospedagemModel.CREATE_TABLE);
-        sqLiteDatabase.execSQL(viajemModel.CREATE_TABLE);
-        sqLiteDatabase.execSQL(viajemToEntretenimentoModel.CREATE_TABLE);
+        sqLiteDatabase.execSQL(viagemModel.CREATE_TABLE);
+        sqLiteDatabase.execSQL(viagemToEntretenimentoModel.CREATE_TABLE);
         sqLiteDatabase.execSQL(entretenimentoModel.CREATE_TABLE);
         sqLiteDatabase.execSQL(profileModel.CREATE_TABLE);
     }
@@ -46,11 +46,11 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(hospedagemModel.DROP_TABLE);
         sqLiteDatabase.execSQL(hospedagemModel.CREATE_TABLE);
 
-        sqLiteDatabase.execSQL(viajemModel.DROP_TABLE);
-        sqLiteDatabase.execSQL(viajemModel.CREATE_TABLE);
+        sqLiteDatabase.execSQL(viagemModel.DROP_TABLE);
+        sqLiteDatabase.execSQL(viagemModel.CREATE_TABLE);
 
-        sqLiteDatabase.execSQL(viajemToEntretenimentoModel.DROP_TABLE);
-        sqLiteDatabase.execSQL(viajemToEntretenimentoModel.CREATE_TABLE);
+        sqLiteDatabase.execSQL(viagemToEntretenimentoModel.DROP_TABLE);
+        sqLiteDatabase.execSQL(viagemToEntretenimentoModel.CREATE_TABLE);
 
         sqLiteDatabase.execSQL(entretenimentoModel.DROP_TABLE);
         sqLiteDatabase.execSQL(entretenimentoModel.CREATE_TABLE);

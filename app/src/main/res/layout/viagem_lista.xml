@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:backgroundTint="@color/dark_gray"
     android:background="@drawable/edittext_rounded_corner"
+    android:backgroundTint="@color/dark_gray"
     android:minWidth="100dp"
     android:minHeight="100dp"
     android:orientation="vertical"
@@ -30,25 +28,28 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/baseline_location_on_24"
                 app:tint="@color/white" />
+
         </FrameLayout>
+
         <Space
-            android:layout_width="10sp"
-            android:layout_height="10sp"/>
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
+
         <LinearLayout
-            android:gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center_vertical"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/AdapterDataViajem"
+                android:id="@+id/AdapterDataViagem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="20/02/2020"
                 android:textColor="@color/white" />
 
             <TextView
-                android:id="@+id/AdapterDestinoViajem"
+                android:id="@+id/AdapterDestinoViagem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
@@ -66,6 +67,7 @@
         <LinearLayout
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginEnd="5dp"
             android:orientation="vertical"
             android:padding="15dp">
 
@@ -76,6 +78,10 @@
                 app:tint="@color/white" />
         </LinearLayout>
 
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -85,12 +91,12 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Total"
+                android:text="@string/total"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/AdapterTotalViajem"
+                android:id="@+id/AdapterTotalViagem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="0000"

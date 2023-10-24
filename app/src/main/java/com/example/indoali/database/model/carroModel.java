@@ -5,28 +5,26 @@ import java.io.Serializable;
 public class carroModel implements Serializable {
 
     public static final String
-            TABELA_NOME ="carro";
-    public static  final String
-            COLUNA_ID="_id",
-            COLUNA_TOTAL_ESTIMADO_KM="TotalEstimadoKM",
-            COLUNA_MEDIA_KM_LITRO="MediaKMLitro",
+            TABELA_NOME = "carro";
+    public static final String
+            COLUNA_ID = "_id",
+            COLUNA_TOTAL_ESTIMADO_KM = "TotalEstimadoKM",
+            COLUNA_MEDIA_KM_LITRO = "MediaKMLitro",
 
-            COLUNA_CUSTO_MEDIO_LITRO="CustoMedioLitro",
-            COLUNA_TOTAL_VEICULO="TotalVeiculos";
+    COLUNA_CUSTO_MEDIO_LITRO = "CustoMedioLitro",
+            COLUNA_TOTAL_VEICULO = "TotalVeiculos";
 
-
-
-    public static final String  CREATE_TABLE=
-            "create table "+TABELA_NOME+" ("
-                    +COLUNA_ID+  " integer primary key autoincrement,"
-                    +   COLUNA_TOTAL_ESTIMADO_KM+  " double,"
-                    +    COLUNA_MEDIA_KM_LITRO+  " double,"
-                    +  COLUNA_CUSTO_MEDIO_LITRO+ " double,"
-                    +   COLUNA_TOTAL_VEICULO+ " integer "
-                    +");";
+    public static final String CREATE_TABLE =
+            "create table " + TABELA_NOME + " ("
+                    + COLUNA_ID + " integer primary key autoincrement,"
+                    + COLUNA_TOTAL_ESTIMADO_KM + " double,"
+                    + COLUNA_MEDIA_KM_LITRO + " double,"
+                    + COLUNA_CUSTO_MEDIO_LITRO + " double,"
+                    + COLUNA_TOTAL_VEICULO + " integer "
+                    + ");";
 
     public static final String
-            DROP_TABLE="drop table if exists " +TABELA_NOME+ ";";
+            DROP_TABLE = "drop table if exists " + TABELA_NOME + ";";
 
     private int _id;
     private double TotalEstimadoKm;

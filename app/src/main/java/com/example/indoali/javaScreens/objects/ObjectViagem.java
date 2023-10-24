@@ -3,35 +3,32 @@ package com.example.indoali.javaScreens.objects;
 import java.io.Serializable;
 import java.util.List;
 
-public class ObjectViajem implements Serializable {
-
-
-    public void RemoverObjectViajem() {
+public class ObjectViagem implements Serializable {
+    public void RemoverObjectViagem() {
         this.TotalViajanteAviao = 0;
         this.TotalViajanteRefeicao = 0;
-        this.DuraçãodaViagem = 0;
-        this.listaViajens.clear();
+        this.DuracaoDaViagem = 0;
+        this.listaViagens.clear();
         this.listEntretenimento.clear();
         this.CustoPorPessoa = 0.0;
         this.AluguelVeiculo = 0.0;
         this.TotalEstimadoKm = 0.0;
         this.MediaKmLitro = 0.0;
-        this.custoMedioLitro = 0.0;
+        this.CustoMedioLitro = 0.0;
         this.TotalVeiculo = 0;
-        this.custoMedioPorNoite = 0.0;
+        this.CustoMedioPorNoite = 0.0;
         this.TotalNoite = 0;
         this.totalQuartos = 0;
         this.custoTotal = 0.0;
         this.CustoEstimadoPorRefeicao = 0.0;
         this.qtdaRefeicaoPorDia = 0;
-        this.destinario = "";
+        this.destino = "";
         this.data = "";
-
     }
 
     private int TotalViajanteAviao = 0;
     private int TotalViajanteRefeicao = 0;
-    private int DuraçãodaViagem = 0;
+    private int DuracaoDaViagem = 0;
 
     public int getTotalViajanteAviao() {
         return TotalViajanteAviao;
@@ -49,18 +46,18 @@ public class ObjectViajem implements Serializable {
         TotalViajanteRefeicao = totalViajanteRefeicao;
     }
 
-    public int getDuraçãodaViagem() {
-        return DuraçãodaViagem;
+    public int getDuracaoDaViagem() {
+        return DuracaoDaViagem;
     }
 
-    public void setDuraçãodaViagem(int duraçãodaViagem) {
-        DuraçãodaViagem = duraçãodaViagem;
+    public void setDuracaoDaViagem(int duracaoDaViagem) {
+        DuracaoDaViagem = duracaoDaViagem;
     }
 
     private int KEY_ID_PROFILE;
     private String KEY_NOME_PROFILE;
     private String KEY_EMAIL_PROFILE;
-    List<ObjectViajem> listaViajens;
+    List<ObjectViagem> listaViagens;
 
     public int getKEY_ID_PROFILE() {
         return KEY_ID_PROFILE;
@@ -90,7 +87,7 @@ public class ObjectViajem implements Serializable {
     private Double CustoPorPessoa = 0.0;
     private Double AluguelVeiculo = 0.0;
 
-    public List<entretenimento> listEntretenimento;
+    public List<Entretenimento> listEntretenimento;
 
     public int get_id() {
         return _id;
@@ -118,9 +115,8 @@ public class ObjectViajem implements Serializable {
 
     private double TotalEstimadoKm = 0.0;
     private double MediaKmLitro = 0.0;
-    private double custoMedioLitro = 0.0;
+    private double CustoMedioLitro = 0.0;
     private int TotalVeiculo = 0;
-
 
     public double getTotalEstimadoKm() {
         return TotalEstimadoKm;
@@ -139,11 +135,11 @@ public class ObjectViajem implements Serializable {
     }
 
     public double getCustoMedioLitro() {
-        return custoMedioLitro;
+        return CustoMedioLitro;
     }
 
     public void setCustoMedioLitro(double custoMedioLitro) {
-        this.custoMedioLitro = custoMedioLitro;
+        this.CustoMedioLitro = custoMedioLitro;
     }
 
     public int getTotalVeiculo() {
@@ -156,7 +152,6 @@ public class ObjectViajem implements Serializable {
 
     private String nomeEntretenimento = "";
     private double custoTotal = 0.0;
-
 
     public String getNomeEntretenimento() {
         return nomeEntretenimento;
@@ -174,17 +169,16 @@ public class ObjectViajem implements Serializable {
         this.custoTotal = custoTotal;
     }
 
-    private double custoMedioPorNoite = 0.0;
+    private double CustoMedioPorNoite = 0.0;
     private int TotalNoite = 0;
     private int totalQuartos = 0;
 
-
     public double getCustoMedioPorNoite() {
-        return custoMedioPorNoite;
+        return CustoMedioPorNoite;
     }
 
     public void setCustoMedioPorNoite(double custoMedioPorNoite) {
-        this.custoMedioPorNoite = custoMedioPorNoite;
+        this.CustoMedioPorNoite = custoMedioPorNoite;
     }
 
     public int getTotalNoite() {
@@ -206,7 +200,6 @@ public class ObjectViajem implements Serializable {
     private double CustoEstimadoPorRefeicao = 0.0;
     private int qtdaRefeicaoPorDia = 0;
 
-
     public double getCustoEstimadoPorRefeicao() {
         return CustoEstimadoPorRefeicao;
     }
@@ -223,7 +216,7 @@ public class ObjectViajem implements Serializable {
         this.qtdaRefeicaoPorDia = qtdaRefeicaoPorDia;
     }
 
-    private String destinario = "";
+    private String destino = "";
     private String data = "";
     private int idCarro;
     private int idAviao;
@@ -231,12 +224,12 @@ public class ObjectViajem implements Serializable {
     private int idHospedagem;
     private int idEntretenimento;
 
-    public String getDestinario() {
-        return destinario;
+    public String getDestino() {
+        return destino;
     }
 
-    public void setDestinario(String destinario) {
-        this.destinario = destinario;
+    public void setDestino(String destino) {
+        this.destino = destino;
     }
 
     public String getData() {

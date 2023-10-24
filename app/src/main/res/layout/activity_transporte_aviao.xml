@@ -20,13 +20,15 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/planeTransportText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/meals"
+            android:text="@string/planeTransport"
             android:textColor="@color/white"
             android:textSize="28sp" />
 
         <TextView
+            android:id="@+id/valuesText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/values"
@@ -34,53 +36,41 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/custoEstimadoPorRefeicao"
+            android:id="@+id/custoEstimadoTxf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/edittext_rounded_corner"
             android:backgroundTint="@color/dark_gray"
-            android:hint="@string/estimatedCostPerMeal"
-            android:inputType="numberDecimal"
+            android:hint="@string/estimatedCostPerPerson"
+            android:inputType="number"
             android:padding="20dp"
             android:textColor="@color/white"
             android:textColorHint="@color/medium_gray"
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/refeicaoPorDia"
+            android:id="@+id/aluguelVeiculoTxf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/edittext_rounded_corner"
             android:backgroundTint="@color/dark_gray"
-            android:hint="@string/quantityOfMealPerDay"
+            android:hint="@string/vehicleRental"
             android:inputType="number"
             android:padding="20dp"
             android:textColor="@color/white"
             android:textColorHint="@color/medium_gray"
             android:textSize="18sp" />
+
         <EditText
-            android:id="@+id/totalDeViajanteRefeicaoTxf"
+            android:id="@+id/totalDeViajanteAviaoTxf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/edittext_rounded_corner"
             android:backgroundTint="@color/dark_gray"
             android:hint="@string/totalPeoples"
-            android:inputType="number"
-            android:padding="20dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/medium_gray"
-            android:textSize="18sp" />
-        <EditText
-            android:id="@+id/duracaoViajemTxf"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/edittext_rounded_corner"
-            android:backgroundTint="@color/dark_gray"
-            android:hint="@string/Travelduration"
             android:inputType="number"
             android:padding="20dp"
             android:textColor="@color/white"
@@ -102,6 +92,7 @@
         app:layout_constraintTop_toBottomOf="@+id/topLinearLayout">
 
         <Button
+            android:id="@+id/save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
@@ -115,9 +106,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/mentha_green"
-            android:text="@string/accommodation"
+            android:text="@string/carTransport"
             android:textColor="@color/white"
             android:textSize="18sp" />
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,28 +6,21 @@ import android.database.Cursor;
 
 import com.example.indoali.database.DBOpenHelper;
 import com.example.indoali.database.model.carroModel;
-import com.example.indoali.database.model.hospedagemModel;
 import com.example.indoali.database.model.refeicaoModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class RefeicaoDAO extends AbstrataDAO{
-
-    private final String[] colunas={
-
+public class RefeicaoDAO extends AbstrataDAO {
+    private final String[] colunas = {
             refeicaoModel.COLUNA_ID,
             refeicaoModel.COLUNA_CUSTO_ESTIMADO_POR_REFEICAO,
-            refeicaoModel. COLUNA_QTDA_REFEICAO_POR_DIA,
-            refeicaoModel.COLUNA_DURACAO_VIAJEM
+            refeicaoModel.COLUNA_QTDA_REFEICAO_POR_DIA,
+            refeicaoModel.COLUNA_DURACAO_VIAGEM
     };
-    public RefeicaoDAO(Context context){
-        db_helper = new DBOpenHelper(context);
-    }
 
-    public void AbreBanco() {
-        Open();
+    public RefeicaoDAO(Context context) {
+        db_helper = new DBOpenHelper(context);
     }
 
     public long Insert(refeicaoModel model) {
@@ -36,17 +29,18 @@ public class RefeicaoDAO extends AbstrataDAO{
         Open();
 
         ContentValues values = new ContentValues();
-        values.put(  refeicaoModel.COLUNA_QTDA_REFEICAO_POR_DIA, model.getQtdaRefeicaoPorDia());
-        values.put(  refeicaoModel.COLUNA_CUSTO_ESTIMADO_POR_REFEICAO, model.getCustoEstimadoPorRefeicao());
-        values.put(  refeicaoModel.COLUNA_DURACAO_VIAJEM, model.getDuracaoViajem());
-        values.put(  refeicaoModel.COLUNA_VIAJANTE_POR_REFEICAO, model.getViajantePorRefeicao());
+        values.put(refeicaoModel.COLUNA_QTDA_REFEICAO_POR_DIA, model.getQtdaRefeicaoPorDia());
+        values.put(refeicaoModel.COLUNA_CUSTO_ESTIMADO_POR_REFEICAO, model.getCustoEstimadoPorRefeicao());
+        values.put(refeicaoModel.COLUNA_DURACAO_VIAGEM, model.getDuracaoViagem());
+        values.put(refeicaoModel.COLUNA_VIAJANTE_POR_REFEICAO, model.getViajantePorRefeicao());
         rowAffect = db.insert(refeicaoModel.TABELA_NOME, null, values);
-       // Close();
+
+        Close();
 
         return rowAffect;
     }
 
-    public List<refeicaoModel> Select(){
+    public List<refeicaoModel> Select() {
         List<refeicaoModel> aviaoList = new ArrayList<>();
 
         Open();
@@ -60,12 +54,13 @@ public class RefeicaoDAO extends AbstrataDAO{
                 null,                    // Having
                 null                     // Order by
         );
+
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 int idIndex = cursor.getColumnIndex(carroModel.COLUNA_ID);
                 double CustoEstimadoPorRefeicao = cursor.getColumnIndex(refeicaoModel.COLUNA_CUSTO_ESTIMADO_POR_REFEICAO);
                 int qtdaRefeicaoPorDia = cursor.getColumnIndex(refeicaoModel.COLUNA_QTDA_REFEICAO_POR_DIA);
-                int duracaoViajem = cursor.getColumnIndex(refeicaoModel.COLUNA_DURACAO_VIAJEM);
+                int duracaoViagem = cursor.getColumnIndex(refeicaoModel.COLUNA_DURACAO_VIAGEM);
                 do {
                     refeicaoModel model = new refeicaoModel();
 
@@ -80,8 +75,8 @@ public class RefeicaoDAO extends AbstrataDAO{
                     if (qtdaRefeicaoPorDia >= 0) {
                         model.setQtdaRefeicaoPorDia(cursor.getInt(qtdaRefeicaoPorDia));
                     }
-                    if (duracaoViajem >= 0) {
-                        model.setDuracaoViajem(cursor.getInt(duracaoViajem));
+                    if (duracaoViagem >= 0) {
+                        model.setDuracaoViagem(cursor.getInt(duracaoViagem));
                     }
 
 

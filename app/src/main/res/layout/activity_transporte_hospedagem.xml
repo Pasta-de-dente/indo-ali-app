@@ -22,7 +22,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/carTransport"
+            android:text="@string/accommodation"
             android:textColor="@color/white"
             android:textSize="28sp" />
 
@@ -34,13 +34,13 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/TotalEstimadoQuiilometroTxf"
+            android:id="@+id/custoMedioPorNoiteTxf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/edittext_rounded_corner"
             android:backgroundTint="@color/dark_gray"
-            android:hint="@string/estimatedTotalKm"
+            android:hint="@string/averageCostPerNight"
             android:inputType="numberDecimal"
             android:padding="20dp"
             android:textColor="@color/white"
@@ -48,41 +48,27 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/MediaQuilometroPorlitroTxf"
+            android:id="@+id/totalDeNoitesTxf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/edittext_rounded_corner"
             android:backgroundTint="@color/dark_gray"
-            android:hint="@string/averageKmPerLiter"
-            android:inputType="numberDecimal"
+            android:hint="@string/totalNights"
+            android:inputType="number"
             android:padding="20dp"
             android:textColor="@color/white"
             android:textColorHint="@color/medium_gray"
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/CustoMedioPorLitrotxf"
+            android:id="@+id/totalDeQuartosTxf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/edittext_rounded_corner"
             android:backgroundTint="@color/dark_gray"
-            android:hint="@string/averageCostPerLiter"
-            android:inputType="numberDecimal"
-            android:padding="20dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/medium_gray"
-            android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/totalDeVeiculotxf"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/edittext_rounded_corner"
-            android:backgroundTint="@color/dark_gray"
-            android:hint="@string/numberOfVehicles"
+            android:hint="@string/totalRooms"
             android:inputType="number"
             android:padding="20dp"
             android:textColor="@color/white"
@@ -105,7 +91,6 @@
         app:layout_constraintTop_toBottomOf="@+id/topLinearLayout">
 
         <Button
-            android:id="@+id/save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
@@ -119,8 +104,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/mentha_green"
-            android:text="@string/meals"
+            android:text="@string/entertainment"
             android:textColor="@color/white"
             android:textSize="18sp" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

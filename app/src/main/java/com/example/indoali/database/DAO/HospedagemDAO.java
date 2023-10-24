@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 
 import com.example.indoali.database.DBOpenHelper;
-import com.example.indoali.database.model.aviaoModel;
 import com.example.indoali.database.model.carroModel;
 import com.example.indoali.database.model.hospedagemModel;
 
@@ -15,7 +14,6 @@ import java.util.List;
 public class HospedagemDAO extends AbstrataDAO {
 
     private final String[] colunas={
-
             hospedagemModel.COLUNA_ID,
             hospedagemModel.COLUNA_CUSTO_MEDIO_POR_NOITE,
             hospedagemModel.COLUNA_TOTAL_DE_NOITE,
@@ -23,10 +21,6 @@ public class HospedagemDAO extends AbstrataDAO {
     };
     public HospedagemDAO(Context context){
         db_helper = new DBOpenHelper(context);
-    }
-
-    public void AbreBanco() {
-        Open();
     }
 
     public long Insert(hospedagemModel model) {
@@ -43,7 +37,7 @@ public class HospedagemDAO extends AbstrataDAO {
 
         rowAffect = db.insert(hospedagemModel.TABELA_NOME, null, values);
 
-      //  Close();
+        Close();
 
         return rowAffect;
     }
@@ -54,7 +48,7 @@ public class HospedagemDAO extends AbstrataDAO {
         Open();
 
         Cursor cursor = db.query(
-                hospedagemModel.TABELA_NOME, // Tabe name
+                hospedagemModel.TABELA_NOME, // Table name
                 colunas,                 // Columns to retrieve
                 null,                    // Selection (WHERE clause)
                 null,                    // Selection arguments
@@ -86,8 +80,6 @@ public class HospedagemDAO extends AbstrataDAO {
                     if (totalQuartos >= 0) {
                         model.setTotalQuartos(cursor.getInt( totalQuartos));
                     }
-
-
 
                     aviaoList.add(model);
                 } while (cursor.moveToNext());
