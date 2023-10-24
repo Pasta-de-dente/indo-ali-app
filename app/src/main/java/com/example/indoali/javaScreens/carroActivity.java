@@ -30,9 +30,10 @@ public class carroActivity extends AppCompatActivity {
                 EditText custoMedioPorLitro = findViewById(R.id.CustoMedioPorLitrotxf);
                 EditText totalDeVeiculos = findViewById(R.id.totalDeVeiculotxf);
 
-                if ((!totalEstimadoKm.getText().toString().isEmpty() && !mediaQuilometroPorLitro.getText().toString().isEmpty())
-                        && (!custoMedioPorLitro.getText().toString().isEmpty() && !totalDeVeiculos.getText().toString().isEmpty())
-                ) {
+                if ((!totalEstimadoKm.getText().toString().isEmpty()
+                        && !mediaQuilometroPorLitro.getText().toString().isEmpty())
+                        && (!custoMedioPorLitro.getText().toString().isEmpty()
+                                && !totalDeVeiculos.getText().toString().isEmpty())) {
                     objeto.setTotalEstimadoKm(Double.parseDouble(totalEstimadoKm.getText().toString()));
                     objeto.setMediaKmLitro(Double.parseDouble(mediaQuilometroPorLitro.getText().toString()));
                     objeto.setCustoMedioLitro(Double.parseDouble(custoMedioPorLitro.getText().toString()));
@@ -40,7 +41,8 @@ public class carroActivity extends AppCompatActivity {
                     intent.putExtra("Viagem", objeto);
                     startActivity(intent);
                 } else {
-                    if ((totalEstimadoKm.getText().toString().isEmpty() && mediaQuilometroPorLitro.getText().toString().isEmpty())) {
+                    if ((totalEstimadoKm.getText().toString().isEmpty()
+                            && mediaQuilometroPorLitro.getText().toString().isEmpty())) {
                         if (custoMedioPorLitro.getText().toString().isEmpty()) {
                             totalDeVeiculos.getText();
                         }

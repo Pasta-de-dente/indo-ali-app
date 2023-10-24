@@ -52,7 +52,8 @@ public class LoginActivity extends AppCompatActivity {
                     edtPassword.setError("Campo de senha obrigatório");
                 } else {
                     ProfileDAO profile = new ProfileDAO(LoginActivity.this);
-                    profileModel profileModel = profile.login(edtEmail.getText().toString(), edtPassword.getText().toString());
+                    profileModel profileModel = profile.login(edtEmail.getText().toString(),
+                            edtPassword.getText().toString());
 
                     if (profileModel != null) {
                         viagem.setKEY_EMAIL_PROFILE(edtEmail.getText().toString());
@@ -75,7 +76,8 @@ public class LoginActivity extends AppCompatActivity {
 
                     } else {
                         // Login falhou
-                        Toast.makeText(LoginActivity.this, "Login falhou. Verifique suas credenciais.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Login falhou. Verifique suas credenciais.",
+                                Toast.LENGTH_SHORT).show();
                     }
                 }
             }
