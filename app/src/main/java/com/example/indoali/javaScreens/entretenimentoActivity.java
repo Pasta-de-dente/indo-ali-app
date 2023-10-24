@@ -1,4 +1,5 @@
 package com.example.indoali.javaScreens;
+
 import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
@@ -27,7 +28,7 @@ import com.example.indoali.database.model.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class entretenimentoActivity  extends AppCompatActivity {
+public class entretenimentoActivity extends AppCompatActivity {
     private ListView productList;
 
     private entretenimentoAdapter adapter;
@@ -35,13 +36,14 @@ public class entretenimentoActivity  extends AppCompatActivity {
     private Button btnAdd;
 
     ArrayList<entretenimento> arl;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trasporte_entretenimento);
 
         Button btnNext = findViewById(R.id.nextBtn);
-        Button btnAddNewEntretenimento= findViewById(R.id.addNewEntretenimento);
+        Button btnAddNewEntretenimento = findViewById(R.id.addNewEntretenimento);
         productList = findViewById(R.id.listLugares);
         ObjectViajem objeto = (ObjectViajem) getIntent().getSerializableExtra("Viajem");
 
@@ -58,23 +60,22 @@ public class entretenimentoActivity  extends AppCompatActivity {
                 LayoutInflater inflater = getLayoutInflater();
                 View dialogView = inflater.inflate(R.layout.dialog_signin, null);
 
-                final EditText precoTxf  = dialogView.findViewById(R.id.precoTxf);
+                final EditText precoTxf = dialogView.findViewById(R.id.precoTxf);
                 final EditText qtdaVezesTxf = dialogView.findViewById(R.id.qtdaVezesTxf);
                 final EditText qtdaPessoaTxf = dialogView.findViewById(R.id.qtdaPessoasTxf);
-                final EditText nomeTxf =dialogView.findViewById(R.id.nomeTxf);
+                final EditText nomeTxf = dialogView.findViewById(R.id.nomeTxf);
                 builder.setView(dialogView);
-
 
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Obtenha o texto dos EditText
 
-                        String nome=  nomeTxf.getText().toString();
-                        String qtdaVezes=qtdaVezesTxf.getText().toString();
-                        String preco=precoTxf.getText().toString();
-                        String qtdaPessoas=qtdaPessoaTxf.getText().toString();
-                         entretenimento ent=new entretenimento();
+                        String nome = nomeTxf.getText().toString();
+                        String qtdaVezes = qtdaVezesTxf.getText().toString();
+                        String preco = precoTxf.getText().toString();
+                        String qtdaPessoas = qtdaPessoaTxf.getText().toString();
+                        entretenimento ent = new entretenimento();
 
                         ent.setNome(nome);
                         ent.setPreco(Double.parseDouble(preco));
@@ -99,15 +100,14 @@ public class entretenimentoActivity  extends AppCompatActivity {
 
             }
         });
-        Button saveBtn=findViewById(R.id.save);
-
+        Button saveBtn = findViewById(R.id.save);
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(entretenimentoActivity.this,resumeActivity.class);
-                objeto.listEntretenimento=arl;
-               intent.putExtra("Viajem",objeto);
+                Intent intent = new Intent(entretenimentoActivity.this, resumeActivity.class);
+                objeto.listEntretenimento = arl;
+                intent.putExtra("Viajem", objeto);
                 startActivity(intent);
             }
         });

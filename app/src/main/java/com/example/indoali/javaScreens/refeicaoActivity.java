@@ -12,29 +12,28 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.indoali.R;
 import com.example.indoali.javaScreens.objects.ObjectViajem;
 
-public class refeicaoActivity  extends AppCompatActivity {
+public class refeicaoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trasporte_refeicao);
-        Button btnNext=findViewById(R.id.nextBtn);
+        Button btnNext = findViewById(R.id.nextBtn);
 
-
-        ObjectViajem viajem=(ObjectViajem) getIntent().getSerializableExtra("Viajem");
+        ObjectViajem viajem = (ObjectViajem) getIntent().getSerializableExtra("Viajem");
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(refeicaoActivity.this,hospedagemActivity.class);
-                EditText CustoEstimadoPorRefeicao=findViewById(R.id.custoEstimadoPorRefeicao);
-                EditText RefeicaoPorDia=findViewById(R.id.refeicaoPorDia);
-                EditText duracaoViajemTxf=findViewById(R.id.duracaoViajemTxf);
-                EditText ViajantesTxt=findViewById(R.id.totalDeViajanteRefeicaoTxf);
-                viajem.setCustoEstimadoPorRefeicao( Integer.parseInt(CustoEstimadoPorRefeicao.getText().toString()));
-                viajem.setQtdaRefeicaoPorDia( Integer.parseInt(RefeicaoPorDia.getText().toString()));
-                viajem.setDuraçãodaViagem( Integer.parseInt(duracaoViajemTxf.getText().toString()));
+                Intent intent = new Intent(refeicaoActivity.this, hospedagemActivity.class);
+                EditText CustoEstimadoPorRefeicao = findViewById(R.id.custoEstimadoPorRefeicao);
+                EditText RefeicaoPorDia = findViewById(R.id.refeicaoPorDia);
+                EditText duracaoViajemTxf = findViewById(R.id.duracaoViajemTxf);
+                EditText ViajantesTxt = findViewById(R.id.totalDeViajanteRefeicaoTxf);
+                viajem.setCustoEstimadoPorRefeicao(Integer.parseInt(CustoEstimadoPorRefeicao.getText().toString()));
+                viajem.setQtdaRefeicaoPorDia(Integer.parseInt(RefeicaoPorDia.getText().toString()));
+                viajem.setDuraçãodaViagem(Integer.parseInt(duracaoViajemTxf.getText().toString()));
                 viajem.setTotalViajanteRefeicao(Integer.parseInt(ViajantesTxt.getText().toString()));
-                intent.putExtra("Viajem",viajem);
+                intent.putExtra("Viajem", viajem);
                 startActivity(intent);
             }
         });

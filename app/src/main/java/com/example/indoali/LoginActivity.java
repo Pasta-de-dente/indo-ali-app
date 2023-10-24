@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        ObjectViajem viajem=new ObjectViajem();
+        ObjectViajem viajem = new ObjectViajem();
         EditText edtEmail = findViewById(R.id.edtEmail);
         EditText edtPassword = findViewById(R.id.edtPassword);
         Button btnLogin = findViewById(R.id.btnLogin);
@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
         SharedPreferences.Editor edit = pref.edit();
 
-        if (pref.getString("KEY_EMAIL", "")!="" && pref.getString("KEY_NOME", "")!="") {
+        if (pref.getString("KEY_EMAIL", "") != "" && pref.getString("KEY_NOME", "") != "") {
 
             viajem.setKEY_EMAIL_PROFILE(pref.getString("KEY_EMAIL", ""));
             viajem.setKEY_NOME_PROFILE(pref.getString("KEY_NOME", ""));
@@ -52,7 +52,8 @@ public class LoginActivity extends AppCompatActivity {
                     edtPassword.setError("Campo de senha obrigatório");
                 } else {
                     ProfileDAO profile = new ProfileDAO(LoginActivity.this);
-                    profileModel profileModel = profile.login(edtEmail.getText().toString(), edtPassword.getText().toString());
+                    profileModel profileModel = profile.login(edtEmail.getText().toString(),
+                            edtPassword.getText().toString());
 
                     if (profileModel != null) {
                         viajem.setKEY_EMAIL_PROFILE(edtEmail.getText().toString());
@@ -63,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (switchLembrar.isChecked()) {
                             edit.putInt("KEY_ID", profileModel.get_id()).apply();
                             edit.putString("KEY_EMAIL", edtEmail.getText().toString()).apply();
-                            edit.putString("KEY_NOME",  profileModel.getNome()).apply();
+                            edit.putString("KEY_NOME", profileModel.getNome()).apply();
                         } else {
                             edit.remove("KEY_ID").apply();
                             edit.remove("KEY_EMAIL").apply();
@@ -76,7 +77,8 @@ public class LoginActivity extends AppCompatActivity {
                     } else {
                         // Login falhou
 
-                        Toast.makeText(LoginActivity.this, "Login falhou. Verifique suas credenciais.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Login falhou. Verifique suas credenciais.",
+                                Toast.LENGTH_SHORT).show();
                     }
                 }
             }

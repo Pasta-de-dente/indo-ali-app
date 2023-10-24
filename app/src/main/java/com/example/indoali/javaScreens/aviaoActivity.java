@@ -36,15 +36,12 @@ public class aviaoActivity extends AppCompatActivity {
                 EditText txfAlguelVeiculo = findViewById(R.id.alguelVeiculoTxf);
                 EditText txftotalviajante = findViewById(R.id.totalDeViajanteAviaoTxf);
 
+                viajem.setCustoPorPessoa(Double.parseDouble(txfCustoEstimado.getText().toString()));
+                viajem.setAluguelVeiculo(Double.parseDouble(txfAlguelVeiculo.getText().toString()));
+                viajem.setTotalViajanteAviao(Integer.parseInt(txftotalviajante.getText().toString()));
+                intent.putExtra("Viajem", viajem);
 
-                    viajem.setCustoPorPessoa(Double.parseDouble(txfCustoEstimado.getText().toString()));
-                    viajem.setAluguelVeiculo(Double.parseDouble(txfAlguelVeiculo.getText().toString()));
-                    viajem.setTotalViajanteAviao(Integer.parseInt(txftotalviajante.getText().toString()));
-                    intent.putExtra("Viajem", viajem);
-
-
-                    startActivity(intent);
-
+                startActivity(intent);
 
             }
         });

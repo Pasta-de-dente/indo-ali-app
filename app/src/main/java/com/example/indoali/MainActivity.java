@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
         ObjectViajem viajem = (ObjectViajem) getIntent().getSerializableExtra("Viajem");
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
         SharedPreferences.Editor edit = pref.edit();
-        ViajemDAO viajemDAO=new ViajemDAO(MainActivity.this);
-        List<ObjectViajem> teste= viajemDAO.QueryWithJoin(viajem.getKEY_ID_PROFILE());
+        ViajemDAO viajemDAO = new ViajemDAO(MainActivity.this);
+        List<ObjectViajem> teste = viajemDAO.QueryWithJoin(viajem.getKEY_ID_PROFILE());
 
         productList = findViewById(R.id.list_viajens);
         adapter = new viajemAdapter(MainActivity.this);
@@ -54,13 +54,12 @@ public class MainActivity extends AppCompatActivity {
         adapter.setProductList(arl);
         productList.setAdapter(adapter);
 
-        if(teste.size()>0){
-        for(int i=0;i<teste.size();i++){
-            arl.add(teste.get(i));
-            adapter.notifyDataSetChanged();
-        }}
-
-
+        if (teste.size() > 0) {
+            for (int i = 0; i < teste.size(); i++) {
+                arl.add(teste.get(i));
+                adapter.notifyDataSetChanged();
+            }
+        }
 
         Button btnAnalise = findViewById(R.id.btnAnalisar);
         txtData = findViewById(R.id.txtDataViajem);

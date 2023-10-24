@@ -23,7 +23,6 @@ public class carroActivity extends AppCompatActivity {
         Button btnNext = findViewById(R.id.nextBtn);
         ObjectViajem objeto = (ObjectViajem) getIntent().getSerializableExtra("Viajem");
 
-
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,11 +32,13 @@ public class carroActivity extends AppCompatActivity {
                 EditText custoMedioPorLitro = findViewById(R.id.CustoMedioPorLitrotxf);
                 EditText totalDeVeiculos = findViewById(R.id.totalDeVeiculotxf);
 
-                if ((totalEstimadoKm.getText().toString() != null && mediQuilometroPorLitro.getText().toString() != null)
-                        && (custoMedioPorLitro.getText().toString() != null && totalDeVeiculos.getText() != null ) ||
-                        (totalEstimadoKm.getText().toString() == null && mediQuilometroPorLitro.getText().toString() == null)
-                                && (custoMedioPorLitro.getText().toString() == null && totalDeVeiculos.getText() == null )
-                ) {
+                if ((totalEstimadoKm.getText().toString() != null
+                        && mediQuilometroPorLitro.getText().toString() != null)
+                        && (custoMedioPorLitro.getText().toString() != null && totalDeVeiculos.getText() != null) ||
+                        (totalEstimadoKm.getText().toString() == null
+                                && mediQuilometroPorLitro.getText().toString() == null)
+                                && (custoMedioPorLitro.getText().toString() == null
+                                        && totalDeVeiculos.getText() == null)) {
                     objeto.setTotalEstimadoKm(Double.parseDouble(totalEstimadoKm.getText().toString()));
                     objeto.setMediaKmLitro(Double.parseDouble(mediQuilometroPorLitro.getText().toString()));
                     objeto.setCustoMedioLitro(Double.parseDouble(custoMedioPorLitro.getText().toString()));
@@ -45,16 +46,16 @@ public class carroActivity extends AppCompatActivity {
                     intent.putExtra("Viajem", objeto);
                     startActivity(intent);
                 } else {
-                    if(totalDeVeiculos.getText()==null){
+                    if (totalDeVeiculos.getText() == null) {
                         totalDeVeiculos.setError("Preencha total de veiculos tambem");
                     }
-                    if(totalEstimadoKm.getText()==null){
+                    if (totalEstimadoKm.getText() == null) {
                         totalEstimadoKm.setError("Preencha KM total estimado tambem");
                     }
-                    if(custoMedioPorLitro.getText()==null){
+                    if (custoMedioPorLitro.getText() == null) {
                         custoMedioPorLitro.setError("Preencha custo medio litro tambem");
                     }
-                    if(mediQuilometroPorLitro.getText()==null){
+                    if (mediQuilometroPorLitro.getText() == null) {
                         mediQuilometroPorLitro.setError("Preencha media quilometro por litro tambem");
                     }
 
