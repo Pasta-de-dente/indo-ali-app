@@ -4,26 +4,24 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.indoali.R;
-import com.example.indoali.javaScreens.objects.ObjectViajem;
-import com.example.indoali.javaScreens.objects.entretenimento;
+import com.example.indoali.javaScreens.objects.ObjectViagem;
 
 import java.util.ArrayList;
 
 public class viajemAdapter extends BaseAdapter {
 
-    private ArrayList<ObjectViajem> productList;
+    private ArrayList<ObjectViagem> productList;
     private final Activity activity;
 
     public viajemAdapter(final Activity activity) {
         this.activity = activity;
     }
 
-    public void setProductList(final ArrayList<ObjectViajem> products) {
+    public void setProductList(final ArrayList<ObjectViagem> products) {
         productList = products;
     }
 
@@ -48,7 +46,7 @@ public class viajemAdapter extends BaseAdapter {
         if (view == null) {
             view = activity.getLayoutInflater().inflate(R.layout.viajem_lista, viewGroup, false);
         }
-        ObjectViajem ent = productList.get(i);
+        ObjectViagem ent = productList.get(i);
 
         TextView data = view.findViewById(R.id.AdapterDataViajem);
         data.setText(ent.getData()+"");

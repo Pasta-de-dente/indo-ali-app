@@ -22,7 +22,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/meals"
+            android:text="@string/accommodation"
             android:textColor="@color/white"
             android:textSize="28sp" />
 
@@ -34,13 +34,13 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/custoEstimadoPorRefeicao"
+            android:id="@+id/custoMedioPorNoiteTxf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/edittext_rounded_corner"
             android:backgroundTint="@color/dark_gray"
-            android:hint="@string/estimatedCostPerMeal"
+            android:hint="@string/averageCostPerNight"
             android:inputType="numberDecimal"
             android:padding="20dp"
             android:textColor="@color/white"
@@ -48,44 +48,33 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/refeicaoPorDia"
+            android:id="@+id/totalDeNoitesTxf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/edittext_rounded_corner"
             android:backgroundTint="@color/dark_gray"
-            android:hint="@string/quantityOfMealPerDay"
+            android:hint="@string/totalNights"
             android:inputType="number"
             android:padding="20dp"
             android:textColor="@color/white"
             android:textColorHint="@color/medium_gray"
             android:textSize="18sp" />
+
         <EditText
-            android:id="@+id/totalDeViajanteRefeicaoTxf"
+            android:id="@+id/totalDeQuartosTxf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/edittext_rounded_corner"
             android:backgroundTint="@color/dark_gray"
-            android:hint="@string/totalPeoples"
+            android:hint="@string/totalRooms"
             android:inputType="number"
             android:padding="20dp"
             android:textColor="@color/white"
             android:textColorHint="@color/medium_gray"
             android:textSize="18sp" />
-        <EditText
-            android:id="@+id/duracaoViajemTxf"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/edittext_rounded_corner"
-            android:backgroundTint="@color/dark_gray"
-            android:hint="@string/Travelduration"
-            android:inputType="number"
-            android:padding="20dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/medium_gray"
-            android:textSize="18sp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -115,7 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/mentha_green"
-            android:text="@string/accommodation"
+            android:text="@string/entertainment"
             android:textColor="@color/white"
             android:textSize="18sp" />
 

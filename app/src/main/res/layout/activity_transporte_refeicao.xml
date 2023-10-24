@@ -22,25 +22,25 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hospedagem"
+            android:text="@string/meals"
             android:textColor="@color/white"
             android:textSize="28sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Valores"
+            android:text="@string/values"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/custoMedioPorNoiteTxf"
+            android:id="@+id/custoEstimadoPorRefeicao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/edittext_rounded_corner"
             android:backgroundTint="@color/dark_gray"
-            android:hint="Custo médio (por noite)"
+            android:hint="@string/estimatedCostPerMeal"
             android:inputType="numberDecimal"
             android:padding="20dp"
             android:textColor="@color/white"
@@ -48,13 +48,13 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/totalDeNoitesTxf"
+            android:id="@+id/refeicaoPorDia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/edittext_rounded_corner"
             android:backgroundTint="@color/dark_gray"
-            android:hint="Total de noites"
+            android:hint="@string/quantityOfMealPerDay"
             android:inputType="number"
             android:padding="20dp"
             android:textColor="@color/white"
@@ -62,19 +62,31 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/totalDeQuartosTxf"
+            android:id="@+id/totalDeViajanteRefeicaoTxf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/edittext_rounded_corner"
             android:backgroundTint="@color/dark_gray"
-            android:hint="Total de quartos"
+            android:hint="@string/totalPeoples"
             android:inputType="number"
             android:padding="20dp"
             android:textColor="@color/white"
             android:textColorHint="@color/medium_gray"
             android:textSize="18sp" />
-
+        <EditText
+            android:id="@+id/duracaoViagemTxf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext_rounded_corner"
+            android:backgroundTint="@color/dark_gray"
+            android:hint="@string/travelDuration"
+            android:inputType="number"
+            android:padding="20dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/medium_gray"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -93,10 +105,10 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
             android:backgroundTint="@color/dark_gray"
             android:text="@string/goBack"
             android:textColor="@color/white"
-            android:layout_marginEnd="15dp"
             android:textSize="18sp" />
 
         <Button
@@ -104,7 +116,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/mentha_green"
-            android:text="@string/entertainment"
+            android:text="@string/accommodation"
             android:textColor="@color/white"
             android:textSize="18sp" />
 
