@@ -1,6 +1,7 @@
 package com.example.indoali.javaScreens.objects;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ObjectViagem implements Serializable {
@@ -87,7 +88,7 @@ public class ObjectViagem implements Serializable {
     private Double CustoPorPessoa = 0.0;
     private Double AluguelVeiculo = 0.0;
 
-    public List<Entretenimento> listEntretenimento;
+    public List<Entretenimento> listEntretenimento=new ArrayList<>();
 
     public int get_id() {
         return _id;

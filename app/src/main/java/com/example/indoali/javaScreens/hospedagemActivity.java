@@ -17,9 +17,16 @@ public class hospedagemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transporte_hospedagem);
 
+        Button btnBack=findViewById(R.id.backBtnHospedagem);
         Button btnNext = findViewById(R.id.nextBtn);
         ObjectViagem viagem = (ObjectViagem) getIntent().getSerializableExtra("Viagem");
-
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(hospedagemActivity.this, refeicaoActivity.class);
+                startActivity(intent);
+            }
+        });
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

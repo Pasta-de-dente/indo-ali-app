@@ -64,7 +64,8 @@
         app:layout_constraintTop_toBottomOf="@+id/topLinearLayout">
 
         <Button
-            android:id="@+id/save"
+            android:id="@+id/backBtnEntretenimento"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"

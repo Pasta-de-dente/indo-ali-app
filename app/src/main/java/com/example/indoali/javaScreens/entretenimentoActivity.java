@@ -32,8 +32,17 @@ public class entretenimentoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transporte_entretenimento);
 
+        Button btnBack = findViewById(R.id.backBtnEntretenimento);
         Button btnNext = findViewById(R.id.nextBtn);
         Button btnAddNewEntretenimento = findViewById(R.id.addNewEntretenimento);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               Intent intent=new Intent(entretenimentoActivity.this,hospedagemActivity.class);
+               startActivity(intent);
+            }
+        });
         productList = findViewById(R.id.listLugares);
         ObjectViagem objeto = (ObjectViagem) getIntent().getSerializableExtra("Viagem");
 

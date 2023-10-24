@@ -17,8 +17,15 @@ public class refeicaoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transporte_refeicao);
         Button btnNext = findViewById(R.id.nextBtn);
-
+        Button btnBack = findViewById(R.id.backBtnRefeicao);
         ObjectViagem viagem = (ObjectViagem) getIntent().getSerializableExtra("Viagem");
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(refeicaoActivity.this,carroActivity.class);
+                    startActivity(intent);
+            }
+        });
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override

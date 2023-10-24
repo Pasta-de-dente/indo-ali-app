@@ -43,17 +43,9 @@ public class MainActivity extends AppCompatActivity {
         productList = findViewById(R.id.list_viagens);
         adapter = new viagemAdapter(MainActivity.this);
 
-        arl = new ArrayList<ObjectViagem>();
+        arl = new ArrayList<ObjectViagem>(teste);
         adapter.setProductList(arl);
         productList.setAdapter(adapter);
-
-        if (teste.size() > 0) {
-            for (int i = 0; i < teste.size(); i++) {
-                arl.add(teste.get(i));
-                Collections.reverse(arl);
-                adapter.notifyDataSetChanged();
-            }
-        }
 
         Button btnAnalise = findViewById(R.id.btnAnalisar);
         txtData = findViewById(R.id.txtDataViagem);

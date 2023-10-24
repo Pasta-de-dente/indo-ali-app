@@ -55,9 +55,12 @@ public class viagemAdapter extends BaseAdapter {
         destino.setText(ent.getDestino() + "");
 
         TextView total = view.findViewById(R.id.AdapterTotalViagem);
-        double totalVariavel = ((ent.getTotalEstimadoKm() / ent.getMediaKmLitro()) * ent.getCustoMedioLitro()) / ent.getTotalVeiculo();
+        double totalcarro = ((ent.getTotalEstimadoKm() / ent.getMediaKmLitro()) * ent.getCustoMedioLitro()) / ent.getTotalVeiculo();
+        double totalAviao = ((ent.getCustoPorPessoa()* ent.getTotalViajanteAviao()) + ent.getAluguelVeiculo()) ;
+        double totalRefeicao = ((ent.getQtdaRefeicaoPorDia()* ent.getTotalViajanteRefeicao()) * ent.getCustoEstimadoPorRefeicao())* ent.getDuracaoDaViagem();
+        double totalHospedagem = (ent.getCustoMedioPorNoite()* ent.getTotalNoite()) * ent.getTotalQuartos();
 
-        total.setText(totalVariavel + "");
+        total.setText((totalcarro+totalAviao+totalRefeicao+totalHospedagem) + "");
 
         return view;
     }

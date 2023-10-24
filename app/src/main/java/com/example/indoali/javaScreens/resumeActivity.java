@@ -47,6 +47,16 @@ public class resumeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resume);
+        Button btnBackTop=findViewById(R.id.resumeBackTop);
+
+        btnBackTop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(resumeActivity.this,entretenimentoActivity.class);
+                startActivity(intent);
+            }
+        });
+
         ObjectViagem objeto = (ObjectViagem) getIntent().getSerializableExtra("Viagem");
 
         Button btnNext = findViewById(R.id.btnNext);

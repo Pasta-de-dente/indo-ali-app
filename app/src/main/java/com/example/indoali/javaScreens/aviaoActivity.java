@@ -8,6 +8,7 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.indoali.MainActivity;
 import com.example.indoali.R;
 import com.example.indoali.javaScreens.objects.ObjectViagem;
 
@@ -18,8 +19,17 @@ public class aviaoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transporte_aviao);
 
+        Button btnBack=findViewById(R.id.backBtnAviao);
         Button btnNext = findViewById(R.id.nextBtn);
         ObjectViagem viagem = (ObjectViagem) getIntent().getSerializableExtra("Viagem");
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(aviaoActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override

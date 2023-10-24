@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.indoali.database.DBOpenHelper;
 import com.example.indoali.database.model.refeicaoModel;
 import com.example.indoali.database.model.*;
+import com.example.indoali.javaScreens.objects.Entretenimento;
 import com.example.indoali.javaScreens.objects.ObjectViagem;
 
 import java.util.ArrayList;
@@ -64,11 +65,12 @@ public class ViagemDAO extends AbstrataDAO {
                 " LEFT JOIN " + "hospedagem" + " ON " + "viagem" + "." + "_idTabelaHospedagem" + " = " + "hospedagem" + "." + "_id" +
                 " WHERE " + "viagem" + "." + "_idProfile" + " = " + profileId;
 
+        String queryEntretenimento ="SELECT entretenimento.* FROM viagem LEFT JOIN entretenimento ON viagem._idTabelaViagemToEntretenimento = entretenimento._id WHERE viagem._idProfile ="+profileId;
+
         //Execute a consulta SQL para buscar os resultados pelo id do usuario
         Cursor cursor = db.rawQuery(query, null);
 
         // Verifica se há resultados
-
         if (cursor.moveToFirst()) {
             do {
                 String data = "erro";
@@ -76,55 +78,97 @@ public class ViagemDAO extends AbstrataDAO {
 
                 // Recupera os dados das colunas de todas as tabelas
                 // Viagem info
+                // Recupera os dados das colunas de todas as tabelas
+
+                // ID to entretenimento info
+                int columnIndexIDViajem = cursor.getColumnIndex(viagemModel.COLUNA_ID_VIAGEM_ENTRETENIMENTO);
+               int idVIajemToEntretenimento= columnIndexIDViajem >= 0 ? cursor.getInt(columnIndexIDViajem) : 0;
+
+
+// Viagem info
                 int columnIndexData = cursor.getColumnIndex(viagemModel.COLUNA_DATA);
+                 data= columnIndexData >= 0 ? cursor.getString(columnIndexData) : "Valor Padrão ou Lidar com Ausência";
+
                 int columnIndexDestino = cursor.getColumnIndex(viagemModel.COLUNA_DESTINO);
+               destino = columnIndexDestino >= 0 ? cursor.getString(columnIndexDestino) : "Valor Padrão ou Lidar com Ausência";
 
-                // Verifica se o índice é válido
-                if (columnIndexData != -1 && columnIndexDestino != -1) {
-                    // Acesse os valores das colunas "data" e "destino
-                    data = cursor.getString(columnIndexData);
-                    destino = cursor.getString(columnIndexDestino);
+// Carro
+                int columnIndexCustoMedioLitro = cursor.getColumnIndex(carroModel.COLUNA_CUSTO_MEDIO_LITRO);
+                double custoMedioLitro = columnIndexCustoMedioLitro >= 0 ? cursor.getDouble(columnIndexCustoMedioLitro) : 0.0;
 
-                    // Agora você pode usar as variáveis 'data' e 'destino' para seus fins.
-                }
+                int columnIndexTotalEstimadoKm = cursor.getColumnIndex(carroModel.COLUNA_TOTAL_ESTIMADO_KM);
+                double totalEstimadoKm = columnIndexTotalEstimadoKm >= 0 ? cursor.getDouble(columnIndexTotalEstimadoKm) : 0.0;
 
-                ///CARRO
-                double idIndexCustoMedioLitro = cursor.getColumnIndex(carroModel.COLUNA_CUSTO_MEDIO_LITRO);
-                double idIndexTotalEstimadoKm = cursor.getColumnIndex(carroModel.COLUNA_TOTAL_ESTIMADO_KM);
-                double idIndexMediaKmLitro = cursor.getColumnIndex(carroModel.COLUNA_MEDIA_KM_LITRO);
-                int idIndexColunaTotalVeiculo = cursor.getColumnIndex(carroModel.COLUNA_TOTAL_VEICULO);
+                int columnIndexMediaKmLitro = cursor.getColumnIndex(carroModel.COLUNA_MEDIA_KM_LITRO);
+                double mediaKmLitro = columnIndexMediaKmLitro >= 0 ? cursor.getDouble(columnIndexMediaKmLitro) : 0.0;
 
-                //AVIAO
-                double idIndexAluguelVeiculo = cursor.getColumnIndex(aviaoModel.COLUNA_ALUGUEL_VEICULO);
-                double idIndexCustoPorPessoa = cursor.getColumnIndex(aviaoModel.COLUNA_CUSTO_POR_PESSOA);
+                int columnIndexTotalVeiculo = cursor.getColumnIndex(carroModel.COLUNA_TOTAL_VEICULO);
+                int totalVeiculo = columnIndexTotalVeiculo >= 0 ? cursor.getInt(columnIndexTotalVeiculo) : 0;
 
-                //REFEICAO
-                double idIndexEstimadoPorRefeicao = cursor.getColumnIndex(refeicaoModel.COLUNA_CUSTO_ESTIMADO_POR_REFEICAO);
-                int idIndexQtdaRefeicaoPorDia = cursor.getColumnIndex(refeicaoModel.COLUNA_QTDA_REFEICAO_POR_DIA);
+// Avião
+                int columnIndexAluguelVeiculo = cursor.getColumnIndex(aviaoModel.COLUNA_ALUGUEL_VEICULO);
+                double aluguelVeiculo = columnIndexAluguelVeiculo >= 0 ? cursor.getDouble(columnIndexAluguelVeiculo) : 0.0;
 
-                //HOSPEDAGEM
-                int idIndexTotalQuartos = cursor.getColumnIndex(hospedagemModel.COLUNA_TOTAL_QUARTOS);
-                double idIndexCustoMedioPorNoite = cursor.getColumnIndex(hospedagemModel.COLUNA_CUSTO_MEDIO_POR_NOITE);
-                int idIndexTotalNoite = cursor.getColumnIndex(hospedagemModel.COLUNA_TOTAL_DE_NOITE);
+                int columnIndexCustoPorPessoa = cursor.getColumnIndex(aviaoModel.COLUNA_CUSTO_POR_PESSOA);
+                double custoPorPessoa = columnIndexCustoPorPessoa >= 0 ? cursor.getDouble(columnIndexCustoPorPessoa) : 0.0;
+
+                int columnIndexTotalDeViajante = cursor.getColumnIndex(aviaoModel.COLUNA_TOTAL_VIAJANTE_AVIAO);
+                int totalDeViajante = columnIndexTotalDeViajante >= 0 ? cursor.getInt(columnIndexTotalDeViajante) : 0;
+
+// Refeição
+                int columnIndexCustoEstimadoPorRefeicao = cursor.getColumnIndex(refeicaoModel.COLUNA_CUSTO_ESTIMADO_POR_REFEICAO);
+                double custoEstimadoPorRefeicao = columnIndexCustoEstimadoPorRefeicao >= 0 ? cursor.getDouble(columnIndexCustoEstimadoPorRefeicao) : 0.0;
+
+                int columnIndexQtdaRefeicaoPorDia = cursor.getColumnIndex(refeicaoModel.COLUNA_QTDA_REFEICAO_POR_DIA);
+                int qtdaRefeicaoPorDia = columnIndexQtdaRefeicaoPorDia >= 0 ? cursor.getInt(columnIndexQtdaRefeicaoPorDia) : 0;
+
+                int columnIndexDuracaoViagem = cursor.getColumnIndex(refeicaoModel.COLUNA_DURACAO_VIAGEM);
+                int duracaoViagem = columnIndexDuracaoViagem >= 0 ? cursor.getInt(columnIndexDuracaoViagem) : 0;
+
+                int columnIndexQtdViajantePorRefeicao = cursor.getColumnIndex(refeicaoModel.COLUNA_QTDA_REFEICAO_POR_DIA);
+                int qtdViajantePorRefeicao = columnIndexQtdViajantePorRefeicao >= 0 ? cursor.getInt(columnIndexQtdViajantePorRefeicao) : 0;
+
+// Hospedagem
+                int columnIndexTotalQuartos = cursor.getColumnIndex(hospedagemModel.COLUNA_TOTAL_QUARTOS);
+                int totalQuartos = columnIndexTotalQuartos >= 0 ? cursor.getInt(columnIndexTotalQuartos) : 0;
+
+                int columnIndexCustoMedioPorNoite = cursor.getColumnIndex(hospedagemModel.COLUNA_CUSTO_MEDIO_POR_NOITE);
+                double custoMedioPorNoite = columnIndexCustoMedioPorNoite >= 0 ? cursor.getDouble(columnIndexCustoMedioPorNoite) : 0.0;
+
+                int columnIndexTotalNoite = cursor.getColumnIndex(hospedagemModel.COLUNA_TOTAL_DE_NOITE);
+                int totalNoite = columnIndexTotalNoite >= 0 ? cursor.getInt(columnIndexTotalNoite) : 0;
+
 
                 ObjectViagem viagem = new ObjectViagem();
 
+                //ID
+                viagem.setIdEntretenimento(idVIajemToEntretenimento);
+
+                //viajem
                 viagem.setData(data);
                 viagem.setDestino(destino);
-                viagem.setCustoMedioLitro(idIndexCustoMedioLitro);
-                viagem.setTotalEstimadoKm(idIndexTotalEstimadoKm);
-                viagem.setMediaKmLitro(idIndexMediaKmLitro);
-                viagem.setTotalVeiculo(idIndexColunaTotalVeiculo);
 
-                viagem.setCustoEstimadoPorRefeicao(idIndexEstimadoPorRefeicao);
-                viagem.setQtdaRefeicaoPorDia(idIndexQtdaRefeicaoPorDia);
+                //aviao
+                viagem.setAluguelVeiculo(aluguelVeiculo);
+                viagem.setCustoPorPessoa(custoPorPessoa);
+                viagem.setTotalViajanteAviao(totalDeViajante);
 
-                viagem.setCustoEstimadoPorRefeicao(idIndexEstimadoPorRefeicao);
-                viagem.setQtdaRefeicaoPorDia(idIndexQtdaRefeicaoPorDia);
+                //Carro
+                viagem.setCustoMedioLitro(custoMedioLitro);
+                viagem.setTotalEstimadoKm(totalEstimadoKm);
+                viagem.setMediaKmLitro(mediaKmLitro);
+                viagem.setTotalVeiculo(totalVeiculo);
 
-                viagem.setTotalQuartos(idIndexTotalQuartos);
-                viagem.setCustoMedioPorNoite(idIndexCustoMedioPorNoite);
-                viagem.setTotalNoite(idIndexTotalNoite);
+                //Refeicao
+                viagem.setCustoEstimadoPorRefeicao(custoEstimadoPorRefeicao);
+                viagem.setQtdaRefeicaoPorDia(columnIndexQtdaRefeicaoPorDia);
+                viagem.setDuracaoDaViagem(duracaoViagem);
+                viagem.setTotalViajanteRefeicao(qtdViajantePorRefeicao);
+
+                //hospedagem
+                viagem.setTotalQuartos(totalQuartos);
+                viagem.setCustoMedioPorNoite(custoMedioPorNoite);
+                viagem.setTotalNoite(totalNoite);
 
                 // Envia pra lista pra depois puxar na main
                 viagemList.add(viagem);
@@ -132,6 +176,44 @@ public class ViagemDAO extends AbstrataDAO {
             } while (cursor.moveToNext());
         }
 
+        Cursor cursorEntretenimento = db.rawQuery( queryEntretenimento, null);
+
+        // Verifica se há resultados
+        if (cursorEntretenimento.moveToFirst()) {
+            do {
+                Entretenimento entre=new Entretenimento();
+                int columnIndexNome = cursorEntretenimento .getColumnIndex(entretenimentoModel.COLUNA_NOME);
+                String nome= columnIndexNome >= 0 ? cursorEntretenimento .getString(columnIndexNome) : "Valor Padrão ou Lidar com Ausência";
+
+                int columnIndexPreco = cursorEntretenimento .getColumnIndex(entretenimentoModel.COLUNA_PRECO);
+                double preco = columnIndexPreco >= 0 ?  cursorEntretenimento .getDouble(columnIndexPreco) : 0.0;
+
+                int columnIndexQtdaPessoas = cursorEntretenimento .getColumnIndex(entretenimentoModel.COLUNA_QTDA_PESSOAS);
+                int qtdaPessoa = columnIndexQtdaPessoas >= 0 ? cursorEntretenimento .getInt(columnIndexQtdaPessoas) : 0;
+
+                int columnIndexQtdaVezes = cursorEntretenimento .getColumnIndex(entretenimentoModel.COLUNA_QTDA_VEZES);
+                int qtdaVezes = columnIndexQtdaVezes >= 0 ? cursorEntretenimento .getInt(columnIndexQtdaVezes) : 0;
+
+                int columnIndexIDViajemtToEntretenimento = cursorEntretenimento .getColumnIndex(entretenimentoModel.COLUNA_ID_VIAGEM);
+                int idViajem =  columnIndexIDViajemtToEntretenimento  >= 0 ?  cursorEntretenimento .getInt(columnIndexIDViajemtToEntretenimento) : 0;
+
+
+                for(int i=0;i< viagemList.size();i++){
+                    if(viagemList.get(i).getIdEntretenimento()==idViajem){
+                        entre.setQtdaVezes(qtdaVezes);
+                        entre.setQtdaPessoas(qtdaPessoa);
+                        entre.setNome(nome);
+                        entre.setPreco(preco);
+                        viagemList.get(i).listEntretenimento.add(entre);
+                    }
+                }
+
+                // Envia pra lista pra depois puxar na main
+
+
+            } while (cursorEntretenimento.moveToNext());
+        }
+cursorEntretenimento.close();
         // Não se esqueça de fechar o cursor quando terminar
         cursor.close();
 
