@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,6 +43,7 @@ public class resumeActivity extends AppCompatActivity {
     private entretenimentoAdapter adapter;
 
     ArrayList<Entretenimento> arl;
+
     DecimalFormat decimalFormat = new DecimalFormat("0.00");
 
     @Override
@@ -49,7 +52,15 @@ public class resumeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_resume);
         ObjectViagem objeto = (ObjectViagem) getIntent().getSerializableExtra("Viagem");
 
+        LinearLayout parentLayout = findViewById(R.id.parentLayout);
+        LinearLayout planeSection = findViewById(R.id.planeSection);
+        LinearLayout carSection = findViewById(R.id.carSection);
+        LinearLayout mealSection = findViewById(R.id.mealSection);
+        LinearLayout accommodationSection = findViewById(R.id.accommodationSection);
+        LinearLayout entertainmentSection = findViewById(R.id.entertainmentSection);
+
         Button btnNext = findViewById(R.id.btnNext);
+        ImageButton btnBack = findViewById(R.id.btnBack);
         productList = findViewById(R.id.listEntretenimentos);
 
         TextView destino = findViewById(R.id.ResumeDestino);
@@ -63,7 +74,13 @@ public class resumeActivity extends AppCompatActivity {
         TextView aluguelVeiculo = findViewById(R.id.txtAluguelVeiculo);
         TextView totalViajanteAviao = findViewById(R.id.txtTotalViajante);
 
-        TotalAviao.setText("Total: " + decimalFormat.format((objeto.getCustoPorPessoa() * objeto.getTotalViajanteAviao()) + objeto.getAluguelVeiculo()));
+        double totalAviaoCalc = (objeto.getCustoPorPessoa() * objeto.getTotalViajanteAviao()) + objeto.getAluguelVeiculo();
+
+        if (totalAviaoCalc == 0.00) {
+            parentLayout.removeView(planeSection);
+        } else {
+            TotalAviao.setText(String.format(getString(R.string.totalAirfareCost), decimalFormat.format(totalAviaoCalc)));
+        }
 
         //TextView Carro
         TextView TotalCarro = findViewById(R.id.custoTotalDaGasolina);
@@ -71,7 +88,14 @@ public class resumeActivity extends AppCompatActivity {
         TextView MediaKMLitro = findViewById(R.id.txtMediaKMLitro);
         TextView CustoMedioLitro = findViewById(R.id.txtCustoMedioLitro);
         TextView TotalVeiculos = findViewById(R.id.txtTotalVeiculos);
-        TotalCarro.setText("Total: " + decimalFormat.format(((objeto.getTotalEstimadoKm() / objeto.getMediaKmLitro()) * objeto.getCustoMedioLitro()) / objeto.getTotalVeiculo()));
+
+        double totalCarCalc = ((objeto.getTotalEstimadoKm() / objeto.getMediaKmLitro()) * objeto.getCustoMedioLitro()) / objeto.getTotalVeiculo();
+
+        if (Double.isNaN(totalCarCalc)) {
+            parentLayout.removeView(carSection);
+        } else {
+            TotalCarro.setText(String.format(getString(R.string.totalCostOfGasoline), decimalFormat.format(totalCarCalc)));
+        }
 
         //TextView Refeição
         TextView CustoEstimadoPorRefeicao = findViewById(R.id.txtCustoEstimadoPorRefeicao);
@@ -79,35 +103,50 @@ public class resumeActivity extends AppCompatActivity {
         TextView DuracaoViagem = findViewById(R.id.txtDuracaoViagemResume);
         TextView qtdaViajante = findViewById(R.id.txtQtdaViajanteResume);
         TextView txtCustoTotalRefeicao = findViewById(R.id.txtCustoTotalRefeicao);
-        txtCustoTotalRefeicao.setText("Total: " + decimalFormat.format((objeto.getQtdaRefeicaoPorDia() * objeto.getTotalViajanteRefeicao() * objeto.getCustoEstimadoPorRefeicao() * objeto.getDuracaoDaViagem())));
+
+        double totalRefeicaoCalc = (objeto.getQtdaRefeicaoPorDia() * objeto.getTotalViajanteRefeicao() * objeto.getCustoEstimadoPorRefeicao() * objeto.getDuracaoDaViagem());
+
+        if (totalRefeicaoCalc == 0.00) {
+            parentLayout.removeView(mealSection);
+        } else {
+            txtCustoTotalRefeicao.setText(String.format(getString(R.string.totalMealCost), decimalFormat.format(totalRefeicaoCalc)));
+        }
 
         //TextView Hospedagem
         TextView custoMedioPorNoite = findViewById(R.id.txtCustoMedioPorNoite);
         TextView totalNoite = findViewById(R.id.txtTotalNoite);
         TextView TotalQuartos = findViewById(R.id.txtTotalQuartos);
         TextView totalHospedagem = findViewById(R.id.txtCustoTotalHospedagem);
-        totalHospedagem.setText("Total: " + decimalFormat.format((objeto.getCustoMedioPorNoite() * objeto.getTotalNoite()) * objeto.getTotalQuartos()));
+
+        double totalHospedagemCalc = (objeto.getCustoMedioPorNoite() * objeto.getTotalNoite()) * objeto.getTotalQuartos();
+
+        if (totalHospedagemCalc == 0.00) {
+            parentLayout.removeView(accommodationSection);
+        } else {
+            totalHospedagem.setText(String.format(getString(R.string.totalAccommodationCost), decimalFormat.format(totalHospedagemCalc)));
+        }
 
         //SET TEXT VIEW
-        estimadoPessoa.setText(objeto.getCustoPorPessoa().toString());
-        aluguelVeiculo.setText(objeto.getAluguelVeiculo().toString());
-        totalViajanteAviao.setText(objeto.getTotalViajanteAviao() + "");
+        estimadoPessoa.setText(String.format(String.valueOf(objeto.getCustoPorPessoa())));
+        aluguelVeiculo.setText(String.format(String.valueOf(objeto.getAluguelVeiculo())));
+        totalViajanteAviao.setText(String.format(String.valueOf(objeto.getTotalViajanteAviao())));
 
-        TotalEstimadoKM.setText(objeto.getTotalEstimadoKm() + "");
-        MediaKMLitro.setText(objeto.getMediaKmLitro() + "");
-        CustoMedioLitro.setText(objeto.getCustoMedioLitro() + "");
-        TotalVeiculos.setText(objeto.getTotalVeiculo() + "");
+        TotalEstimadoKM.setText(String.format(String.valueOf(objeto.getTotalEstimadoKm())));
+        MediaKMLitro.setText(String.format(String.valueOf(objeto.getMediaKmLitro())));
+        CustoMedioLitro.setText(String.format(String.valueOf(objeto.getCustoMedioLitro())));
+        TotalVeiculos.setText(String.format(String.valueOf(objeto.getTotalVeiculo())));
 
-        CustoEstimadoPorRefeicao.setText(objeto.getCustoEstimadoPorRefeicao() + "");
-        QtdaRefeicaoPorDia.setText(objeto.getQtdaRefeicaoPorDia() + "");
-        DuracaoViagem.setText(objeto.getDuracaoDaViagem() + "");
-        qtdaViajante.setText(objeto.getTotalViajanteRefeicao() + "");
+        CustoEstimadoPorRefeicao.setText(String.format(String.valueOf(objeto.getCustoEstimadoPorRefeicao())));
+        QtdaRefeicaoPorDia.setText(String.format(String.valueOf(objeto.getQtdaRefeicaoPorDia())));
+        DuracaoViagem.setText(String.format(String.valueOf(objeto.getDuracaoDaViagem())));
+        qtdaViajante.setText(String.format(String.valueOf(objeto.getTotalViajanteRefeicao())));
 
-        custoMedioPorNoite.setText(objeto.getCustoMedioPorNoite() + "");
-        totalNoite.setText(objeto.getTotalNoite() + "");
-        TotalQuartos.setText(objeto.getTotalQuartos() + "");
+        custoMedioPorNoite.setText(String.format(String.valueOf(objeto.getCustoMedioPorNoite())));
+        totalNoite.setText(String.format(String.valueOf(objeto.getTotalNoite())));
+        TotalQuartos.setText(String.format(String.valueOf(objeto.getTotalQuartos())));
 
         TextView txtCustoTotalEntretenimento = findViewById(R.id.txtCustoTotalEntretenimento);
+
         if (objeto.listEntretenimento.size() > 0) {
             double total = 0;
             adapter = new entretenimentoAdapter(resumeActivity.this);
@@ -118,16 +157,18 @@ public class resumeActivity extends AppCompatActivity {
             Entretenimento ent = new Entretenimento();
 
             for (int i = 0; i < objeto.listEntretenimento.size(); i++) {
-
                 total = total + ((objeto.listEntretenimento.get(i).getPreco() * objeto.listEntretenimento.get(i).getQtdaVezes()) * objeto.listEntretenimento.get(i).getQtdaPessoas());
                 ent.setNome(objeto.listEntretenimento.get(i).getNome());
                 ent.setPreco(objeto.listEntretenimento.get(i).getPreco());
                 ent.setQtdaVezes(objeto.listEntretenimento.get(i).getQtdaVezes());
                 ent.setQtdaPessoas(objeto.listEntretenimento.get(i).getQtdaPessoas());
+
                 arl.add(ent);
                 adapter.notifyDataSetChanged();
             }
-            txtCustoTotalEntretenimento.setText("Total: " + decimalFormat.format(total));
+            txtCustoTotalEntretenimento.setText(String.format(getString(R.string.totalEntertainmentCost), decimalFormat.format(total)));
+        } else {
+            parentLayout.removeView(entertainmentSection);
         }
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -190,7 +231,6 @@ public class resumeActivity extends AppCompatActivity {
 
                         entret.Insert(ent1);
                     }
-
                 }
 
                 viagemModel.setData(objeto.getData());
@@ -214,6 +254,15 @@ public class resumeActivity extends AppCompatActivity {
                     Intent intent = new Intent(resumeActivity.this, LoginActivity.class);
                     startActivity(intent);
                 }
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(resumeActivity.this, entretenimentoActivity.class);
+                intent.putExtra("Viagem", objeto);
+                startActivity(intent);
             }
         });
 
