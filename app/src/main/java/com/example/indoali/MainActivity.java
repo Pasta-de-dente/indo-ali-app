@@ -86,10 +86,21 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, aviaoActivity.class);
 
-                viagem.setData(txtData.getText().toString());
-                viagem.setDestino(txtDestino.getText().toString());
-                intent.putExtra("Viagem", viagem);
-                startActivity(intent);
+                if (txtData.getText().toString().isEmpty()) {
+                    txtData.setError("Campo necessário!");
+                }
+
+                if (txtDestino.getText().toString().isEmpty()) {
+                    txtDestino.setError("Campo necessário!");
+                }
+
+                if (!txtData.getText().toString().isEmpty() && !txtDestino.getText().toString().isEmpty()) {
+                    viagem.setData(txtData.getText().toString());
+                    viagem.setDestino(txtDestino.getText().toString());
+
+                    intent.putExtra("Viagem", viagem);
+                    startActivity(intent);
+                }
             }
         });
     }

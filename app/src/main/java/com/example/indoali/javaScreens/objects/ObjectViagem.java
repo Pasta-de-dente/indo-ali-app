@@ -279,5 +279,30 @@ public class ObjectViagem implements Serializable {
     public void setIdEntretenimento(int idEntretenimento) {
         this.idEntretenimento = idEntretenimento;
     }
+
+    public boolean verificaVazio() {
+        if(getCustoEstimadoPorRefeicao() == 0.0
+                && getAluguelVeiculo() == 0.0
+                && getTotalViajanteAviao() == 0
+                && getTotalEstimadoKm() == 0.0
+                && getMediaKmLitro() == 0.0
+                && getCustoMedioLitro() == 0.0
+                && getTotalVeiculo() == 0
+                && getCustoEstimadoPorRefeicao() == 0.0
+                && getQtdaRefeicaoPorDia() == 0
+                && getTotalViajanteRefeicao() == 0
+                && getDuracaoDaViagem() == 0
+                && getCustoMedioPorNoite() == 0.0
+                && getTotalNoite() == 0
+                && getTotalQuartos() == 0
+                && listEntretenimento.size() == 0
+        ) {
+            return true;
+        } else {
+            return false;
+
+        }
+
+    }
 }
 
