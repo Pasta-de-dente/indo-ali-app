@@ -5,54 +5,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ObjectViagem implements Serializable {
-    public void RemoverObjectViagem() {
-        this.TotalViajanteAviao = 0;
-        this.TotalViajanteRefeicao = 0;
-        this.DuracaoDaViagem = 0;
-        this.listaViagens.clear();
-        this.listEntretenimento.clear();
-        this.CustoPorPessoa = 0.0;
-        this.AluguelVeiculo = 0.0;
-        this.TotalEstimadoKm = 0.0;
-        this.MediaKmLitro = 0.0;
-        this.CustoMedioLitro = 0.0;
-        this.TotalVeiculo = 0;
-        this.CustoMedioPorNoite = 0.0;
-        this.TotalNoite = 0;
-        this.totalQuartos = 0;
-        this.custoTotal = 0.0;
-        this.CustoEstimadoPorRefeicao = 0.0;
-        this.qtdaRefeicaoPorDia = 0;
-        this.destino = "";
-        this.data = "";
-    }
+    private int TotalViajante = 0;
 
-    private int TotalViajanteAviao = 0;
-    private int TotalViajanteRefeicao = 0;
     private int DuracaoDaViagem = 0;
 
-    public int getTotalViajanteAviao() {
-        return TotalViajanteAviao;
+    public int getTotalViajante() {
+        return TotalViajante;
     }
 
-    public void setTotalViajanteAviao(int totalViajanteAviao) {
-        TotalViajanteAviao = totalViajanteAviao;
-    }
-
-    public int getTotalViajanteRefeicao() {
-        return TotalViajanteRefeicao;
-    }
-
-    public void setTotalViajanteRefeicao(int totalViajanteRefeicao) {
-        TotalViajanteRefeicao = totalViajanteRefeicao;
+    public void setTotalViajante(int totalViajanteRefeicao) {
+        TotalViajante = totalViajanteRefeicao;
     }
 
     public int getDuracaoDaViagem() {
         return DuracaoDaViagem;
     }
 
-    public void setDuracaoDaViagem(int duracaoDaViagem) {
-        DuracaoDaViagem = duracaoDaViagem;
+    public void setDuracaoDaViagem(int duracao) {
+        DuracaoDaViagem = duracao;
     }
 
     private int KEY_ID_PROFILE;

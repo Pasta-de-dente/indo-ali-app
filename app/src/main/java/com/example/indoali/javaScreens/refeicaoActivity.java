@@ -38,7 +38,6 @@ public class refeicaoActivity extends AppCompatActivity {
                 viagem.setCustoEstimadoPorRefeicao(Integer.parseInt(CustoEstimadoPorRefeicao.getText().toString()));
                 viagem.setQtdaRefeicaoPorDia(Integer.parseInt(RefeicaoPorDia.getText().toString()));
                 viagem.setDuracaoDaViagem(Integer.parseInt(duracaoViagemTxf.getText().toString()));
-                viagem.setTotalViajanteRefeicao(Integer.parseInt(ViajantesTxt.getText().toString()));
                 intent.putExtra("Viagem", viagem);
                 startActivity(intent);
             }

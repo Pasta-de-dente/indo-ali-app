@@ -37,6 +37,8 @@ public class ViagemDAO extends AbstrataDAO {
 
         ContentValues values = new ContentValues();
         values.put(viagemModel.COLUNA_DATA, model.getData());
+        values.put(viagemModel.COLUNA_DURACAO,model.getDuracao());
+        values.put(viagemModel.COLUNA_QTDA_VIAJANTES,model.getQtdaViajante());
         values.put(viagemModel.COLUNA_ID_PROFILE, model.getIdProfile());
         values.put(viagemModel.COLUNA_DESTINO, model.getDestino());
         values.put(viagemModel.COLUNA_ID_REFEICAO, model.getIdRefeicao());
@@ -92,6 +94,11 @@ public class ViagemDAO extends AbstrataDAO {
                 int columnIndexDestino = cursor.getColumnIndex(viagemModel.COLUNA_DESTINO);
                 destino = columnIndexDestino >= 0 ? cursor.getString(columnIndexDestino) : "Valor Padrão ou Lidar com Ausência";
 
+                int columnIndexDuracao = cursor.getColumnIndex(viagemModel.COLUNA_DURACAO);
+                int duracaoViajem = columnIndexDuracao >= 0 ? cursor.getInt(columnIndexDuracao) : 0;
+
+                int columnIndexQTDA_VIAJANTES = cursor.getColumnIndex(viagemModel.COLUNA_QTDA_VIAJANTES);
+                int totalDeViajante = columnIndexQTDA_VIAJANTES >= 0 ? cursor.getInt(columnIndexQTDA_VIAJANTES) : 0;
 // Carro
                 int columnIndexCustoMedioLitro = cursor.getColumnIndex(carroModel.COLUNA_CUSTO_MEDIO_LITRO);
                 double custoMedioLitro = columnIndexCustoMedioLitro >= 0 ? cursor.getDouble(columnIndexCustoMedioLitro) : 0.0;
@@ -112,8 +119,7 @@ public class ViagemDAO extends AbstrataDAO {
                 int columnIndexCustoPorPessoa = cursor.getColumnIndex(aviaoModel.COLUNA_CUSTO_POR_PESSOA);
                 double custoPorPessoa = columnIndexCustoPorPessoa >= 0 ? cursor.getDouble(columnIndexCustoPorPessoa) : 0.0;
 
-                int columnIndexTotalDeViajante = cursor.getColumnIndex(aviaoModel.COLUNA_TOTAL_VIAJANTE_AVIAO);
-                int totalDeViajante = columnIndexTotalDeViajante >= 0 ? cursor.getInt(columnIndexTotalDeViajante) : 0;
+
 
 // Refeição
                 int columnIndexCustoEstimadoPorRefeicao = cursor.getColumnIndex(refeicaoModel.COLUNA_CUSTO_ESTIMADO_POR_REFEICAO);
@@ -122,11 +128,6 @@ public class ViagemDAO extends AbstrataDAO {
                 int columnIndexQtdaRefeicaoPorDia = cursor.getColumnIndex(refeicaoModel.COLUNA_QTDA_REFEICAO_POR_DIA);
                 int qtdaRefeicaoPorDia = columnIndexQtdaRefeicaoPorDia >= 0 ? cursor.getInt(columnIndexQtdaRefeicaoPorDia) : 0;
 
-                int columnIndexDuracaoViagem = cursor.getColumnIndex(refeicaoModel.COLUNA_DURACAO_VIAGEM);
-                int duracaoViagem = columnIndexDuracaoViagem >= 0 ? cursor.getInt(columnIndexDuracaoViagem) : 0;
-
-                int columnIndexQtdViajantePorRefeicao = cursor.getColumnIndex(refeicaoModel.COLUNA_QTDA_REFEICAO_POR_DIA);
-                int qtdViajantePorRefeicao = columnIndexQtdViajantePorRefeicao >= 0 ? cursor.getInt(columnIndexQtdViajantePorRefeicao) : 0;
 
 // Hospedagem
                 int columnIndexTotalQuartos = cursor.getColumnIndex(hospedagemModel.COLUNA_TOTAL_QUARTOS);
@@ -147,11 +148,13 @@ public class ViagemDAO extends AbstrataDAO {
                 //viagem
                 viagem.setData(data);
                 viagem.setDestino(destino);
+                viagem.setDuracaoDaViagem(duracaoViajem);
+                viagem.setTotalViajante(totalDeViajante);
 
                 //aviao
                 viagem.setAluguelVeiculo(aluguelVeiculo);
                 viagem.setCustoPorPessoa(custoPorPessoa);
-                viagem.setTotalViajanteAviao(totalDeViajante);
+
 
                 //Carro
                 viagem.setCustoMedioLitro(custoMedioLitro);
@@ -162,8 +165,7 @@ public class ViagemDAO extends AbstrataDAO {
                 //Refeicao
                 viagem.setCustoEstimadoPorRefeicao(custoEstimadoPorRefeicao);
                 viagem.setQtdaRefeicaoPorDia(qtdaRefeicaoPorDia);
-                viagem.setDuracaoDaViagem(duracaoViagem);
-                viagem.setTotalViajanteRefeicao(qtdViajantePorRefeicao);
+
 
                 //hospedagem
                 viagem.setTotalQuartos(totalQuartos);
@@ -177,7 +179,7 @@ public class ViagemDAO extends AbstrataDAO {
         }
 
         Cursor cursorEntretenimento = db.rawQuery(queryEntretenimento, null);
-
+        List<Entretenimento> EntretenimentoList = new ArrayList<>();
         // Verifica se há resultados
         if (cursorEntretenimento.moveToFirst()) {
             do {
@@ -197,20 +199,23 @@ public class ViagemDAO extends AbstrataDAO {
                 int columnIndexIDViagemToEntretenimento = cursorEntretenimento.getColumnIndex(entretenimentoModel.COLUNA_ID_VIAGEM);
                 int idViagem = columnIndexIDViagemToEntretenimento >= 0 ? cursorEntretenimento.getInt(columnIndexIDViagemToEntretenimento) : 0;
 
-                for (int i = 0; i < viagemList.size(); i++) {
-                    if (viagemList.get(i).getIdEntretenimento() == idViagem) {
-                        entre.setQtdaVezes(qtdaVezes);
-                        entre.setQtdaPessoas(qtdaPessoa);
-                        entre.setNome(nome);
-                        entre.setPreco(preco);
-                        viagemList.get(i).listEntretenimento.add(entre);
-                    }
-                }
+                entre.setNome(nome);
+                entre.setPreco(preco);
+                entre.setQtdaPessoas(qtdaPessoa);
+                entre.setQtdaVezes(qtdaVezes);
+                entre.setIdViagemToEntretenimento(idViagem);
+                EntretenimentoList.add(entre);
 
                 // Envia pra lista pra depois puxar na main
 
-
             } while (cursorEntretenimento.moveToNext());
+        }
+        for(int i=0;i<viagemList.size();i++){
+            for(int j=0;j<EntretenimentoList.size();j++){
+                if(EntretenimentoList.get(j).getIdViagemToEntretenimento()==viagemList.get(i).getIdEntretenimento()){
+                    viagemList.get(i).listEntretenimento.add(EntretenimentoList.get(j));
+                }
+            }
         }
         cursorEntretenimento.close();
         // Não se esqueça de fechar o cursor quando terminar
