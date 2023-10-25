@@ -39,8 +39,7 @@ public class entretenimentoActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Intent intent=new Intent(entretenimentoActivity.this,hospedagemActivity.class);
-               startActivity(intent);
+                finish();
             }
         });
         productList = findViewById(R.id.listLugares);

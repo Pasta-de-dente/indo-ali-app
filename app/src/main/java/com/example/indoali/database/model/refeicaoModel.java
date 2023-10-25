@@ -10,8 +10,7 @@ public class refeicaoModel implements Serializable {
             COLUNA_ID = "_id",
             COLUNA_CUSTO_ESTIMADO_POR_REFEICAO = "custoEstimadoPorRefeicao",
             COLUNA_QTDA_REFEICAO_POR_DIA = "QtdaRefeicaoPorDia",
-
-    COLUNA_VIAJANTE_POR_REFEICAO = "ViajanteRefeicao",
+            COLUNA_VIAJANTE_POR_REFEICAO = "ViajanteRefeicao",
             COLUNA_DURACAO_VIAGEM = "ViagemDuracao";
 
     public static final String CREATE_TABLE =

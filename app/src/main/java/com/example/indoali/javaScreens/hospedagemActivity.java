@@ -23,8 +23,7 @@ public class hospedagemActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(hospedagemActivity.this, refeicaoActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
         btnNext.setOnClickListener(new View.OnClickListener() {

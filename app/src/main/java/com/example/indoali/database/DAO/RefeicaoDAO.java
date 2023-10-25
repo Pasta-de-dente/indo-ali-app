@@ -16,7 +16,9 @@ public class RefeicaoDAO extends AbstrataDAO {
             refeicaoModel.COLUNA_ID,
             refeicaoModel.COLUNA_CUSTO_ESTIMADO_POR_REFEICAO,
             refeicaoModel.COLUNA_QTDA_REFEICAO_POR_DIA,
-            refeicaoModel.COLUNA_DURACAO_VIAGEM
+            refeicaoModel.COLUNA_DURACAO_VIAGEM,
+            refeicaoModel.COLUNA_VIAJANTE_POR_REFEICAO
+
     };
 
     public RefeicaoDAO(Context context) {

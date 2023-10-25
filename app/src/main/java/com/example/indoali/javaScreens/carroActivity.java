@@ -26,8 +26,7 @@ public class carroActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(carroActivity.this, aviaoActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
         btnNext.setOnClickListener(new View.OnClickListener() {

@@ -65,7 +65,7 @@ public class ViagemDAO extends AbstrataDAO {
                 " LEFT JOIN " + "hospedagem" + " ON " + "viagem" + "." + "_idTabelaHospedagem" + " = " + "hospedagem" + "." + "_id" +
                 " WHERE " + "viagem" + "." + "_idProfile" + " = " + profileId;
 
-        String queryEntretenimento ="SELECT entretenimento.* FROM viagem LEFT JOIN entretenimento ON viagem._idTabelaViagemToEntretenimento = entretenimento._id WHERE viagem._idProfile ="+profileId;
+        String queryEntretenimento = "SELECT entretenimento.* FROM viagem LEFT JOIN entretenimento ON viagem._idTabelaViagemToEntretenimento = entretenimento._id WHERE viagem._idProfile =" + profileId;
 
         //Execute a consulta SQL para buscar os resultados pelo id do usuario
         Cursor cursor = db.rawQuery(query, null);
@@ -81,16 +81,16 @@ public class ViagemDAO extends AbstrataDAO {
                 // Recupera os dados das colunas de todas as tabelas
 
                 // ID to entretenimento info
-                int columnIndexIDViajem = cursor.getColumnIndex(viagemModel.COLUNA_ID_VIAGEM_ENTRETENIMENTO);
-               int idVIajemToEntretenimento= columnIndexIDViajem >= 0 ? cursor.getInt(columnIndexIDViajem) : 0;
+                int columnIndexIDViagem = cursor.getColumnIndex(viagemModel.COLUNA_ID_VIAGEM_ENTRETENIMENTO);
+                int idViagemToEntretenimento = columnIndexIDViagem >= 0 ? cursor.getInt(columnIndexIDViagem) : 0;
 
 
 // Viagem info
                 int columnIndexData = cursor.getColumnIndex(viagemModel.COLUNA_DATA);
-                 data= columnIndexData >= 0 ? cursor.getString(columnIndexData) : "Valor Padrão ou Lidar com Ausência";
+                data = columnIndexData >= 0 ? cursor.getString(columnIndexData) : "Valor Padrão ou Lidar com Ausência";
 
                 int columnIndexDestino = cursor.getColumnIndex(viagemModel.COLUNA_DESTINO);
-               destino = columnIndexDestino >= 0 ? cursor.getString(columnIndexDestino) : "Valor Padrão ou Lidar com Ausência";
+                destino = columnIndexDestino >= 0 ? cursor.getString(columnIndexDestino) : "Valor Padrão ou Lidar com Ausência";
 
 // Carro
                 int columnIndexCustoMedioLitro = cursor.getColumnIndex(carroModel.COLUNA_CUSTO_MEDIO_LITRO);
@@ -142,9 +142,9 @@ public class ViagemDAO extends AbstrataDAO {
                 ObjectViagem viagem = new ObjectViagem();
 
                 //ID
-                viagem.setIdEntretenimento(idVIajemToEntretenimento);
+                viagem.setIdEntretenimento(idViagemToEntretenimento);
 
-                //viajem
+                //viagem
                 viagem.setData(data);
                 viagem.setDestino(destino);
 
@@ -161,7 +161,7 @@ public class ViagemDAO extends AbstrataDAO {
 
                 //Refeicao
                 viagem.setCustoEstimadoPorRefeicao(custoEstimadoPorRefeicao);
-                viagem.setQtdaRefeicaoPorDia(columnIndexQtdaRefeicaoPorDia);
+                viagem.setQtdaRefeicaoPorDia(qtdaRefeicaoPorDia);
                 viagem.setDuracaoDaViagem(duracaoViagem);
                 viagem.setTotalViajanteRefeicao(qtdViajantePorRefeicao);
 
@@ -176,30 +176,29 @@ public class ViagemDAO extends AbstrataDAO {
             } while (cursor.moveToNext());
         }
 
-        Cursor cursorEntretenimento = db.rawQuery( queryEntretenimento, null);
+        Cursor cursorEntretenimento = db.rawQuery(queryEntretenimento, null);
 
         // Verifica se há resultados
         if (cursorEntretenimento.moveToFirst()) {
             do {
-                Entretenimento entre=new Entretenimento();
-                int columnIndexNome = cursorEntretenimento .getColumnIndex(entretenimentoModel.COLUNA_NOME);
-                String nome= columnIndexNome >= 0 ? cursorEntretenimento .getString(columnIndexNome) : "Valor Padrão ou Lidar com Ausência";
+                Entretenimento entre = new Entretenimento();
+                int columnIndexNome = cursorEntretenimento.getColumnIndex(entretenimentoModel.COLUNA_NOME);
+                String nome = columnIndexNome >= 0 ? cursorEntretenimento.getString(columnIndexNome) : "Valor Padrão ou Lidar com Ausência";
 
-                int columnIndexPreco = cursorEntretenimento .getColumnIndex(entretenimentoModel.COLUNA_PRECO);
-                double preco = columnIndexPreco >= 0 ?  cursorEntretenimento .getDouble(columnIndexPreco) : 0.0;
+                int columnIndexPreco = cursorEntretenimento.getColumnIndex(entretenimentoModel.COLUNA_PRECO);
+                double preco = columnIndexPreco >= 0 ? cursorEntretenimento.getDouble(columnIndexPreco) : 0.0;
 
-                int columnIndexQtdaPessoas = cursorEntretenimento .getColumnIndex(entretenimentoModel.COLUNA_QTDA_PESSOAS);
-                int qtdaPessoa = columnIndexQtdaPessoas >= 0 ? cursorEntretenimento .getInt(columnIndexQtdaPessoas) : 0;
+                int columnIndexQtdaPessoas = cursorEntretenimento.getColumnIndex(entretenimentoModel.COLUNA_QTDA_PESSOAS);
+                int qtdaPessoa = columnIndexQtdaPessoas >= 0 ? cursorEntretenimento.getInt(columnIndexQtdaPessoas) : 0;
 
-                int columnIndexQtdaVezes = cursorEntretenimento .getColumnIndex(entretenimentoModel.COLUNA_QTDA_VEZES);
-                int qtdaVezes = columnIndexQtdaVezes >= 0 ? cursorEntretenimento .getInt(columnIndexQtdaVezes) : 0;
+                int columnIndexQtdaVezes = cursorEntretenimento.getColumnIndex(entretenimentoModel.COLUNA_QTDA_VEZES);
+                int qtdaVezes = columnIndexQtdaVezes >= 0 ? cursorEntretenimento.getInt(columnIndexQtdaVezes) : 0;
 
-                int columnIndexIDViajemtToEntretenimento = cursorEntretenimento .getColumnIndex(entretenimentoModel.COLUNA_ID_VIAGEM);
-                int idViajem =  columnIndexIDViajemtToEntretenimento  >= 0 ?  cursorEntretenimento .getInt(columnIndexIDViajemtToEntretenimento) : 0;
+                int columnIndexIDViagemToEntretenimento = cursorEntretenimento.getColumnIndex(entretenimentoModel.COLUNA_ID_VIAGEM);
+                int idViagem = columnIndexIDViagemToEntretenimento >= 0 ? cursorEntretenimento.getInt(columnIndexIDViagemToEntretenimento) : 0;
 
-
-                for(int i=0;i< viagemList.size();i++){
-                    if(viagemList.get(i).getIdEntretenimento()==idViajem){
+                for (int i = 0; i < viagemList.size(); i++) {
+                    if (viagemList.get(i).getIdEntretenimento() == idViagem) {
                         entre.setQtdaVezes(qtdaVezes);
                         entre.setQtdaPessoas(qtdaPessoa);
                         entre.setNome(nome);
@@ -213,7 +212,7 @@ public class ViagemDAO extends AbstrataDAO {
 
             } while (cursorEntretenimento.moveToNext());
         }
-cursorEntretenimento.close();
+        cursorEntretenimento.close();
         // Não se esqueça de fechar o cursor quando terminar
         cursor.close();
 

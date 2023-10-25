@@ -2,6 +2,7 @@ package com.example.indoali.List;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.indoali.R;
 import com.example.indoali.javaScreens.objects.ObjectViagem;
+import com.example.indoali.javaScreens.viewViagemActivity;
 
 import java.util.ArrayList;
 
@@ -24,6 +26,7 @@ public class viagemAdapter extends BaseAdapter {
     public void setProductList(final ArrayList<ObjectViagem> products) {
         productList = products;
     }
+
 
     @Override
     public int getCount() {
@@ -43,10 +46,20 @@ public class viagemAdapter extends BaseAdapter {
     @SuppressLint("SetTextI18n")
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
+
         if (view == null) {
             view = activity.getLayoutInflater().inflate(R.layout.viagem_lista, viewGroup, false);
         }
         ObjectViagem ent = productList.get(i);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(activity, viewViagemActivity.class);
+                intent.putExtra("Viagem",ent);
+                activity.startActivity(intent);
+            }
+        });
+
 
         TextView data = view.findViewById(R.id.AdapterDataViagem);
         data.setText(ent.getData() + "");

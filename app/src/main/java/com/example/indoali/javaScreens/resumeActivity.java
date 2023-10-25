@@ -52,8 +52,7 @@ public class resumeActivity extends AppCompatActivity {
         btnBackTop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(resumeActivity.this,entretenimentoActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
 

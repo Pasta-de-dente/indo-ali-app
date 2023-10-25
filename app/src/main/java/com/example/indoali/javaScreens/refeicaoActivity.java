@@ -22,8 +22,7 @@ public class refeicaoActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(refeicaoActivity.this,carroActivity.class);
-                    startActivity(intent);
+                finish();
             }
         });
 
