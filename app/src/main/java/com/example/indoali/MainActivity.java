@@ -7,9 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -52,58 +50,55 @@ public class MainActivity extends AppCompatActivity {
         EditText txtDuracaoViagem = findViewById(R.id.txtDuracaoViajem);
         ImageButton btnLogout = findViewById(R.id.btnLogout);
 
-        txtData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDatePickerDialog();
-            }
-        });
+        txtData.setOnClickListener(v -> showDatePickerDialog());
 
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                edit.remove("KEY_ID").apply();
-                edit.remove("KEY_EMAIL").apply();
-                edit.remove("KEY_NOME").apply();
+        btnLogout.setOnClickListener(view -> {
+            edit.remove("KEY_ID").apply();
+            edit.remove("KEY_EMAIL").apply();
+            edit.remove("KEY_NOME").apply();
 
 //                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
 //                startActivity(intent);
-                finish();
-            }
+            finish();
         });
 
         txtData.getText();
 
-        btnAnalise.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, aviaoActivity.class);
+        btnAnalise.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, aviaoActivity.class);
 
-                if (txtData.getText().toString().isEmpty()) {
-                    txtData.setError("Campo necessário!");
-                }
+            if (txtData.getText().toString().isEmpty()) {
+                txtData.setError("Campo necessário!");
+            }
 
-                if (txtDestino.getText().toString().isEmpty()) {
-                    txtDestino.setError("Campo necessário!");
-                }
+            if (txtDestino.getText().toString().isEmpty()) {
+                txtDestino.setError("Campo necessário!");
+            }
 
-                if (txtDuracaoViagem.getText().toString().isEmpty()) {
-                    txtDuracaoViagem.setError("Campo necessário!");
-                }
+            if (txtDuracaoViagem.getText().toString().isEmpty()) {
+                txtDuracaoViagem.setError("Campo necessário!");
+            }
 
-                if (totalDeViajante.getText().toString().isEmpty()) {
-                    totalDeViajante.setError("Campo necessário!");
-                }
+            if (txtDuracaoViagem.getText().toString().equals("0")) {
+                txtDuracaoViagem.setError("Valor inválido!");
+            }
 
-                if (!txtData.getText().toString().isEmpty() && !txtDestino.getText().toString().isEmpty()) {
-                    viagem.setData(txtData.getText().toString());
-                    viagem.setDestino(txtDestino.getText().toString());
-                    viagem.setTotalViajante(Integer.parseInt(totalDeViajante.getText().toString()));
-                    viagem.setDuracaoDaViagem(Integer.parseInt(txtDuracaoViagem.getText().toString()));
+            if (totalDeViajante.getText().toString().isEmpty()) {
+                totalDeViajante.setError("Campo necessário!");
+            }
 
-                    intent.putExtra("Viagem", viagem);
-                    startActivity(intent);
-                }
+            if (totalDeViajante.getText().toString().equals("0")) {
+                totalDeViajante.setError("Valor inválido!");
+            }
+
+            if (!txtData.getText().toString().isEmpty() && !txtDestino.getText().toString().isEmpty()) {
+                viagem.setData(txtData.getText().toString());
+                viagem.setDestino(txtDestino.getText().toString());
+                viagem.setTotalViajante(Integer.parseInt(totalDeViajante.getText().toString()));
+                viagem.setDuracaoDaViagem(Integer.parseInt(txtDuracaoViagem.getText().toString()));
+
+                intent.putExtra("Viagem", viagem);
+                startActivity(intent);
             }
         });
     }
@@ -116,13 +111,10 @@ public class MainActivity extends AppCompatActivity {
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 
         // Criar um DatePickerDialog e configurá-lo
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int selectedYear, int selectedMonth, int selectedDay) {
-                // A data selecionada pelo usuário
-                String selectedDate = selectedYear + "-" + (selectedMonth + 1) + "-" + selectedDay;
-                txtData.setText(selectedDate);
-            }
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, (view, selectedYear, selectedMonth, selectedDay) -> {
+            // A data selecionada pelo usuário
+            String selectedDate = selectedYear + "-" + (selectedMonth + 1) + "-" + selectedDay;
+            txtData.setText(selectedDate);
         }, year, month, day);
 
         // Mostrar o seletor de data
