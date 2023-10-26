@@ -63,6 +63,11 @@ public class resumeActivity extends AppCompatActivity {
 
         TextView destino = findViewById(R.id.ResumeDestino);
         TextView data = findViewById(R.id.ResumeData);
+        TextView duracao = findViewById(R.id.ResumeDestino);
+        TextView viajantes = findViewById(R.id.resumeViajantes);
+        duracao.setText("Duração: " + objeto.getDuracaoDaViagem());
+        viajantes .setText("Total de Viajantes: " + objeto.getTotalViajante());
+
         destino.setText("Destino: " + objeto.getDestino());
         data.setText("Data: " + objeto.getData());
 
@@ -70,7 +75,7 @@ public class resumeActivity extends AppCompatActivity {
         TextView TotalAviao = findViewById(R.id.txtcustoTotalTarifaArea);
         TextView estimadoPessoa = findViewById(R.id.txtEstimadoPessoa);
         TextView aluguelVeiculo = findViewById(R.id.txtAluguelVeiculo);
-        TextView totalViajanteAviao = findViewById(R.id.txtTotalViajante);
+
 
         TotalAviao.setText("Total: " + decimalFormat.format((objeto.getCustoPorPessoa() * objeto.getTotalViajante()) + objeto.getAluguelVeiculo()));
 
@@ -86,7 +91,6 @@ public class resumeActivity extends AppCompatActivity {
         TextView CustoEstimadoPorRefeicao = findViewById(R.id.txtCustoEstimadoPorRefeicao);
         TextView QtdaRefeicaoPorDia = findViewById(R.id.txtQtdaRefeicaoPorDia);
         TextView DuracaoViagem = findViewById(R.id.txtDuracaoViagemResume);
-        TextView qtdaViajante = findViewById(R.id.txtQtdaViajanteResume);
         TextView txtCustoTotalRefeicao = findViewById(R.id.txtCustoTotalRefeicao);
         txtCustoTotalRefeicao.setText("Total: " + decimalFormat.format((objeto.getQtdaRefeicaoPorDia() * objeto.getTotalViajante() * objeto.getCustoEstimadoPorRefeicao() * objeto.getDuracaoDaViagem())));
 

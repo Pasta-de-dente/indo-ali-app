@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
         Button btnAnalise = findViewById(R.id.btnAnalisar);
         txtData = findViewById(R.id.txtDataViagem);
         EditText txtDestino = findViewById(R.id.lugarViagem);
-        EditText totalDeViajante=findViewById(R.id.txtDataViagem);
-        EditText txtDuracaoViagem=findViewById(R.id.txtQuantidadeViajantes);
+        EditText totalDeViajante=findViewById(R.id.txtQuantidadeViajantes);
+        EditText txtDuracaoViagem=findViewById(R.id.txtDuracaoViajem);
         ImageButton btnLogout = findViewById(R.id.btnLogout);
 
         txtData.setOnClickListener(new View.OnClickListener() {

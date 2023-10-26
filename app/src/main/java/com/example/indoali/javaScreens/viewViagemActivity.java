@@ -16,6 +16,8 @@ import com.example.indoali.R;
 import com.example.indoali.javaScreens.objects.Entretenimento;
 import com.example.indoali.javaScreens.objects.ObjectViagem;
 
+import org.w3c.dom.Text;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
@@ -45,7 +47,18 @@ public class viewViagemActivity extends AppCompatActivity {
         CardView cardViewHospedagem=findViewById(R.id.cardViewHospedagem);
         CardView cardViewRefeicao=findViewById(R.id.cardViewRefeicao);
 
+
         //Textview
+        //Viajem
+        TextView viewDURACAO_VIAGEM=findViewById(R.id.viewDURACAO_VIAGEM);
+        TextView viewQTDA_DE_VIAJANTES=findViewById(R.id.viewQTDA_DE_VIAJANTES);
+        TextView viewDATA_VIAGEM=findViewById(R.id.viewDATA_VIAGEM);
+        TextView viewDESTINO=findViewById(R.id.viewDESTINO);
+
+        viewDURACAO_VIAGEM.setText(String.valueOf(viagem.getDuracaoDaViagem()));
+        viewDESTINO.setText(String.valueOf(viagem.getDestino()));
+        viewDATA_VIAGEM.setText(String.valueOf(viagem.getData()));
+        viewQTDA_DE_VIAJANTES.setText(String.valueOf(viagem.getTotalViajante()));
 
         //Aviao
         TextView viewCUSTO_POR_PESSOA=findViewById(R.id.viewCUSTO_POR_PESSOA);

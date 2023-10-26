@@ -32,12 +32,11 @@ public class refeicaoActivity extends AppCompatActivity {
                 Intent intent = new Intent(refeicaoActivity.this, hospedagemActivity.class);
                 EditText CustoEstimadoPorRefeicao = findViewById(R.id.custoEstimadoPorRefeicao);
                 EditText RefeicaoPorDia = findViewById(R.id.refeicaoPorDia);
-                EditText duracaoViagemTxf = findViewById(R.id.duracaoViagemTxf);
-                EditText ViajantesTxt = findViewById(R.id.totalDeViajanteRefeicaoTxf);
+
 
                 viagem.setCustoEstimadoPorRefeicao(Integer.parseInt(CustoEstimadoPorRefeicao.getText().toString()));
                 viagem.setQtdaRefeicaoPorDia(Integer.parseInt(RefeicaoPorDia.getText().toString()));
-                viagem.setDuracaoDaViagem(Integer.parseInt(duracaoViagemTxf.getText().toString()));
+
                 intent.putExtra("Viagem", viagem);
                 startActivity(intent);
             }

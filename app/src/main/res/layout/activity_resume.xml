@@ -31,7 +31,20 @@
             android:text="@string/date"
             android:textColor="@color/white"
             android:textSize="24sp" />
-
+        <TextView
+            android:id="@+id/ResumeDuracao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/travelDuration"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+        <TextView
+            android:id="@+id/resumeViajantes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/totalPeoples"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
         <Space
             android:layout_width="wrap_content"
             android:layout_height="10dp" />
@@ -96,21 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="10dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/totalPeoples"
-            android:textColor="@color/white" />
 
-        <TextView
-            android:id="@+id/txtTotalViajante"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edittext_rounded_corner"
-            android:backgroundTint="@color/dark_gray"
-            android:paddingHorizontal="15dp"
-            android:paddingVertical="8dp"
-            android:textColor="@color/white" />
 
         <Space
             android:layout_width="wrap_content"
@@ -268,26 +267,6 @@
 
         <TextView
             android:id="@+id/txtCustoEstimadoPorRefeicao"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edittext_rounded_corner"
-            android:backgroundTint="@color/dark_gray"
-            android:paddingHorizontal="15dp"
-            android:paddingVertical="8dp"
-            android:textColor="@color/white" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="10dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/totalPeoples"
-            android:textColor="@color/white" />
-
-        <TextView
-            android:id="@+id/txtQtdaViajanteResume"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_rounded_corner"

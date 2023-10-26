@@ -16,7 +16,87 @@
             android:backgroundTint="@color/dark_green"
             android:text="voltar"
             android:textColor="@color/white" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewAviao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/edittext_rounded_corner"
+            android:backgroundTint="@color/dark_gray"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Viagem"
+                    android:textColor="@color/white"
+                    android:textSize="20dp">
+
+                </TextView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/black" />
+
+                <TextView
+                    android:id="@+id/viewDATA_VIAGEM"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="DATA VIAGEM"
+                    android:textColor="@color/white"
+                    android:textSize="15dp">
+
+                </TextView>
+                <TextView
+                    android:id="@+id/viewDESTINO"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="DESTINO"
+                    android:textColor="@color/white"
+                    android:textSize="15dp">
+
+                </TextView>
+                <TextView
+                    android:id="@+id/viewQTDA_DE_VIAJANTES"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="QTDA_DE_VIAJANTES"
+                    android:textColor="@color/white"
+                    android:textSize="15dp">
+
+                </TextView>
+                <TextView
+                    android:id="@+id/viewDURACAO_VIAGEM"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="DURACAO DE VIAGEM"
+                    android:textColor="@color/white"
+                    android:textSize="15dp">
+
+                </TextView>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/black" />
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewAviao"
             android:layout_width="match_parent"

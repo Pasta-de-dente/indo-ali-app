@@ -68,13 +68,17 @@ public class viagemAdapter extends BaseAdapter {
         destino.setText(ent.getDestino() + "");
 
         TextView total = view.findViewById(R.id.AdapterTotalViagem);
-        double totalcarro = ((ent.getTotalEstimadoKm() / ent.getMediaKmLitro()) * ent.getCustoMedioLitro()) / ent.getTotalVeiculo();
-        double totalAviao = ((ent.getCustoPorPessoa()* ent.getTotalViajanteAviao()) + ent.getAluguelVeiculo()) ;
-        double totalRefeicao = ((ent.getQtdaRefeicaoPorDia()* ent.getTotalViajanteRefeicao()) * ent.getCustoEstimadoPorRefeicao())* ent.getDuracaoDaViagem();
+
+        double totalGasolina = ((ent.getTotalEstimadoKm()/ ent.getMediaKmLitro()) * ent.getCustoMedioLitro())/ent.getTotalVeiculo();
         double totalHospedagem = (ent.getCustoMedioPorNoite()* ent.getTotalNoite()) * ent.getTotalQuartos();
+        double totaltarifaArea = ((ent.getCustoPorPessoa() * ent.getTotalViajante()) + ent.getAluguelVeiculo());
+        double totalRefeicao = ((ent.getQtdaRefeicaoPorDia()* ent.getTotalViajante()) * ent.getCustoEstimadoPorRefeicao())*ent.getDuracaoDaViagem();
 
-        total.setText((totalcarro+totalAviao+totalRefeicao+totalHospedagem) + "");
-
+        double totalEnt=0;
+        for (int j = 0; j < ent.listEntretenimento.size(); j++) {
+            totalEnt = totalEnt + ((ent.listEntretenimento.get(j).getPreco() * ent.listEntretenimento.get(j).getQtdaVezes()) * ent.listEntretenimento.get(j).getQtdaPessoas());
+        }
+        total.setText(""+totalGasolina+totalHospedagem+totaltarifaArea+totalRefeicao+totalEnt);
         return view;
     }
 }

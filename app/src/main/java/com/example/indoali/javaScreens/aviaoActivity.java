@@ -37,7 +37,7 @@ public class aviaoActivity extends AppCompatActivity {
 
                 EditText txfCustoEstimado = findViewById(R.id.custoEstimadoTxf);
                 EditText txfAluguelVeiculo = findViewById(R.id.aluguelVeiculoTxf);
-                EditText txfTotalviajante = findViewById(R.id.totalDeViajanteAviaoTxf);
+
 
                 viagem.setCustoPorPessoa(Double.parseDouble(txfCustoEstimado.getText().toString()));
                 viagem.setAluguelVeiculo(Double.parseDouble(txfAluguelVeiculo.getText().toString()));
