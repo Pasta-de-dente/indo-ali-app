@@ -195,6 +195,16 @@ public class ObjectViagem implements Serializable {
     private int idHospedagem;
     private int idEntretenimento;
 
+    public double getTotalEntretenimento() {
+        return totalEntretenimento;
+    }
+
+    public void setTotalEntretenimento(double totalEntretenimento) {
+        this.totalEntretenimento = totalEntretenimento;
+    }
+
+    private double totalEntretenimento;
+
     public String getDestino() {
         return destino;
     }
@@ -269,9 +279,7 @@ public class ObjectViagem implements Serializable {
             return true;
         } else {
             return false;
-
         }
-
     }
 }
 

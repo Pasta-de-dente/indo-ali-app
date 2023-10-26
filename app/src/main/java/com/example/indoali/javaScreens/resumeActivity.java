@@ -68,11 +68,12 @@ public class resumeActivity extends AppCompatActivity {
         TextView data = findViewById(R.id.ResumeData);
         TextView duracao = findViewById(R.id.ResumeDuracao);
         TextView viajantes = findViewById(R.id.resumeViajantes);
+        TextView totalViagem = findViewById(R.id.resumeTotalViagem);
 
-        duracao.setText("Duração: " + objeto.getDuracaoDaViagem());
-        viajantes.setText("Total de Viajantes: " + objeto.getTotalViajante());
-        destino.setText("Destino: " + objeto.getDestino());
-        data.setText("Data: " + objeto.getData());
+        duracao.setText(String.format(getString(R.string.cardTravelDuration), String.valueOf(objeto.getDuracaoDaViagem())));
+        viajantes.setText(String.format(getString(R.string.cardTravelTotalPeople), String.valueOf(objeto.getTotalViajante())));
+        destino.setText(String.format(getString(R.string.cardTravelDestination), String.valueOf(objeto.getDestino())));
+        data.setText(String.format(getString(R.string.cardTravelDate), String.valueOf(objeto.getData())));
 
         //TextView aviao
         TextView TotalAviao = findViewById(R.id.txtcustoTotalTarifaArea);
@@ -97,6 +98,7 @@ public class resumeActivity extends AppCompatActivity {
         double totalCarCalc = ((objeto.getTotalEstimadoKm() / objeto.getMediaKmLitro()) * objeto.getCustoMedioLitro()) / objeto.getTotalVeiculo();
 
         if (Double.isNaN(totalCarCalc)) {
+            totalCarCalc = 0.0;
             parentLayout.removeView(carSection);
         } else {
             TotalCarro.setText(String.format(getString(R.string.totalCostOfGasoline), decimalFormat.format(totalCarCalc)));
@@ -147,17 +149,19 @@ public class resumeActivity extends AppCompatActivity {
 
         TextView txtCustoTotalEntretenimento = findViewById(R.id.txtCustoTotalEntretenimento);
 
+        double totalEntCalc = 0;
+
         if (objeto.listEntretenimento.size() > 0) {
-            double total = 0;
             adapter = new entretenimentoAdapter(resumeActivity.this);
 
             arl = new ArrayList<Entretenimento>();
             adapter.setProductList(arl);
             productList.setAdapter(adapter);
-            Entretenimento ent = new Entretenimento();
 
             for (int i = 0; i < objeto.listEntretenimento.size(); i++) {
-                total = total + ((objeto.listEntretenimento.get(i).getPreco() * objeto.listEntretenimento.get(i).getQtdaVezes()) * objeto.listEntretenimento.get(i).getQtdaPessoas());
+                Entretenimento ent = new Entretenimento();
+
+                totalEntCalc = totalEntCalc + ((objeto.listEntretenimento.get(i).getPreco() * objeto.listEntretenimento.get(i).getQtdaVezes()) * objeto.listEntretenimento.get(i).getQtdaPessoas());
                 ent.setNome(objeto.listEntretenimento.get(i).getNome());
                 ent.setPreco(objeto.listEntretenimento.get(i).getPreco());
                 ent.setQtdaVezes(objeto.listEntretenimento.get(i).getQtdaVezes());
@@ -166,10 +170,14 @@ public class resumeActivity extends AppCompatActivity {
                 arl.add(ent);
                 adapter.notifyDataSetChanged();
             }
-            txtCustoTotalEntretenimento.setText(String.format(getString(R.string.totalEntertainmentCost), decimalFormat.format(total)));
+            txtCustoTotalEntretenimento.setText(String.format(getString(R.string.totalEntertainmentCost), decimalFormat.format(totalEntCalc)));
         } else {
             parentLayout.removeView(entertainmentSection);
         }
+
+        double totalViagemCalc = totalAviaoCalc + totalCarCalc + totalRefeicaoCalc + totalHospedagemCalc + totalEntCalc;
+        totalViagem.setText(String.format(getString(R.string.totalReal), decimalFormat.format(totalViagemCalc)));
+
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -201,7 +209,6 @@ public class resumeActivity extends AppCompatActivity {
                 HospedagemModel.setTotalQuartos(objeto.getTotalQuartos());
                 HospedagemModel.setCustoMedioPorNoite(objeto.getCustoMedioPorNoite());
                 long rowAffectHospedagem = hospedagemDAO.Insert(HospedagemModel);
-
 
                 ViagemDAO viagemDAO = new ViagemDAO(resumeActivity.this);
                 viagemModel viagemModel = new viagemModel();

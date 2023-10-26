@@ -33,7 +33,7 @@ public class AviaoDAO extends AbstrataDAO {
 
         rowAffect = db.insert(aviaoModel.TABELA_NOME, null, values);
 
-        //  Close();
+        Close();
 
         return rowAffect;
     }
@@ -58,7 +58,6 @@ public class AviaoDAO extends AbstrataDAO {
                 int idIndex = cursor.getColumnIndex(aviaoModel.COLUNA_ID);
                 int custoPorPessoaIndex = cursor.getColumnIndex(aviaoModel.COLUNA_CUSTO_POR_PESSOA);
                 int aluguelVeiculoIndex = cursor.getColumnIndex(aviaoModel.COLUNA_ALUGUEL_VEICULO);
-
 
                 do {
                     aviaoModel model = new aviaoModel();

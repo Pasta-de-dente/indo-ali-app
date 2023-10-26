@@ -12,12 +12,16 @@ import com.example.indoali.R;
 import com.example.indoali.javaScreens.objects.ObjectViagem;
 import com.example.indoali.javaScreens.viewViagemActivity;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class viagemAdapter extends BaseAdapter {
 
     private ArrayList<ObjectViagem> productList;
     private final Activity activity;
+
+    DecimalFormat decimalFormat = new DecimalFormat("0.00");
+
 
     public viagemAdapter(final Activity activity) {
         this.activity = activity;
@@ -54,8 +58,8 @@ public class viagemAdapter extends BaseAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(activity, viewViagemActivity.class);
-                intent.putExtra("Viagem",ent);
+                Intent intent = new Intent(activity, viewViagemActivity.class);
+                intent.putExtra("Viagem", ent);
                 activity.startActivity(intent);
             }
         });
@@ -69,16 +73,27 @@ public class viagemAdapter extends BaseAdapter {
 
         TextView total = view.findViewById(R.id.AdapterTotalViagem);
 
-        double totalGasolina = ((ent.getTotalEstimadoKm()/ ent.getMediaKmLitro()) * ent.getCustoMedioLitro())/ent.getTotalVeiculo();
-        double totalHospedagem = (ent.getCustoMedioPorNoite()* ent.getTotalNoite()) * ent.getTotalQuartos();
-        double totaltarifaArea = ((ent.getCustoPorPessoa() * ent.getTotalViajante()) + ent.getAluguelVeiculo());
-        double totalRefeicao = ((ent.getQtdaRefeicaoPorDia()* ent.getTotalViajante()) * ent.getCustoEstimadoPorRefeicao())*ent.getDuracaoDaViagem();
+        double totalGasolina = ((ent.getTotalEstimadoKm() / ent.getMediaKmLitro()) * ent.getCustoMedioLitro()) / ent.getTotalVeiculo();
 
-        double totalEnt=0;
+        if (Double.isNaN(totalGasolina)) {
+            totalGasolina = 0.0;
+        }
+
+        double totalHospedagem = (ent.getCustoMedioPorNoite() * ent.getTotalNoite()) * ent.getTotalQuartos();
+        double totaltarifaArea = ((ent.getCustoPorPessoa() * ent.getTotalViajante()) + ent.getAluguelVeiculo());
+        double totalRefeicao = ((ent.getQtdaRefeicaoPorDia() * ent.getTotalViajante()) * ent.getCustoEstimadoPorRefeicao()) * ent.getDuracaoDaViagem();
+
+        double totalEnt = 0;
+
         for (int j = 0; j < ent.listEntretenimento.size(); j++) {
             totalEnt = totalEnt + ((ent.listEntretenimento.get(j).getPreco() * ent.listEntretenimento.get(j).getQtdaVezes()) * ent.listEntretenimento.get(j).getQtdaPessoas());
         }
-        total.setText(""+totalGasolina+totalHospedagem+totaltarifaArea+totalRefeicao+totalEnt);
+
+        ent.setTotalEntretenimento(totalEnt);
+
+        double totalCalc = totalGasolina + totalHospedagem + totaltarifaArea + totalRefeicao + totalEnt;
+        total.setText("R$ " + decimalFormat.format(totalCalc));
+
         return view;
     }
 }

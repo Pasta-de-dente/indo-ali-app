@@ -18,7 +18,7 @@ public class EntretenimentoDAO extends AbstrataDAO {
     public EntretenimentoDAO(Context context) {
         db_helper = new DBOpenHelper(context);
     }
-    
+
     public long Insert(entretenimentoModel model) {
         long rowAffect = 0; // Se for maior que 0, é pq o insert funcionou;
 

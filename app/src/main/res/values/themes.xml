@@ -13,6 +13,7 @@
 
     <style name="Theme.IndoAli" parent="Base.Theme.IndoAli">
         <item name="colorPrimary">@color/black</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
 
         <!-- Defining that new color in ColorPrimaryDark -->
         <item name="colorPrimaryDark">@color/black</item>
