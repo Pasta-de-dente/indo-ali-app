@@ -66,8 +66,9 @@ public class MainActivity extends AppCompatActivity {
                 edit.remove("KEY_EMAIL").apply();
                 edit.remove("KEY_NOME").apply();
 
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+//                startActivity(intent);
+                finish();
             }
         });
 
@@ -86,11 +87,11 @@ public class MainActivity extends AppCompatActivity {
                     txtDestino.setError("Campo necessário!");
                 }
 
-                if (txtDuracaoViagem.getText().toString().isEmpty()){
+                if (txtDuracaoViagem.getText().toString().isEmpty()) {
                     txtDuracaoViagem.setError("Campo necessário!");
                 }
 
-                if (totalDeViajante.getText().toString().isEmpty()){
+                if (totalDeViajante.getText().toString().isEmpty()) {
                     totalDeViajante.setError("Campo necessário!");
                 }
 
@@ -127,28 +128,4 @@ public class MainActivity extends AppCompatActivity {
         // Mostrar o seletor de data
         datePickerDialog.show();
     }
-//    private void showDatePickerDialog() {
-//        // Obter a data atual (data final)
-//        Calendar currentCalendar = Calendar.getInstance();
-//        int currentYear = currentCalendar.get(Calendar.YEAR);
-//        int currentMonth = currentCalendar.get(Calendar.MONTH);
-//        int currentDay = currentCalendar.get(Calendar.DAY_OF_MONTH);
-//
-//        // Criar um DatePickerDialog e configurá-lo
-//        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-//            @Override
-//            public void onDateSet(DatePicker view, int selectedYear, int selectedMonth, int selectedDay) {
-//                // A data selecionada pelo usuário (data inicial)
-//                String selectedDate = selectedYear + "-" + (selectedMonth + 1) + "-" + selectedDay;
-//                txtData.setText(selectedDate);
-//
-//                // Você pode usar currentCalendar para obter a data final se necessário
-//                String currentDate = currentYear + "-" + (currentMonth + 1) + "-" + currentDay;
-//                // Faça o que desejar com a data final (currentDate)
-//            }
-//        }, currentYear, currentMonth, currentDay);
-//
-//        // Mostrar o seletor de data
-//        datePickerDialog.show();
-//    }
 }

@@ -31,8 +31,7 @@ public class hospedagemActivity extends AppCompatActivity {
 
                 if (custoPorNoite.getText().toString().isEmpty() &&
                         totalDeNoite.getText().toString().isEmpty() &&
-                        totalDeQuarto.getText().toString().isEmpty()
-                ) {
+                        totalDeQuarto.getText().toString().isEmpty()) {
                     viagem.setCustoMedioPorNoite(0.0);
                     viagem.setTotalNoite(0);
                     viagem.setTotalQuartos(0);

@@ -38,12 +38,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class resumeActivity extends AppCompatActivity {
-    private ListView productList;
-
-    private entretenimentoAdapter adapter;
-
     ArrayList<Entretenimento> arl;
-
     DecimalFormat decimalFormat = new DecimalFormat("0.00");
 
     @Override
@@ -62,7 +57,7 @@ public class resumeActivity extends AppCompatActivity {
 
         Button btnNext = findViewById(R.id.btnNext);
         ImageButton btnBack = findViewById(R.id.btnBack);
-        productList = findViewById(R.id.listEntretenimentos);
+        ListView productList = findViewById(R.id.listEntretenimentos);
 
         TextView destino = findViewById(R.id.ResumeDestino);
         TextView data = findViewById(R.id.ResumeData);
@@ -70,10 +65,10 @@ public class resumeActivity extends AppCompatActivity {
         TextView viajantes = findViewById(R.id.resumeViajantes);
         TextView totalViagem = findViewById(R.id.resumeTotalViagem);
 
-        duracao.setText(String.format(getString(R.string.cardTravelDuration), String.valueOf(objeto.getDuracaoDaViagem())));
-        viajantes.setText(String.format(getString(R.string.cardTravelTotalPeople), String.valueOf(objeto.getTotalViajante())));
-        destino.setText(String.format(getString(R.string.cardTravelDestination), String.valueOf(objeto.getDestino())));
-        data.setText(String.format(getString(R.string.cardTravelDate), String.valueOf(objeto.getData())));
+        duracao.setText(String.format(getString(R.string.cardTravelDuration), objeto.getDuracaoDaViagem()));
+        viajantes.setText(String.format(getString(R.string.cardTravelTotalPeople), objeto.getTotalViajante()));
+        destino.setText(String.format(getString(R.string.cardTravelDestination), objeto.getDestino()));
+        data.setText(String.format(getString(R.string.cardTravelDate), objeto.getData()));
 
         //TextView aviao
         TextView TotalAviao = findViewById(R.id.txtcustoTotalTarifaArea);
@@ -152,9 +147,9 @@ public class resumeActivity extends AppCompatActivity {
         double totalEntCalc = 0;
 
         if (objeto.listEntretenimento.size() > 0) {
-            adapter = new entretenimentoAdapter(resumeActivity.this);
+            entretenimentoAdapter adapter = new entretenimentoAdapter(resumeActivity.this);
 
-            arl = new ArrayList<Entretenimento>();
+            arl = new ArrayList<>();
             adapter.setProductList(arl);
             productList.setAdapter(adapter);
 

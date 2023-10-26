@@ -1,35 +1,15 @@
 package com.example.indoali.javaScreens;
-
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-
-import com.example.indoali.List.entretenimentoAdapter;
-import com.example.indoali.List.viagemAdapter;
-import com.example.indoali.MainActivity;
 import com.example.indoali.R;
-import com.example.indoali.javaScreens.objects.Entretenimento;
 import com.example.indoali.javaScreens.objects.ObjectViagem;
-
-import org.w3c.dom.Text;
-
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 
 public class viewViagemActivity extends AppCompatActivity {
-
-//    private ListView productList;
-
-//    private entretenimentoAdapter adapter;
-
-//    ArrayList<Entretenimento> arl;
     DecimalFormat decimalFormat = new DecimalFormat("0.00");
 
     @Override
@@ -56,10 +36,10 @@ public class viewViagemActivity extends AppCompatActivity {
         TextView viewDESTINO = findViewById(R.id.viewDESTINO);
         TextView viewTOTAL_VIAGEM = findViewById(R.id.viewTOTAL_VIAGEM);
 
-        viewDURACAO_VIAGEM.setText(String.format(getString(R.string.cardTravelDuration), String.valueOf(viagem.getDuracaoDaViagem())));
-        viewDESTINO.setText(String.format(getString(R.string.cardTravelDestination), String.valueOf(viagem.getDestino())));
-        viewDATA_VIAGEM.setText(String.format(getString(R.string.cardTravelDate), String.valueOf(viagem.getData())));
-        viewQTDA_DE_VIAJANTES.setText(String.format(getString(R.string.cardTravelTotalPeople), String.valueOf(viagem.getTotalViajante())));
+        viewDURACAO_VIAGEM.setText(String.format(getString(R.string.cardTravelDuration), viagem.getDuracaoDaViagem()));
+        viewDESTINO.setText(String.format(getString(R.string.cardTravelDestination), viagem.getDestino()));
+        viewDATA_VIAGEM.setText(String.format(getString(R.string.cardTravelDate), viagem.getData()));
+        viewQTDA_DE_VIAJANTES.setText(String.format(getString(R.string.cardTravelTotalPeople), viagem.getTotalViajante()));
 
         //Aviao
         TextView viewCUSTO_POR_PESSOA = findViewById(R.id.viewCUSTO_POR_PESSOA);
@@ -85,9 +65,9 @@ public class viewViagemActivity extends AppCompatActivity {
         TextView viewCarroTotal = findViewById(R.id.viewCarroTotal);
 
         viewCUSTO_MEDIO_LITRO.setText(String.format(getString(R.string.cardCarAverageCostPerLiter), decimalFormat.format(viagem.getCustoMedioLitro())));
-        viewMEDIA_KM_LITRO.setText(String.format(getString(R.string.cardCarAverageKmPerLiter), String.valueOf(viagem.getMediaKmLitro())));
-        viewTOTAL_VEICULO.setText(String.format(getString(R.string.cardCarNumberOfVehicles), String.valueOf(viagem.getTotalVeiculo())));
-        viewTOTAL_ESTIMADO_KM.setText(String.format(getString(R.string.cardCarTotalEstimatedKm), String.valueOf(viagem.getTotalEstimadoKm())));
+        viewMEDIA_KM_LITRO.setText(String.format(getString(R.string.cardCarAverageKmPerLiter), viagem.getMediaKmLitro()));
+        viewTOTAL_VEICULO.setText(String.format(getString(R.string.cardCarNumberOfVehicles), viagem.getTotalVeiculo()));
+        viewTOTAL_ESTIMADO_KM.setText(String.format(getString(R.string.cardCarTotalEstimatedKm), viagem.getTotalEstimadoKm()));
 
         double totalCarCalc = ((viagem.getTotalEstimadoKm() / viagem.getMediaKmLitro()) * viagem.getCustoMedioLitro()) / viagem.getTotalVeiculo();
 
@@ -107,7 +87,7 @@ public class viewViagemActivity extends AppCompatActivity {
         TextView viewRefeicaoTotal = findViewById(R.id.viewRefeicaoTotal);
 
         viewCUSTO_ESTIMADO_POR_REFEICAO.setText(String.format(getString(R.string.cardMealAverageCostPerMeal), decimalFormat.format(viagem.getCustoEstimadoPorRefeicao())));
-        viewQTDA_REFEICAO_POR_DIA.setText(String.format(getString(R.string.cardMealMealsPerDay), String.valueOf(viagem.getQtdaRefeicaoPorDia())));
+        viewQTDA_REFEICAO_POR_DIA.setText(String.format(getString(R.string.cardMealMealsPerDay), viagem.getQtdaRefeicaoPorDia()));
 
         double totalRefeicaoCalc = (viagem.getQtdaRefeicaoPorDia() * viagem.getTotalViajante() * viagem.getCustoEstimadoPorRefeicao() * viagem.getDuracaoDaViagem());
 
@@ -124,8 +104,8 @@ public class viewViagemActivity extends AppCompatActivity {
         TextView viewHospedagemTotal = findViewById(R.id.viewHospedagemTotal);
 
         viewCUSTO_MEDIO_POR_NOITE.setText(String.format(getString(R.string.cardAccommodationAverageCostPerNight), decimalFormat.format(viagem.getCustoMedioPorNoite())));
-        viewTOTAL_DE_NOITE.setText(String.format(getString(R.string.cardAccommodationTotalNights), String.valueOf(viagem.getTotalNoite())));
-        viewTOTAL_QUARTOS.setText(String.format(getString(R.string.cardAccommodationTotalRooms), String.valueOf(viagem.getTotalQuartos())));
+        viewTOTAL_DE_NOITE.setText(String.format(getString(R.string.cardAccommodationTotalNights), viagem.getTotalNoite()));
+        viewTOTAL_QUARTOS.setText(String.format(getString(R.string.cardAccommodationTotalRooms), viagem.getTotalQuartos()));
 
         double totalHospedagemCalc = (viagem.getCustoMedioPorNoite() * viagem.getTotalNoite()) * viagem.getTotalQuartos();
 

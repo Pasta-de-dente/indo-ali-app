@@ -1,5 +1,4 @@
 package com.example.indoali.javaScreens;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -7,22 +6,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.LayoutInflater;
 import android.widget.ListView;
-import android.widget.Toast;
-
 import com.example.indoali.List.entretenimentoAdapter;
 import com.example.indoali.R;
 import com.example.indoali.javaScreens.objects.ObjectViagem;
 import com.example.indoali.javaScreens.objects.Entretenimento;
-
 import java.util.ArrayList;
 
 public class entretenimentoActivity extends AppCompatActivity {
-    private ListView productList;
 
     private entretenimentoAdapter adapter;
 
@@ -37,18 +30,17 @@ public class entretenimentoActivity extends AppCompatActivity {
         Button btnBack = findViewById(R.id.btnBack);
         Button btnAddNewEntretenimento = findViewById(R.id.addNewEntretenimento);
 
-        productList = findViewById(R.id.listLugares);
+        ListView productList = findViewById(R.id.listLugares);
         ObjectViagem objeto = (ObjectViagem) getIntent().getSerializableExtra("Viagem");
 
         adapter = new entretenimentoAdapter(entretenimentoActivity.this);
-        arl = new ArrayList<Entretenimento>();
+        arl = new ArrayList<>();
         adapter.setProductList(arl);
         productList.setAdapter(adapter);
 
         btnAddNewEntretenimento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 // Crie um AlertDialog com layout personalizado
                 AlertDialog.Builder builder = new AlertDialog.Builder(entretenimentoActivity.this);
                 LayoutInflater inflater = getLayoutInflater();
@@ -76,7 +68,6 @@ public class entretenimentoActivity extends AppCompatActivity {
                         ent.setQtdaPessoas(Integer.parseInt(qtdaPessoas));
                         arl.add(ent);
                         adapter.notifyDataSetChanged();
-
                     }
                 });
 
