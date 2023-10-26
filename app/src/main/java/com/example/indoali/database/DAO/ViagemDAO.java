@@ -37,8 +37,8 @@ public class ViagemDAO extends AbstrataDAO {
 
         ContentValues values = new ContentValues();
         values.put(viagemModel.COLUNA_DATA, model.getData());
-        values.put(viagemModel.COLUNA_DURACAO,model.getDuracao());
-        values.put(viagemModel.COLUNA_QTDA_VIAJANTES,model.getQtdaViajante());
+        values.put(viagemModel.COLUNA_DURACAO, model.getDuracao());
+        values.put(viagemModel.COLUNA_QTDA_VIAJANTES, model.getQtdaViajante());
         values.put(viagemModel.COLUNA_ID_PROFILE, model.getIdProfile());
         values.put(viagemModel.COLUNA_DESTINO, model.getDestino());
         values.put(viagemModel.COLUNA_ID_REFEICAO, model.getIdRefeicao());
@@ -118,7 +118,6 @@ public class ViagemDAO extends AbstrataDAO {
 
                 int columnIndexCustoPorPessoa = cursor.getColumnIndex(aviaoModel.COLUNA_CUSTO_POR_PESSOA);
                 double custoPorPessoa = columnIndexCustoPorPessoa >= 0 ? cursor.getDouble(columnIndexCustoPorPessoa) : 0.0;
-
 
 
 // Refeição
@@ -210,9 +209,9 @@ public class ViagemDAO extends AbstrataDAO {
 
             } while (cursorEntretenimento.moveToNext());
         }
-        for(int i=0;i<viagemList.size();i++){
-            for(int j=0;j<EntretenimentoList.size();j++){
-                if(EntretenimentoList.get(j).getIdViagemToEntretenimento()==viagemList.get(i).getIdEntretenimento()){
+        for (int i = 0; i < viagemList.size(); i++) {
+            for (int j = 0; j < EntretenimentoList.size(); j++) {
+                if (EntretenimentoList.get(j).getIdViagemToEntretenimento() == viagemList.get(i).getIdEntretenimento()) {
                     viagemList.get(i).listEntretenimento.add(EntretenimentoList.get(j));
                 }
             }

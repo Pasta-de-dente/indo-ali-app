@@ -86,6 +86,14 @@ public class MainActivity extends AppCompatActivity {
                     txtDestino.setError("Campo necessário!");
                 }
 
+                if (txtDuracaoViagem.getText().toString().isEmpty()){
+                    txtDuracaoViagem.setError("Campo necessário!");
+                }
+
+                if (totalDeViajante.getText().toString().isEmpty()){
+                    totalDeViajante.setError("Campo necessário!");
+                }
+
                 if (!txtData.getText().toString().isEmpty() && !txtDestino.getText().toString().isEmpty()) {
                     viagem.setData(txtData.getText().toString());
                     viagem.setDestino(txtDestino.getText().toString());

@@ -29,7 +29,7 @@
             android:id="@+id/ResumeDestino"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/destination"
+            android:text="@string/cardTravelDestination"
             android:textColor="@color/white"
             android:textSize="24sp" />
 
@@ -37,7 +37,7 @@
             android:id="@+id/ResumeData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/date"
+            android:text="@string/cardTravelDate"
             android:textColor="@color/white"
             android:textSize="24sp" />
 
@@ -45,7 +45,7 @@
             android:id="@+id/ResumeDuracao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/travelDuration"
+            android:text="@string/cardTravelDuration"
             android:textColor="@color/white"
             android:textSize="24sp" />
 
@@ -53,7 +53,15 @@
             android:id="@+id/resumeViajantes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/totalPeoples"
+            android:text="@string/cardTravelTotalPeople"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/resumeTotalViagem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/totalReal"
             android:textColor="@color/white"
             android:textSize="24sp" />
 
