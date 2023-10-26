@@ -1,19 +1,14 @@
 package com.example.indoali.List;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.media.Image;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.indoali.R;
 import com.example.indoali.javaScreens.objects.Entretenimento;
-
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
@@ -73,13 +68,10 @@ public class entretenimentoAdapter extends BaseAdapter {
         total.setText("Total: R$ " + decimalFormat.format(((ent.getPreco() * ent.getQtdaPessoas())) * ent.getQtdaVezes()));
 
         ImageButton btnDelete = view.findViewById(R.id.btnDeletar);
-        btnDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               productList.remove(i);
-               notifyDataSetChanged();
-                Toast.makeText(activity, "Removido com sucesso!", Toast.LENGTH_SHORT).show();
-            }
+        btnDelete.setOnClickListener(view1 -> {
+           productList.remove(i);
+           notifyDataSetChanged();
+            Toast.makeText(activity, "Removido com sucesso!", Toast.LENGTH_SHORT).show();
         });
 
         return view;

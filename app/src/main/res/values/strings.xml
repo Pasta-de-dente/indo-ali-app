@@ -60,19 +60,19 @@
     <string name="real">R$ %s</string>
     <string name="cardTravelDate">Data da viagem: %s</string>
     <string name="cardTravelDestination">Destino: %s</string>
-    <string name="cardTravelTotalPeople">Viajantes: %s pessoas</string>
-    <string name="cardTravelDuration">Duração: %s dias</string>
+    <string name="cardTravelTotalPeople">Viajantes: %d pessoas</string>
+    <string name="cardTravelDuration">Duração: %d dias</string>
     <string name="cardPlaneCostPerPerson">R$ %s por pessoa</string>
     <string name="cardPlaneVehicleRental">Aluguel veículo: R$ %s</string>
     <string name="totalReal">Total: R$ %s</string>
     <string name="cardCarAverageCostPerLiter">R$ %s por litro</string>
-    <string name="cardCarAverageKmPerLiter">%skm por litro</string>
-    <string name="cardCarNumberOfVehicles">%s carros</string>
-    <string name="cardCarTotalEstimatedKm">Distância estimada: %skm</string>
+    <string name="cardCarAverageKmPerLiter">%.1fkm por litro</string>
+    <string name="cardCarNumberOfVehicles">%d carros</string>
+    <string name="cardCarTotalEstimatedKm">Distância estimada: %.1fkm</string>
     <string name="cardMealAverageCostPerMeal">R$ %s por refeição</string>
-    <string name="cardMealMealsPerDay">%s refeições por dia</string>
+    <string name="cardMealMealsPerDay">%d refeições por dia</string>
     <string name="cardAccommodationAverageCostPerNight">R$ %s por noite</string>
-    <string name="cardAccommodationTotalNights">%s noite(s)</string>
-    <string name="cardAccommodationTotalRooms">%s quarto(s)</string>
+    <string name="cardAccommodationTotalNights">%d noite(s)</string>
+    <string name="cardAccommodationTotalRooms">%d quarto(s)</string>
     <string name="moreDetails">Mais detalhes</string>
 </resources>

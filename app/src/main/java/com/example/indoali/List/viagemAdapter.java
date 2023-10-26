@@ -55,15 +55,12 @@ public class viagemAdapter extends BaseAdapter {
             view = activity.getLayoutInflater().inflate(R.layout.viagem_lista, viewGroup, false);
         }
         ObjectViagem ent = productList.get(i);
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(activity, viewViagemActivity.class);
-                intent.putExtra("Viagem", ent);
-                activity.startActivity(intent);
-            }
-        });
 
+        view.setOnClickListener(view1 -> {
+            Intent intent = new Intent(activity, viewViagemActivity.class);
+            intent.putExtra("Viagem", ent);
+            activity.startActivity(intent);
+        });
 
         TextView data = view.findViewById(R.id.AdapterDataViagem);
         data.setText(ent.getData() + "");
