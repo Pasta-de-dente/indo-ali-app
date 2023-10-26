@@ -20,7 +20,6 @@ public class hospedagemActivity extends AppCompatActivity {
         Button btnNext = findViewById(R.id.nextBtn);
         Button btnBack = findViewById(R.id.btnBack);
         ObjectViagem viagem = (ObjectViagem) getIntent().getSerializableExtra("Viagem");
-
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,13 +58,6 @@ public class hospedagemActivity extends AppCompatActivity {
             }
         });
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(hospedagemActivity.this, refeicaoActivity.class);
-                intent.putExtra("Viagem", viagem);
-                startActivity(intent);
-            }
-        });
+        btnBack.setOnClickListener(view -> finish());
     }
 }

@@ -30,12 +30,10 @@ public class aviaoActivity extends AppCompatActivity {
 
                 EditText txfCustoEstimado = findViewById(R.id.custoEstimadoTxf);
                 EditText txfAluguelVeiculo = findViewById(R.id.aluguelVeiculoTxf);
-                EditText txfTotalviajante = findViewById(R.id.totalDeViajanteAviaoTxf);
 
-                if (txfCustoEstimado.getText().toString().isEmpty() && txfAluguelVeiculo.getText().toString().isEmpty() && txfTotalviajante.getText().toString().isEmpty()) {
+                if (txfCustoEstimado.getText().toString().isEmpty() && txfAluguelVeiculo.getText().toString().isEmpty()) {
                     viagem.setCustoPorPessoa(0.0);
                     viagem.setAluguelVeiculo(0.0);
-                    viagem.setTotalViajanteAviao(0);
 
                     intent.putExtra("Viagem", viagem);
                     startActivity(intent);
@@ -44,12 +42,9 @@ public class aviaoActivity extends AppCompatActivity {
                         txfCustoEstimado.setError("Campo necessário");
                     } else if (txfAluguelVeiculo.getText().toString().isEmpty()) {
                         txfAluguelVeiculo.setError("Campo necessário");
-                    } else if (txfTotalviajante.getText().toString().isEmpty()) {
-                        txfTotalviajante.setError("Campo necessário");
                     } else {
                         viagem.setCustoPorPessoa(Double.parseDouble(txfCustoEstimado.getText().toString()));
                         viagem.setAluguelVeiculo(Double.parseDouble(txfAluguelVeiculo.getText().toString()));
-                        viagem.setTotalViajanteAviao(Integer.parseInt(txfTotalviajante.getText().toString()));
 
                         intent.putExtra("Viagem", viagem);
                         startActivity(intent);
@@ -59,13 +54,6 @@ public class aviaoActivity extends AppCompatActivity {
             }
         });
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(aviaoActivity.this, MainActivity.class);
-                intent.putExtra("Viagem", viagem);
-                startActivity(intent);
-            }
-        });
+        btnBack.setOnClickListener(view -> finish());
     }
 }

@@ -10,8 +10,7 @@ public class carroModel implements Serializable {
             COLUNA_ID = "_id",
             COLUNA_TOTAL_ESTIMADO_KM = "TotalEstimadoKM",
             COLUNA_MEDIA_KM_LITRO = "MediaKMLitro",
-
-    COLUNA_CUSTO_MEDIO_LITRO = "CustoMedioLitro",
+            COLUNA_CUSTO_MEDIO_LITRO = "CustoMedioLitro",
             COLUNA_TOTAL_VEICULO = "TotalVeiculos";
 
     public static final String CREATE_TABLE =

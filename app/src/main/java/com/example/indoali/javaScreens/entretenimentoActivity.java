@@ -36,6 +36,7 @@ public class entretenimentoActivity extends AppCompatActivity {
         Button btnNext = findViewById(R.id.nextBtn);
         Button btnBack = findViewById(R.id.btnBack);
         Button btnAddNewEntretenimento = findViewById(R.id.addNewEntretenimento);
+
         productList = findViewById(R.id.listLugares);
         ObjectViagem objeto = (ObjectViagem) getIntent().getSerializableExtra("Viagem");
 
@@ -104,7 +105,7 @@ public class entretenimentoActivity extends AppCompatActivity {
                     builder.setTitle("Aviso");
                     builder.setMessage("Você não adicionou nenhum dado a sua viagem, por favor retorne e adicione os dados corretamente!");
 
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener(){
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
                         }
@@ -121,15 +122,7 @@ public class entretenimentoActivity extends AppCompatActivity {
             }
         });
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(entretenimentoActivity.this, hospedagemActivity.class);
-                intent.putExtra("Viagem", objeto);
-                startActivity(intent);
-            }
-        });
-
+        btnBack.setOnClickListener(view -> finish());
     }
 
 }

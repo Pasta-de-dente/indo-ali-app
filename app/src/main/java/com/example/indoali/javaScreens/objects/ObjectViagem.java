@@ -1,57 +1,28 @@
 package com.example.indoali.javaScreens.objects;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ObjectViagem implements Serializable {
-    public void RemoverObjectViagem() {
-        this.TotalViajanteAviao = 0;
-        this.TotalViajanteRefeicao = 0;
-        this.DuracaoDaViagem = 0;
-        this.listaViagens.clear();
-        this.listEntretenimento.clear();
-        this.CustoPorPessoa = 0.0;
-        this.AluguelVeiculo = 0.0;
-        this.TotalEstimadoKm = 0.0;
-        this.MediaKmLitro = 0.0;
-        this.CustoMedioLitro = 0.0;
-        this.TotalVeiculo = 0;
-        this.CustoMedioPorNoite = 0.0;
-        this.TotalNoite = 0;
-        this.totalQuartos = 0;
-        this.custoTotal = 0.0;
-        this.CustoEstimadoPorRefeicao = 0.0;
-        this.qtdaRefeicaoPorDia = 0;
-        this.destino = "";
-        this.data = "";
-    }
+    private int TotalViajante = 0;
 
-    private int TotalViajanteAviao = 0;
-    private int TotalViajanteRefeicao = 0;
     private int DuracaoDaViagem = 0;
 
-    public int getTotalViajanteAviao() {
-        return TotalViajanteAviao;
+    public int getTotalViajante() {
+        return TotalViajante;
     }
 
-    public void setTotalViajanteAviao(int totalViajanteAviao) {
-        TotalViajanteAviao = totalViajanteAviao;
-    }
-
-    public int getTotalViajanteRefeicao() {
-        return TotalViajanteRefeicao;
-    }
-
-    public void setTotalViajanteRefeicao(int totalViajanteRefeicao) {
-        TotalViajanteRefeicao = totalViajanteRefeicao;
+    public void setTotalViajante(int totalViajanteRefeicao) {
+        TotalViajante = totalViajanteRefeicao;
     }
 
     public int getDuracaoDaViagem() {
         return DuracaoDaViagem;
     }
 
-    public void setDuracaoDaViagem(int duracaoDaViagem) {
-        DuracaoDaViagem = duracaoDaViagem;
+    public void setDuracaoDaViagem(int duracao) {
+        DuracaoDaViagem = duracao;
     }
 
     private int KEY_ID_PROFILE;
@@ -87,7 +58,7 @@ public class ObjectViagem implements Serializable {
     private Double CustoPorPessoa = 0.0;
     private Double AluguelVeiculo = 0.0;
 
-    public List<Entretenimento> listEntretenimento;
+    public List<Entretenimento> listEntretenimento=new ArrayList<>();
 
     public int get_id() {
         return _id;
@@ -283,14 +254,12 @@ public class ObjectViagem implements Serializable {
     public boolean verificaVazio() {
         if(getCustoEstimadoPorRefeicao() == 0.0
                 && getAluguelVeiculo() == 0.0
-                && getTotalViajanteAviao() == 0
                 && getTotalEstimadoKm() == 0.0
                 && getMediaKmLitro() == 0.0
                 && getCustoMedioLitro() == 0.0
                 && getTotalVeiculo() == 0
                 && getCustoEstimadoPorRefeicao() == 0.0
                 && getQtdaRefeicaoPorDia() == 0
-                && getTotalViajanteRefeicao() == 0
                 && getDuracaoDaViagem() == 0
                 && getCustoMedioPorNoite() == 0.0
                 && getTotalNoite() == 0

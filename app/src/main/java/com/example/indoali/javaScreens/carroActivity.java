@@ -8,6 +8,7 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.indoali.MainActivity;
 import com.example.indoali.R;
 import com.example.indoali.javaScreens.objects.ObjectViagem;
 
@@ -65,13 +66,6 @@ public class carroActivity extends AppCompatActivity {
             }
         });
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(carroActivity.this, aviaoActivity.class);
-                intent.putExtra("Viagem", objeto);
-                startActivity(intent);
-            }
-        });
+        btnBack.setOnClickListener(view -> finish());
     }
 }

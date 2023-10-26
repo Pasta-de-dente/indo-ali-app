@@ -21,43 +21,35 @@ import com.example.indoali.javaScreens.objects.ObjectViagem;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private ListView productList;
     private EditText txtData;
-    private viagemAdapter adapter;
     ArrayList<ObjectViagem> arl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         ObjectViagem viagem = (ObjectViagem) getIntent().getSerializableExtra("Viagem");
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
         SharedPreferences.Editor edit = pref.edit();
         ViagemDAO viagemDAO = new ViagemDAO(MainActivity.this);
         List<ObjectViagem> teste = viagemDAO.QueryWithJoin(viagem.getKEY_ID_PROFILE());
 
-        productList = findViewById(R.id.list_viagens);
-        adapter = new viagemAdapter(MainActivity.this);
+        ListView productList = findViewById(R.id.list_viagens);
+        viagemAdapter adapter = new viagemAdapter(MainActivity.this);
 
-        arl = new ArrayList<ObjectViagem>();
+        arl = new ArrayList<>(teste);
         adapter.setProductList(arl);
         productList.setAdapter(adapter);
-
-        if (teste.size() > 0) {
-            for (int i = 0; i < teste.size(); i++) {
-                arl.add(teste.get(i));
-                Collections.reverse(arl);
-                adapter.notifyDataSetChanged();
-            }
-        }
 
         Button btnAnalise = findViewById(R.id.btnAnalisar);
         txtData = findViewById(R.id.txtDataViagem);
         EditText txtDestino = findViewById(R.id.lugarViagem);
+        EditText totalDeViajante = findViewById(R.id.txtQuantidadeViajantes);
+        EditText txtDuracaoViagem = findViewById(R.id.txtDuracaoViajem);
         ImageButton btnLogout = findViewById(R.id.btnLogout);
 
         txtData.setOnClickListener(new View.OnClickListener() {
@@ -97,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
                 if (!txtData.getText().toString().isEmpty() && !txtDestino.getText().toString().isEmpty()) {
                     viagem.setData(txtData.getText().toString());
                     viagem.setDestino(txtDestino.getText().toString());
+                    viagem.setTotalViajante(Integer.parseInt(totalDeViajante.getText().toString()));
+                    viagem.setDuracaoDaViagem(Integer.parseInt(txtDuracaoViagem.getText().toString()));
 
                     intent.putExtra("Viagem", viagem);
                     startActivity(intent);
@@ -125,4 +119,28 @@ public class MainActivity extends AppCompatActivity {
         // Mostrar o seletor de data
         datePickerDialog.show();
     }
+//    private void showDatePickerDialog() {
+//        // Obter a data atual (data final)
+//        Calendar currentCalendar = Calendar.getInstance();
+//        int currentYear = currentCalendar.get(Calendar.YEAR);
+//        int currentMonth = currentCalendar.get(Calendar.MONTH);
+//        int currentDay = currentCalendar.get(Calendar.DAY_OF_MONTH);
+//
+//        // Criar um DatePickerDialog e configurá-lo
+//        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+//            @Override
+//            public void onDateSet(DatePicker view, int selectedYear, int selectedMonth, int selectedDay) {
+//                // A data selecionada pelo usuário (data inicial)
+//                String selectedDate = selectedYear + "-" + (selectedMonth + 1) + "-" + selectedDay;
+//                txtData.setText(selectedDate);
+//
+//                // Você pode usar currentCalendar para obter a data final se necessário
+//                String currentDate = currentYear + "-" + (currentMonth + 1) + "-" + currentDay;
+//                // Faça o que desejar com a data final (currentDate)
+//            }
+//        }, currentYear, currentMonth, currentDay);
+//
+//        // Mostrar o seletor de data
+//        datePickerDialog.show();
+//    }
 }

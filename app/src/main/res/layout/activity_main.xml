@@ -85,7 +85,36 @@
                 android:paddingVertical="15dp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white" />
-
+            <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+            <EditText
+                android:id="@+id/txtDuracaoViajem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_rounded_corner"
+                android:backgroundTint="@color/dark_gray"
+                android:inputType="none"
+                android:paddingHorizontal="20dp"
+                android:hint="@string/travelDuration"
+                android:paddingVertical="15dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+            <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+            <EditText
+                android:id="@+id/txtQuantidadeViajantes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_rounded_corner"
+                android:backgroundTint="@color/dark_gray"
+                android:hint="@string/totalPeoples"
+                android:inputType="none"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="15dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
             <Button
                 android:id="@+id/btnAnalisar"
                 android:layout_width="wrap_content"

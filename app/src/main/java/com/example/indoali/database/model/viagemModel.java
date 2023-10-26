@@ -10,6 +10,8 @@ public class viagemModel implements Serializable {
             COLUNA_ID = "_id",
             COLUNA_DESTINO = "destino",
             COLUNA_DATA = "data",
+            COLUNA_DURACAO="duracao",
+            COLUNA_QTDA_VIAJANTES="qtdaViajantes",
             COLUNA_ID_PROFILE = "_idProfile",
             COLUNA_ID_AVIAO = "_idTabelaAviao",
             COLUNA_ID_CARRO = "_idTabelaCarro",
@@ -22,6 +24,8 @@ public class viagemModel implements Serializable {
                     + COLUNA_ID + " integer primary key autoincrement, "
                     + COLUNA_DESTINO + " String not null, "
                     + COLUNA_DATA + " String not null, "
+                    + COLUNA_DURACAO + " int not null, "
+                    + COLUNA_QTDA_VIAJANTES + " int not null, "
                     + COLUNA_ID_PROFILE + " integer not null, "
                     + COLUNA_ID_AVIAO + " integer, "
                     + COLUNA_ID_CARRO + " integer, "
@@ -42,6 +46,26 @@ public class viagemModel implements Serializable {
     private int idRefeicao;
     private int idHospedagem;
     private int idViagemToEntretenimento;
+
+    private int qtdaViajante;
+
+    private int duracao;
+
+    public int getQtdaViajante() {
+        return qtdaViajante;
+    }
+
+    public void setQtdaViajante(int qtdaViajante) {
+        this.qtdaViajante = qtdaViajante;
+    }
+
+    public int getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(int duracao) {
+        this.duracao = duracao;
+    }
 
     public int getID() {
         return ID;

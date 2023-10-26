@@ -30,6 +30,7 @@
         <activity android:name=".javaScreens.entretenimentoActivity" />
         <activity android:name=".javaScreens.hospedagemActivity" />
         <activity android:name=".javaScreens.carroActivity" />
+        <activity android:name=".javaScreens.viewViagemActivity"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".RegisterActivity"/>
 

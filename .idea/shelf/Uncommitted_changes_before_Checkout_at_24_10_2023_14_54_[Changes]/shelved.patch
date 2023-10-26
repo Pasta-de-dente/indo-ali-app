@@ -1,0 +1,14 @@
+Index: app/src/main/java/com/example/indoali/database/DAO/ViagemDAO.java
+===================================================================
+diff --git a/app/src/main/java/com/example/indoali/database/DAO/ViagemDAO.java b/app/src/main/java/com/example/indoali/database/DAO/ViagemDAO.java
+--- a/app/src/main/java/com/example/indoali/database/DAO/ViagemDAO.java	
++++ b/app/src/main/java/com/example/indoali/database/DAO/ViagemDAO.java	
+@@ -45,7 +45,7 @@
+         values.put(viagemModel.COLUNA_ID_AVIAO, model.getIdAviao());
+         rowAffect = db.insert(viagemModel.TABELA_NOME, null, values);
+ 
+-        Close();
++        //Close();
+ 
+         return rowAffect;
+     }

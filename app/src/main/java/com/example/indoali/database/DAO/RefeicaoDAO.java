@@ -16,7 +16,6 @@ public class RefeicaoDAO extends AbstrataDAO {
             refeicaoModel.COLUNA_ID,
             refeicaoModel.COLUNA_CUSTO_ESTIMADO_POR_REFEICAO,
             refeicaoModel.COLUNA_QTDA_REFEICAO_POR_DIA,
-            refeicaoModel.COLUNA_DURACAO_VIAGEM
     };
 
     public RefeicaoDAO(Context context) {
@@ -31,8 +30,6 @@ public class RefeicaoDAO extends AbstrataDAO {
         ContentValues values = new ContentValues();
         values.put(refeicaoModel.COLUNA_QTDA_REFEICAO_POR_DIA, model.getQtdaRefeicaoPorDia());
         values.put(refeicaoModel.COLUNA_CUSTO_ESTIMADO_POR_REFEICAO, model.getCustoEstimadoPorRefeicao());
-        values.put(refeicaoModel.COLUNA_DURACAO_VIAGEM, model.getDuracaoViagem());
-        values.put(refeicaoModel.COLUNA_VIAJANTE_POR_REFEICAO, model.getViajantePorRefeicao());
         rowAffect = db.insert(refeicaoModel.TABELA_NOME, null, values);
 
         Close();
@@ -60,7 +57,6 @@ public class RefeicaoDAO extends AbstrataDAO {
                 int idIndex = cursor.getColumnIndex(carroModel.COLUNA_ID);
                 double CustoEstimadoPorRefeicao = cursor.getColumnIndex(refeicaoModel.COLUNA_CUSTO_ESTIMADO_POR_REFEICAO);
                 int qtdaRefeicaoPorDia = cursor.getColumnIndex(refeicaoModel.COLUNA_QTDA_REFEICAO_POR_DIA);
-                int duracaoViagem = cursor.getColumnIndex(refeicaoModel.COLUNA_DURACAO_VIAGEM);
                 do {
                     refeicaoModel model = new refeicaoModel();
 
@@ -75,10 +71,6 @@ public class RefeicaoDAO extends AbstrataDAO {
                     if (qtdaRefeicaoPorDia >= 0) {
                         model.setQtdaRefeicaoPorDia(cursor.getInt(qtdaRefeicaoPorDia));
                     }
-                    if (duracaoViagem >= 0) {
-                        model.setDuracaoViagem(cursor.getInt(duracaoViagem));
-                    }
-
 
                     aviaoList.add(model);
                 } while (cursor.moveToNext());
