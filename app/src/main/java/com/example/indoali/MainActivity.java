@@ -13,7 +13,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.indoali.List.viagemAdapter;
 import com.example.indoali.database.DAO.ViagemDAO;
@@ -22,37 +21,35 @@ import com.example.indoali.javaScreens.objects.ObjectViagem;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private ListView productList;
     private EditText txtData;
-    private viagemAdapter adapter;
     ArrayList<ObjectViagem> arl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         ObjectViagem viagem = (ObjectViagem) getIntent().getSerializableExtra("Viagem");
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
         SharedPreferences.Editor edit = pref.edit();
         ViagemDAO viagemDAO = new ViagemDAO(MainActivity.this);
         List<ObjectViagem> teste = viagemDAO.QueryWithJoin(viagem.getKEY_ID_PROFILE());
 
-        productList = findViewById(R.id.list_viagens);
-        adapter = new viagemAdapter(MainActivity.this);
+        ListView productList = findViewById(R.id.list_viagens);
+        viagemAdapter adapter = new viagemAdapter(MainActivity.this);
 
-        arl = new ArrayList<ObjectViagem>(teste);
+        arl = new ArrayList<>(teste);
         adapter.setProductList(arl);
         productList.setAdapter(adapter);
 
         Button btnAnalise = findViewById(R.id.btnAnalisar);
         txtData = findViewById(R.id.txtDataViagem);
         EditText txtDestino = findViewById(R.id.lugarViagem);
-        EditText totalDeViajante=findViewById(R.id.txtQuantidadeViajantes);
-        EditText txtDuracaoViagem=findViewById(R.id.txtDuracaoViajem);
+        EditText totalDeViajante = findViewById(R.id.txtQuantidadeViajantes);
+        EditText txtDuracaoViagem = findViewById(R.id.txtDuracaoViajem);
         ImageButton btnLogout = findViewById(R.id.btnLogout);
 
         txtData.setOnClickListener(new View.OnClickListener() {
@@ -81,12 +78,23 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, aviaoActivity.class);
 
-                viagem.setData(txtData.getText().toString());
-                viagem.setDestino(txtDestino.getText().toString());
-                viagem.setTotalViajante(Integer.parseInt(  totalDeViajante.getText().toString()));
-                viagem.setDuracaoDaViagem(Integer.parseInt( txtDuracaoViagem.getText().toString()));
-                intent.putExtra("Viagem", viagem);
-                startActivity(intent);
+                if (txtData.getText().toString().isEmpty()) {
+                    txtData.setError("Campo necessário!");
+                }
+
+                if (txtDestino.getText().toString().isEmpty()) {
+                    txtDestino.setError("Campo necessário!");
+                }
+
+                if (!txtData.getText().toString().isEmpty() && !txtDestino.getText().toString().isEmpty()) {
+                    viagem.setData(txtData.getText().toString());
+                    viagem.setDestino(txtDestino.getText().toString());
+                    viagem.setTotalViajante(Integer.parseInt(totalDeViajante.getText().toString()));
+                    viagem.setDuracaoDaViagem(Integer.parseInt(txtDuracaoViagem.getText().toString()));
+
+                    intent.putExtra("Viagem", viagem);
+                    startActivity(intent);
+                }
             }
         });
     }

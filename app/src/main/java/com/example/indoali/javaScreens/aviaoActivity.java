@@ -19,16 +19,9 @@ public class aviaoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transporte_aviao);
 
-        Button btnBack=findViewById(R.id.backBtnAviao);
         Button btnNext = findViewById(R.id.nextBtn);
+        Button btnBack = findViewById(R.id.btnBack);
         ObjectViagem viagem = (ObjectViagem) getIntent().getSerializableExtra("Viagem");
-
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,14 +31,29 @@ public class aviaoActivity extends AppCompatActivity {
                 EditText txfCustoEstimado = findViewById(R.id.custoEstimadoTxf);
                 EditText txfAluguelVeiculo = findViewById(R.id.aluguelVeiculoTxf);
 
+                if (txfCustoEstimado.getText().toString().isEmpty() && txfAluguelVeiculo.getText().toString().isEmpty()) {
+                    viagem.setCustoPorPessoa(0.0);
+                    viagem.setAluguelVeiculo(0.0);
 
-                viagem.setCustoPorPessoa(Double.parseDouble(txfCustoEstimado.getText().toString()));
-                viagem.setAluguelVeiculo(Double.parseDouble(txfAluguelVeiculo.getText().toString()));
+                    intent.putExtra("Viagem", viagem);
+                    startActivity(intent);
+                } else {
+                    if (txfCustoEstimado.getText().toString().isEmpty()) {
+                        txfCustoEstimado.setError("Campo necessário");
+                    } else if (txfAluguelVeiculo.getText().toString().isEmpty()) {
+                        txfAluguelVeiculo.setError("Campo necessário");
+                    } else {
+                        viagem.setCustoPorPessoa(Double.parseDouble(txfCustoEstimado.getText().toString()));
+                        viagem.setAluguelVeiculo(Double.parseDouble(txfAluguelVeiculo.getText().toString()));
 
-                intent.putExtra("Viagem", viagem);
-                startActivity(intent);
+                        intent.putExtra("Viagem", viagem);
+                        startActivity(intent);
+                    }
+
+                }
             }
         });
 
+        btnBack.setOnClickListener(view -> finish());
     }
 }

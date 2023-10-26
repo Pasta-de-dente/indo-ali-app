@@ -20,59 +20,52 @@ public class carroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_transporte_car);
 
         Button btnNext = findViewById(R.id.nextBtn);
-        Button btnBack=findViewById(R.id.backBtnCar);
+        Button btnBack = findViewById(R.id.btnBack);
         ObjectViagem objeto = (ObjectViagem) getIntent().getSerializableExtra("Viagem");
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(carroActivity.this, refeicaoActivity.class);
+
                 EditText totalEstimadoKm = findViewById(R.id.TotalEstimadoQuilometrosTxf);
                 EditText mediaQuilometroPorLitro = findViewById(R.id.MediaQuilometrosPorLitroTxf);
                 EditText custoMedioPorLitro = findViewById(R.id.CustoMedioPorLitrotxf);
                 EditText totalDeVeiculos = findViewById(R.id.totalDeVeiculotxf);
 
-                if ((!totalEstimadoKm.getText().toString().isEmpty()
-                        && !mediaQuilometroPorLitro.getText().toString().isEmpty())
-                        && (!custoMedioPorLitro.getText().toString().isEmpty()
-                                && !totalDeVeiculos.getText().toString().isEmpty())) {
-                    objeto.setTotalEstimadoKm(Double.parseDouble(totalEstimadoKm.getText().toString()));
-                    objeto.setMediaKmLitro(Double.parseDouble(mediaQuilometroPorLitro.getText().toString()));
-                    objeto.setCustoMedioLitro(Double.parseDouble(custoMedioPorLitro.getText().toString()));
-                    objeto.setTotalVeiculo(Integer.parseInt(totalDeVeiculos.getText().toString()));
+                if (totalEstimadoKm.getText().toString().isEmpty() &&
+                        mediaQuilometroPorLitro.getText().toString().isEmpty() &&
+                        custoMedioPorLitro.getText().toString().isEmpty() &&
+                        totalDeVeiculos.getText().toString().isEmpty()) {
+                    objeto.setTotalEstimadoKm(0.0);
+                    objeto.setMediaKmLitro(0.0);
+                    objeto.setCustoMedioLitro(0.0);
+                    objeto.setTotalVeiculo(0);
+
                     intent.putExtra("Viagem", objeto);
                     startActivity(intent);
                 } else {
-                    if ((totalEstimadoKm.getText().toString().isEmpty()
-                            && mediaQuilometroPorLitro.getText().toString().isEmpty())) {
-                        if (custoMedioPorLitro.getText().toString().isEmpty()) {
-                            totalDeVeiculos.getText();
-                        }
-                    }
+                    if (totalEstimadoKm.getText().toString().isEmpty()) {
+                        totalEstimadoKm.setError("Campo necessário");
+                    } else if (mediaQuilometroPorLitro.getText().toString().isEmpty()) {
+                        mediaQuilometroPorLitro.setError("Campo necessário");
+                    } else if (custoMedioPorLitro.getText().toString().isEmpty()) {
+                        custoMedioPorLitro.setError("Campo necessário");
+                    } else if (totalDeVeiculos.getText().toString().isEmpty()) {
+                        totalDeVeiculos.setError("Campo necessário");
+                    } else {
+                        objeto.setTotalEstimadoKm(Double.parseDouble(totalEstimadoKm.getText().toString()));
+                        objeto.setMediaKmLitro(Double.parseDouble(mediaQuilometroPorLitro.getText().toString()));
+                        objeto.setCustoMedioLitro(Double.parseDouble(custoMedioPorLitro.getText().toString()));
+                        objeto.setTotalVeiculo(Integer.parseInt(totalDeVeiculos.getText().toString()));
 
-                    if (totalDeVeiculos.getText() == null) {
-                        totalDeVeiculos.setError("Preencha total de veículos");
-                    }
-
-                    if (totalEstimadoKm.getText() == null) {
-                        totalEstimadoKm.setError("Preencha KM total estimado");
-                    }
-
-                    if (custoMedioPorLitro.getText() == null) {
-                        custoMedioPorLitro.setError("Preencha custo médio litro");
-                    }
-
-                    if (mediaQuilometroPorLitro.getText() == null) {
-                        mediaQuilometroPorLitro.setError("Preencha media quilômetro por litro");
+                        intent.putExtra("Viagem", objeto);
+                        startActivity(intent);
                     }
                 }
             }
         });
+
+        btnBack.setOnClickListener(view -> finish());
     }
 }

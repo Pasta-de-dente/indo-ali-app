@@ -40,7 +40,8 @@
             <ImageView
                 android:layout_width="200dp"
                 android:layout_height="80dp"
-                android:src="@drawable/brand" />
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/brand_indo_ali" />
         </LinearLayout>
 
         <LinearLayout
@@ -49,83 +50,77 @@
             android:layout_margin="30dp"
             android:orientation="vertical">
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/edtRegisterName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginBottom="20dp"
+                android:autofillHints="emailAddress"
+                android:background="@drawable/edittext_rounded_corner"
+                android:backgroundTint="@color/dark_gray"
+                android:drawableStart="@drawable/baseline_person_24"
+                android:drawablePadding="10dp"
+                android:hint="@string/insertYourName"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
 
-                <EditText
-                    android:id="@+id/edtRegisterName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:autofillHints="emailAddress"
-                    android:background="@drawable/edittext_rounded_corner"
-                    android:backgroundTint="@color/dark_gray"
-                    android:drawableStart="@drawable/baseline_person_24"
-                    android:drawablePadding="10dp"
-                    android:hint="Digite o seu nome"
-                    android:inputType="textEmailAddress"
-                    android:padding="10dp"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white" />
+            <EditText
+                android:id="@+id/edtRegisterEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:autofillHints="emailAddress"
+                android:background="@drawable/edittext_rounded_corner"
+                android:backgroundTint="@color/dark_gray"
+                android:drawableStart="@drawable/baseline_email_24"
+                android:drawablePadding="10dp"
+                android:hint="@string/insertEmail"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
 
-                <EditText
-                    android:id="@+id/edtRegisterEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:autofillHints="emailAddress"
-                    android:background="@drawable/edittext_rounded_corner"
-                    android:backgroundTint="@color/dark_gray"
-                    android:drawableStart="@drawable/baseline_email_24"
-                    android:drawablePadding="10dp"
-                    android:hint="@string/insertEmail"
-                    android:inputType="textEmailAddress"
-                    android:padding="10dp"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white" />
+            <EditText
+                android:id="@+id/edtRegisterPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:autofillHints="password"
+                android:background="@drawable/edittext_rounded_corner"
+                android:backgroundTint="@color/dark_gray"
+                android:drawableStart="@drawable/baseline_lock_24"
+                android:drawablePadding="10dp"
+                android:hint="@string/insertPassword"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
 
-                <EditText
-                    android:id="@+id/edtRegisterPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:autofillHints="password"
-                    android:background="@drawable/edittext_rounded_corner"
-                    android:backgroundTint="@color/dark_gray"
-                    android:drawableStart="@drawable/baseline_lock_24"
-                    android:drawablePadding="10dp"
-                    android:hint="@string/insertPassword"
-                    android:inputType="textPassword"
-                    android:padding="10dp"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white" />
+            <EditText
+                android:id="@+id/edtRegisterPasswordConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="password"
+                android:background="@drawable/edittext_rounded_corner"
+                android:backgroundTint="@color/dark_gray"
+                android:drawableStart="@drawable/baseline_lock_24"
+                android:drawablePadding="10dp"
+                android:hint="@string/passwordConfirmation"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
 
-                <EditText
-                    android:id="@+id/edtRegisterPasswordConfirm"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="password"
-                    android:background="@drawable/edittext_rounded_corner"
-                    android:backgroundTint="@color/dark_gray"
-                    android:drawableStart="@drawable/baseline_lock_24"
-                    android:drawablePadding="10dp"
-                    android:hint="Confirme a sua senha"
-                    android:inputType="textPassword"
-                    android:padding="10dp"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white" />
-
-                <Button
-                    android:id="@+id/btnRegisterConfirm"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:backgroundTint="@color/deep_green"
-                    android:text="Cadastrar"
-                    android:textColor="@color/white" />
-            </LinearLayout>
+            <Button
+                android:id="@+id/btnRegisterConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/deep_green"
+                android:text="@string/register"
+                android:textColor="@color/white" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

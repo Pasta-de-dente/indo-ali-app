@@ -61,8 +61,6 @@
             android:textColorHint="@color/medium_gray"
             android:textSize="18sp" />
 
-
-
     </LinearLayout>
 
     <LinearLayout
@@ -79,7 +77,7 @@
         app:layout_constraintTop_toBottomOf="@+id/topLinearLayout">
 
         <Button
-            android:id="@+id/backBtnRefeicao"
+            android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
@@ -96,6 +94,5 @@
             android:text="@string/accommodation"
             android:textColor="@color/white"
             android:textSize="18sp" />
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

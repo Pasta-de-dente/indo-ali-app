@@ -17,30 +17,47 @@ public class hospedagemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transporte_hospedagem);
 
-        Button btnBack=findViewById(R.id.backBtnHospedagem);
         Button btnNext = findViewById(R.id.nextBtn);
+        Button btnBack = findViewById(R.id.btnBack);
         ObjectViagem viagem = (ObjectViagem) getIntent().getSerializableExtra("Viagem");
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(hospedagemActivity.this, entretenimentoActivity.class);
+
                 EditText custoPorNoite = findViewById(R.id.custoMedioPorNoiteTxf);
                 EditText totalDeNoite = findViewById(R.id.totalDeNoitesTxf);
                 EditText totalDeQuarto = findViewById(R.id.totalDeQuartosTxf);
 
-                viagem.setCustoMedioPorNoite(Double.parseDouble(custoPorNoite.getText().toString()));
-                viagem.setTotalNoite(Integer.parseInt(totalDeNoite.getText().toString()));
-                viagem.setTotalQuartos(Integer.parseInt(totalDeQuarto.getText().toString()));
+                if (custoPorNoite.getText().toString().isEmpty() &&
+                        totalDeNoite.getText().toString().isEmpty() &&
+                        totalDeQuarto.getText().toString().isEmpty()
+                ) {
+                    viagem.setCustoMedioPorNoite(0.0);
+                    viagem.setTotalNoite(0);
+                    viagem.setTotalQuartos(0);
 
-                intent.putExtra("Viagem", viagem);
-                startActivity(intent);
+                    intent.putExtra("Viagem", viagem);
+                    startActivity(intent);
+                } else {
+                    if (custoPorNoite.getText().toString().isEmpty()) {
+                        custoPorNoite.setError("Campo necessário");
+                    } else if (totalDeNoite.getText().toString().isEmpty()) {
+                        totalDeNoite.setError("Campo necessário");
+                    } else if (totalDeQuarto.getText().toString().isEmpty()) {
+                        totalDeQuarto.setError("Campo necessário");
+                    } else {
+                        viagem.setCustoMedioPorNoite(Double.parseDouble(custoPorNoite.getText().toString()));
+                        viagem.setTotalNoite(Integer.parseInt(totalDeNoite.getText().toString()));
+                        viagem.setTotalQuartos(Integer.parseInt(totalDeQuarto.getText().toString()));
+
+                        intent.putExtra("Viagem", viagem);
+                        startActivity(intent);
+                    }
+                }
             }
         });
+
+        btnBack.setOnClickListener(view -> finish());
     }
 }

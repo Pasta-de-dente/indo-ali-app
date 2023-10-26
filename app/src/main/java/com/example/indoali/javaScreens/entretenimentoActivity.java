@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.LayoutInflater;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.indoali.List.entretenimentoAdapter;
 import com.example.indoali.R;
@@ -32,16 +33,10 @@ public class entretenimentoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transporte_entretenimento);
 
-        Button btnBack = findViewById(R.id.backBtnEntretenimento);
         Button btnNext = findViewById(R.id.nextBtn);
+        Button btnBack = findViewById(R.id.btnBack);
         Button btnAddNewEntretenimento = findViewById(R.id.addNewEntretenimento);
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
         productList = findViewById(R.id.listLugares);
         ObjectViagem objeto = (ObjectViagem) getIntent().getSerializableExtra("Viagem");
 
@@ -103,11 +98,31 @@ public class entretenimentoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(entretenimentoActivity.this, resumeActivity.class);
                 objeto.listEntretenimento = arl;
-                intent.putExtra("Viagem", objeto);
-                startActivity(intent);
+
+                if (objeto.verificaVazio()) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(entretenimentoActivity.this);
+
+                    builder.setTitle("Aviso");
+                    builder.setMessage("Você não adicionou nenhum dado a sua viagem, por favor retorne e adicione os dados corretamente!");
+
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+
+//                    Toast.makeText(entretenimentoActivity.this, "Você não adicionou nenhum dado a sua viagem!", Toast.LENGTH_SHORT).show();
+                } else {
+                    intent.putExtra("Viagem", objeto);
+                    startActivity(intent);
+                }
             }
         });
 
+        btnBack.setOnClickListener(view -> finish());
     }
 
 }
