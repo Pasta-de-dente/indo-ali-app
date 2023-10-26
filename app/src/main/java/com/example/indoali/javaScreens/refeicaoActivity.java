@@ -43,7 +43,7 @@ public class refeicaoActivity extends AppCompatActivity {
                     } else if (RefeicaoPorDia.getText().toString().isEmpty()) {
                         RefeicaoPorDia.setError("Campo necessário");
                     } else {
-                        viagem.setCustoEstimadoPorRefeicao(Integer.parseInt(CustoEstimadoPorRefeicao.getText().toString()));
+                        viagem.setCustoEstimadoPorRefeicao(Double.parseDouble(CustoEstimadoPorRefeicao.getText().toString()));
                         viagem.setQtdaRefeicaoPorDia(Integer.parseInt(RefeicaoPorDia.getText().toString()));
 
                         intent.putExtra("Viagem", viagem);
