@@ -1,11 +1,16 @@
 package com.example.indoali.API.model;
 
-import java.util.Date;
 
-public class CustoHospedagemModel {
+import java.io.Serializable;
+
+public class Hospedagem implements Serializable {
     private double custoMedioNoite;
     private int totalNoite;
     private int totalQuartos;
+
+    public Hospedagem() {
+
+    }
 
     public double getCustoMedioNoite() {
         return custoMedioNoite;

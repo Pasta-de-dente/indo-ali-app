@@ -1,8 +1,14 @@
 package com.example.indoali.API.model;
 
-public class CustoRefeicaoModel {
+import java.io.Serializable;
+
+public class Refeicao implements Serializable {
     private double custoRefeicao;
     private int refeicoesDia;
+
+    public Refeicao() {
+
+    }
 
     public double getCustoRefeicao() {
         return custoRefeicao;

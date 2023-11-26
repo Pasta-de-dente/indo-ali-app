@@ -7,6 +7,6 @@
 <p align="center">Menos estresse, mais destinos.</p>
 
 ### Conhecendo o app
-O Indo Ali é um aplicativo de organização pessoal de viagens que permite os usuários adicionarem novos destinos com os gastos definidos para a viagem.
+O Indo Ali é um aplicativo de organização pessoal de viagens que permite os usuários adicionarem novos destinos com os gastos definidos para a viagemModel.
 
 

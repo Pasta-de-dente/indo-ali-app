@@ -4,8 +4,9 @@ import java.io.Serializable;
 
 public class Resposta implements Serializable {
     private boolean sucesso;
-    private String Mensagem;
-    private int ChavePrimaria;
+    private int dados;
+    private String mensagem;
+    private int chavePrimaria;
 
     public Resposta() {
 
@@ -19,19 +20,27 @@ public class Resposta implements Serializable {
         this.sucesso = sucesso;
     }
 
+    public int getDados() {
+        return dados;
+    }
+
+    public void setDados(int dados) {
+        this.dados = dados;
+    }
+
     public String getMensagem() {
-        return Mensagem;
+        return mensagem;
     }
 
     public void setMensagem(String mensagem) {
-        Mensagem = mensagem;
+        this.mensagem = mensagem;
     }
 
     public int getChavePrimaria() {
-        return ChavePrimaria;
+        return chavePrimaria;
     }
 
     public void setChavePrimaria(int chavePrimaria) {
-        ChavePrimaria = chavePrimaria;
+        this.chavePrimaria = chavePrimaria;
     }
 }

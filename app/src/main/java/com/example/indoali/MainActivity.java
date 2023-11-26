@@ -12,16 +12,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.indoali.API.Api;
-import com.example.indoali.API.model.CustoAereoModel;
-import com.example.indoali.API.model.CustoEntretenimentoModel;
-import com.example.indoali.API.model.CustoGasolinaModel;
-import com.example.indoali.API.model.CustoHospedagemModel;
-import com.example.indoali.API.model.CustoRefeicaoModel;
-import com.example.indoali.API.model.EnviarViagem;
-import com.example.indoali.API.model.Resposta;
+import com.example.indoali.API.model.Aereo;
+import com.example.indoali.API.model.EntretenimentoModel;
+import com.example.indoali.API.model.Gasolina;
+import com.example.indoali.API.model.Hospedagem;
+import com.example.indoali.API.model.Refeicao;
 import com.example.indoali.API.model.ViagemModel;
+import com.example.indoali.API.model.Resposta;
 import com.example.indoali.List.viagemAdapter;
 import com.example.indoali.database.DAO.ViagemDAO;
 import com.example.indoali.javaScreens.aviaoActivity;
@@ -81,59 +81,65 @@ public class MainActivity extends AppCompatActivity {
         btnSincronizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EnviarViagem enviarViagem = new EnviarViagem();
+                ViagemModel viagemModel = new ViagemModel();
+                viagemModel.setIdConta(121753);
+                viagemModel.setTotalViajantes(0);
+                viagemModel.setDuracaoViagem(0);
+                viagemModel.setCustoTotalViagem(0);
+                viagemModel.setCustoPorPessoa(0);
+                viagemModel.setLocal("Testando");
 
-                ViagemModel viagem = new ViagemModel();
-                viagem.setTotalViajantes(0);
-                viagem.setDuracaoViagem(0);
-                viagem.setCustoTotalViagem(0);
-                viagem.setCustoPorPessoa(0);
-                viagem.setLocal("");
-                viagem.setIdConta(0);
-                enviarViagem.setViagemModel(viagem);
-
-                CustoRefeicaoModel refeicao = new CustoRefeicaoModel();
+                Refeicao refeicao = new Refeicao();
                 refeicao.setCustoRefeicao(0);
                 refeicao.setRefeicoesDia(0);
-                enviarViagem.setCustoRefeicaoModel(refeicao);
+                viagemModel.setRefeicao(refeicao);
 
-                CustoAereoModel aereo = new CustoAereoModel();
+                Aereo aereo = new Aereo();
                 aereo.setCustoPessoa(0);
                 aereo.setCustoAluguelVeiculo(0);
-                enviarViagem.setCustoAereoModel(aereo);
+                viagemModel.setAereo(aereo);
 
-                CustoHospedagemModel hospedagem = new CustoHospedagemModel();
+                Hospedagem hospedagem = new Hospedagem();
                 hospedagem.setCustoMedioNoite(0);
                 hospedagem.setTotalNoite(0);
                 hospedagem.setTotalQuartos(0);
-                enviarViagem.setCustoHospedagemModel(hospedagem);
+                viagemModel.setHospedagem(hospedagem);
 
-                CustoGasolinaModel gasolina = new CustoGasolinaModel();
+                Gasolina gasolina = new Gasolina();
                 gasolina.setTotalEstimadoKM(0);
                 gasolina.setMediaKMLitro(0);
                 gasolina.setCustoMedioLitro(0);
-                gasolina.setCustoPorPessoa(0);
-                enviarViagem.setCustoGasolinaModel(gasolina);
+                gasolina.setTotalVeiculos(0);
+                viagemModel.setGasolina(gasolina);
 
-                CustoEntretenimentoModel entretenimento = new CustoEntretenimentoModel();
-                entretenimento.setValor(0);
-                entretenimento.setEntretenimento("");
-                enviarViagem.custoEntretenimentoModels.add(entretenimento);
+                EntretenimentoModel e1 = new EntretenimentoModel();
+                e1.setValor(0);
+                e1.setEntretenimento("Parque");
 
-                Api.postViagem(enviarViagem, new Callback<Resposta>() {
+                EntretenimentoModel e2 = new EntretenimentoModel();
+                e2.setValor(1);
+                e2.setEntretenimento("Praça");
+
+                ArrayList<EntretenimentoModel> listaEntretenimento = new ArrayList<EntretenimentoModel>();
+                listaEntretenimento.add(e1);
+                listaEntretenimento.add(e2);
+
+                viagemModel.setListaEntretenimento(listaEntretenimento);
+
+                Api.postViagem(viagemModel, new Callback<Resposta>() {
                     @Override
                     public void onResponse(Call<Resposta> call, Response<Resposta> response) {
                         if (response != null && response.isSuccessful()) {
                             Resposta resposta = response.body();
-                            if (resposta.isSucesso()) {
 
-                            }
+                            System.out.println(resposta.getDados());
+                            System.out.println(resposta.getMensagem());
                         }
                     }
 
                     @Override
                     public void onFailure(Call<Resposta> call, Throwable t) {
-
+                        Toast.makeText(MainActivity.this, "Erro no envio", Toast.LENGTH_SHORT).show();
                     }
                 });
             }

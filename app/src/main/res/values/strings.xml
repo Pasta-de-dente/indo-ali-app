@@ -75,4 +75,5 @@
     <string name="cardAccommodationTotalNights">%d noite(s)</string>
     <string name="cardAccommodationTotalRooms">%d quarto(s)</string>
     <string name="moreDetails">Mais detalhes</string>
+    <string name="sync">Sincronizar</string>
 </resources>

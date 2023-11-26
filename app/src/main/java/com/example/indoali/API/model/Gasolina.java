@@ -1,13 +1,16 @@
 package com.example.indoali.API.model;
 
-import java.util.Date;
+import java.io.Serializable;
 
-public class CustoGasolinaModel {
-
+public class Gasolina implements Serializable {
     private int totalEstimadoKM;
     private double mediaKMLitro;
     private double custoMedioLitro;
-    private double custoPorPessoa;
+    private int totalVeiculos;
+
+    public Gasolina() {
+
+    }
 
     public int getTotalEstimadoKM() {
         return totalEstimadoKM;
@@ -33,11 +36,11 @@ public class CustoGasolinaModel {
         this.custoMedioLitro = custoMedioLitro;
     }
 
-    public double getCustoPorPessoa() {
-        return custoPorPessoa;
+    public int getTotalVeiculos() {
+        return totalVeiculos;
     }
 
-    public void setCustoPorPessoa(double custoPorPessoa) {
-        this.custoPorPessoa = custoPorPessoa;
+    public void setTotalVeiculos(int totalVeiculos) {
+        this.totalVeiculos = totalVeiculos;
     }
 }
