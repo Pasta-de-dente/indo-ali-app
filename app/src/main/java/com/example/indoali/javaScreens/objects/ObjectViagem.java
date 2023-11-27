@@ -58,7 +58,7 @@ public class ObjectViagem implements Serializable {
     private Double CustoPorPessoa = 0.0;
     private Double AluguelVeiculo = 0.0;
 
-    public List<Entretenimento> listEntretenimento=new ArrayList<>();
+    public List<Entretenimento> listEntretenimento = new ArrayList<>();
 
     public int get_id() {
         return _id;
@@ -276,4 +276,3 @@ public class ObjectViagem implements Serializable {
                 && listEntretenimento.size() == 0;
     }
 }
-
