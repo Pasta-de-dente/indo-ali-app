@@ -7,21 +7,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.example.indoali.API.Api;
-import com.example.indoali.API.model.Aereo;
-import com.example.indoali.API.model.EntretenimentoModel;
-import com.example.indoali.API.model.Gasolina;
-import com.example.indoali.API.model.Hospedagem;
-import com.example.indoali.API.model.Refeicao;
-import com.example.indoali.API.model.ViagemModel;
-import com.example.indoali.API.model.Resposta;
 import com.example.indoali.List.viagemAdapter;
 import com.example.indoali.database.DAO.ViagemDAO;
 import com.example.indoali.javaScreens.aviaoActivity;
@@ -30,10 +20,6 @@ import com.example.indoali.javaScreens.objects.ObjectViagem;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     private EditText txtData;
@@ -84,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
 //            @Override
 //            public void onClick(View view) {
 //                ViagemModel viagemModel = new ViagemModel();
+
 //                viagemModel.setIdConta(121753);
 //                viagemModel.setTotalViajantes(0);
 //                viagemModel.setDuracaoViagem(0);

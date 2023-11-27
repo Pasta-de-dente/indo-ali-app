@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.example.indoali.API.Api;
 import com.example.indoali.API.model.Aereo;
-import com.example.indoali.API.model.EntretenimentoModel;
+import com.example.indoali.API.model.EntretenimentoAPI;
 import com.example.indoali.API.model.Gasolina;
 import com.example.indoali.API.model.Hospedagem;
 import com.example.indoali.API.model.Refeicao;
@@ -105,15 +105,15 @@ public class viagemAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 ViagemModel viagemModel = new ViagemModel();
-                viagemModel.setIdConta(121753);
                 viagemModel.setTotalViajantes(ent.getTotalViajante());
                 viagemModel.setDuracaoViagem(ent.getDuracaoDaViagem());
                 viagemModel.setCustoTotalViagem(ent.getCustoTotal());
                 viagemModel.setCustoPorPessoa(ent.getCustoPorPessoa());
                 viagemModel.setLocal(ent.getDestino());
+                viagemModel.setIdConta(121753);
 
                 Gasolina gasolina = new Gasolina();
-                gasolina.setTotalEstimadoKM((int) ent.getTotalEstimadoKm());
+                gasolina.setTotalEstimadoKM(3);
                 gasolina.setMediaKMLitro(ent.getMediaKmLitro());
                 gasolina.setCustoMedioLitro(ent.getCustoMedioLitro());
                 gasolina.setTotalVeiculos(ent.getTotalVeiculo());
@@ -124,18 +124,18 @@ public class viagemAdapter extends BaseAdapter {
                 aereo.setCustoAluguelVeiculo(ent.getAluguelVeiculo());
                 viagemModel.setAereo(aereo);
 
-                ArrayList<EntretenimentoModel> listaEntretenimento = new ArrayList<EntretenimentoModel>();
+                ArrayList<EntretenimentoAPI> entList = new ArrayList<>();
 
                 for (int j = 0; j < ent.listEntretenimento.size(); j++) {
-                    EntretenimentoModel e = new EntretenimentoModel();
+                    EntretenimentoAPI e = new EntretenimentoAPI();
 
                     e.setValor(ent.listEntretenimento.get(j).getPreco());
                     e.setEntretenimento(ent.listEntretenimento.get(j).getNome());
 
-                    listaEntretenimento.add(e);
+                    entList.add(e);
                 }
 
-                viagemModel.setListaEntretenimento(listaEntretenimento);
+                viagemModel.setListaEntretenimento(entList);
 
                 Hospedagem hospedagem = new Hospedagem();
                 hospedagem.setCustoMedioNoite(ent.getCustoMedioPorNoite());
@@ -154,14 +154,24 @@ public class viagemAdapter extends BaseAdapter {
                         if (response != null && response.isSuccessful()) {
                             Resposta resposta = response.body();
 
-                            System.out.println(resposta.getDados());
-                            System.out.println(resposta.getMensagem());
+                            if (resposta != null) {
+                                // Handle successful response
+                                System.out.println(resposta.getDados());
+                                System.out.println(resposta.getMensagem());
+                            } else {
+                                // Handle null response
+                                Toast.makeText(activity, "Null response", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            // Handle unsuccessful response
+                            Toast.makeText(activity, "Unsuccessful response", Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<Resposta> call, Throwable t) {
-                        Toast.makeText(activity, "Erro no envio", Toast.LENGTH_SHORT).show();
+                        // Handle failure
+                        Toast.makeText(activity, "Error in sending request", Toast.LENGTH_SHORT).show();
                     }
                 });
             }

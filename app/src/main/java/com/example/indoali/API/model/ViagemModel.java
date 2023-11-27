@@ -13,7 +13,7 @@ public class ViagemModel implements Serializable {
 
     private Aereo aereo;
     private Gasolina gasolina;
-    private ArrayList<EntretenimentoModel> listaEntretenimentoModel;
+    private ArrayList<EntretenimentoAPI> listaEntretenimento;
     private Hospedagem hospedagem;
     private Refeicao refeicao;
 
@@ -85,12 +85,12 @@ public class ViagemModel implements Serializable {
         this.gasolina = gasolina;
     }
 
-    public ArrayList<EntretenimentoModel> getListaEntretenimento() {
-        return listaEntretenimentoModel;
+    public ArrayList<EntretenimentoAPI> getListaEntretenimento() {
+        return listaEntretenimento;
     }
 
-    public void setListaEntretenimento(ArrayList<EntretenimentoModel> listaEntretenimentoModel) {
-        this.listaEntretenimentoModel = listaEntretenimentoModel;
+    public void setListaEntretenimento(ArrayList<EntretenimentoAPI> listaEntretenimento) {
+        this.listaEntretenimento = listaEntretenimento;
     }
 
     public Hospedagem getHospedagem() {

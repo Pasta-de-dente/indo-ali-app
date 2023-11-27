@@ -2,11 +2,11 @@ package com.example.indoali.API.model;
 
 import java.io.Serializable;
 
-public class EntretenimentoModel implements Serializable {
+public class EntretenimentoAPI implements Serializable {
     private double valor;
     private String entretenimento;
 
-    public EntretenimentoModel(){
+    public EntretenimentoAPI(){
 
     }
 
