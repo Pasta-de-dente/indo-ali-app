@@ -69,8 +69,8 @@ public class entretenimentoAdapter extends BaseAdapter {
 
         ImageButton btnDelete = view.findViewById(R.id.btnDeletar);
         btnDelete.setOnClickListener(view1 -> {
-           productList.remove(i);
-           notifyDataSetChanged();
+            productList.remove(i);
+            notifyDataSetChanged();
             Toast.makeText(activity, "Removido com sucesso!", Toast.LENGTH_SHORT).show();
         });
 
