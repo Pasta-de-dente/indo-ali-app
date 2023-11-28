@@ -2,6 +2,7 @@ package com.example.indoali.API.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ViagemModel implements Serializable {
     private int totalViajantes;
@@ -10,6 +11,7 @@ public class ViagemModel implements Serializable {
     private double custoPorPessoa;
     private String local;
     private int idConta;
+    private String dt_inc;
 
     private Aereo aereo;
     private Gasolina gasolina;
@@ -107,5 +109,13 @@ public class ViagemModel implements Serializable {
 
     public void setRefeicao(Refeicao refeicao) {
         this.refeicao = refeicao;
+    }
+
+    public String getDt_inc() {
+        return dt_inc;
+    }
+
+    public void setDt_inc(String dt_inc) {
+        this.dt_inc = dt_inc;
     }
 }

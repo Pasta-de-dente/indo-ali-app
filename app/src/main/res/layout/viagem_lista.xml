@@ -104,21 +104,22 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="-40dp"
+        android:gravity="end"
         android:orientation="vertical">
 
-        <Button
+        <ImageButton
             android:id="@+id/btnSincronizar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:backgroundTint="@color/deep_green"
-            android:drawableLeft="@drawable/baseline_sync_24"
-            android:text="@string/sync"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-    </LinearLayout>
+            android:contentDescription="Sincronizar"
+            android:src="@drawable/baseline_sync_24" />
+
+    </RelativeLayout>
 </LinearLayout>

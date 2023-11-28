@@ -59,4 +59,34 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(profileModel.CREATE_TABLE);
     }
 
+    public void dropToSync() {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        dropDBToSync(db);
+
+        db.close();
+    }
+
+    private void dropDBToSync(SQLiteDatabase sqLiteDatabase) {
+        sqLiteDatabase.execSQL(aviaoModel.DROP_TABLE);
+        sqLiteDatabase.execSQL(aviaoModel.CREATE_TABLE);
+
+        sqLiteDatabase.execSQL(carroModel.DROP_TABLE);
+        sqLiteDatabase.execSQL(carroModel.CREATE_TABLE);
+
+        sqLiteDatabase.execSQL(refeicaoModel.DROP_TABLE);
+        sqLiteDatabase.execSQL(refeicaoModel.CREATE_TABLE);
+
+        sqLiteDatabase.execSQL(hospedagemModel.DROP_TABLE);
+        sqLiteDatabase.execSQL(hospedagemModel.CREATE_TABLE);
+
+        sqLiteDatabase.execSQL(viagemModel.DROP_TABLE);
+        sqLiteDatabase.execSQL(viagemModel.CREATE_TABLE);
+
+        sqLiteDatabase.execSQL(viagemToEntretenimentoModel.DROP_TABLE);
+        sqLiteDatabase.execSQL(viagemToEntretenimentoModel.CREATE_TABLE);
+
+        sqLiteDatabase.execSQL(entretenimentoModel.DROP_TABLE);
+        sqLiteDatabase.execSQL(entretenimentoModel.CREATE_TABLE);
+    }
 }
