@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,7 +64,7 @@ public class viagemAdapter extends BaseAdapter {
         }
 
         ObjectViagem ent = productList.get(i);
-        Button btnSincronizar = view.findViewById(R.id.btnSincronizar);
+        ImageButton btnSincronizar = view.findViewById(R.id.btnSincronizar);
 
         view.setOnClickListener(view1 -> {
             Intent intent = new Intent(activity, viewViagemActivity.class);
@@ -99,6 +99,7 @@ public class viagemAdapter extends BaseAdapter {
         ent.setTotalEntretenimento(totalEnt);
 
         double totalCalc = totalGasolina + totalHospedagem + totaltarifaArea + totalRefeicao + totalEnt;
+        ent.setCustoTotal(totalCalc);
         total.setText("R$ " + decimalFormat.format(totalCalc));
 
         btnSincronizar.setOnClickListener(new View.OnClickListener() {
@@ -113,7 +114,7 @@ public class viagemAdapter extends BaseAdapter {
                 viagemModel.setIdConta(121753);
 
                 Gasolina gasolina = new Gasolina();
-                gasolina.setTotalEstimadoKM(3);
+                gasolina.setTotalEstimadoKM((int) ent.getTotalEstimadoKm());
                 gasolina.setMediaKMLitro(ent.getMediaKmLitro());
                 gasolina.setCustoMedioLitro(ent.getCustoMedioLitro());
                 gasolina.setTotalVeiculos(ent.getTotalVeiculo());
@@ -129,7 +130,8 @@ public class viagemAdapter extends BaseAdapter {
                 for (int j = 0; j < ent.listEntretenimento.size(); j++) {
                     EntretenimentoAPI e = new EntretenimentoAPI();
 
-                    e.setValor(ent.listEntretenimento.get(j).getPreco());
+                    double valor = ((ent.listEntretenimento.get(j).getPreco() * ent.listEntretenimento.get(j).getQtdaVezes()) * ent.listEntretenimento.get(j).getQtdaPessoas());
+                    e.setValor(valor);
                     e.setEntretenimento(ent.listEntretenimento.get(j).getNome());
 
                     entList.add(e);
@@ -155,23 +157,14 @@ public class viagemAdapter extends BaseAdapter {
                             Resposta resposta = response.body();
 
                             if (resposta != null) {
-                                // Handle successful response
-                                System.out.println(resposta.getDados());
-                                System.out.println(resposta.getMensagem());
-                            } else {
-                                // Handle null response
-                                Toast.makeText(activity, "Null response", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(activity, "Sincronizado", Toast.LENGTH_SHORT).show();
                             }
-                        } else {
-                            // Handle unsuccessful response
-                            Toast.makeText(activity, "Unsuccessful response", Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<Resposta> call, Throwable t) {
-                        // Handle failure
-                        Toast.makeText(activity, "Error in sending request", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity, "Erro ao sincronizar", Toast.LENGTH_SHORT).show();
                     }
                 });
             }

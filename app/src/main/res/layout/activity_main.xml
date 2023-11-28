@@ -128,19 +128,6 @@
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
-<!--            <Button-->
-<!--                android:id="@+id/btnSincronizar"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="end"-->
-<!--                android:layout_marginStart="180dp"-->
-<!--                android:layout_marginTop="15dp"-->
-<!--                android:layout_marginBottom="15dp"-->
-<!--                android:backgroundTint="@color/deep_green"-->
-<!--                android:text="Sincronizar"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="18sp" />-->
-
             <ListView
                 android:id="@+id/list_viagens"
                 android:layout_width="match_parent"
@@ -149,5 +136,16 @@
                 android:divider="@android:color/transparent"
                 android:dividerHeight="5dp" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSincronizarTudo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/deep_green"
+            android:text="Sincronizar todas as viagens"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
     </LinearLayout>
 </ScrollView>

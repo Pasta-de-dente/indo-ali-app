@@ -176,7 +176,6 @@ public class resumeActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 AviaoDAO dao = new AviaoDAO(resumeActivity.this);
                 aviaoModel pessoaModel = new aviaoModel();
 
@@ -218,6 +217,8 @@ public class resumeActivity extends AppCompatActivity {
 
                     viagemModel.setIdViagemToEntretenimento((int) rowViagemToEntretenimento);
 
+                    EntretenimentoDAO entret = new EntretenimentoDAO(resumeActivity.this);
+
                     for (int i = 0; i < arl.size(); i++) {
                         entretenimentoModel ent1 = new entretenimentoModel();
 
@@ -226,11 +227,11 @@ public class resumeActivity extends AppCompatActivity {
                         ent1.setQtdaPessoas(arl.get(i).getQtdaPessoas());
                         ent1.setQtdaVezes(arl.get(i).getQtdaVezes());
                         ent1.setIdViagemToEntretenimento((int) rowViagemToEntretenimento);
-                        EntretenimentoDAO entret = new EntretenimentoDAO(resumeActivity.this);
 
                         entret.Insert(ent1);
                     }
                 }
+
                 viagemModel.setQtdaViajante(objeto.getTotalViajante());
                 viagemModel.setDuracao(objeto.getDuracaoDaViagem());
                 viagemModel.setData(objeto.getData());
