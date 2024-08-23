@@ -12,8 +12,8 @@ Murillo Cardoso
 Mateus Vinicius Soares
 
 <div  style="flex">
-<img src="https://imgur.com/JA4lFoI" style="width: 120px; height: 120px;"/>
-<img src="https://imgur.com/pDpAny3" style="width: 120px; height: 120px;"/>
+<img src="https://i.imgur.com/JA4lFoI.jpeg" style="width: 240px; height: 120px;"/>
+<img src="https://i.imgur.com/pDpAny3.jpeg" style="width: 240px; height: 120px;"/>
   
 </div>  
 ## Recursos
