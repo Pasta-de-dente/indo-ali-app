@@ -10,6 +10,12 @@ Indo Ali é um aplicativo de organização pessoal de viagens desenvolvido para 
 Thiago Serafina
 Murillo Cardoso
 Mateus Vinicius Soares
+
+<div  style="flex">
+<img src="https://imgur.com/JA4lFoI" style="width: 120px; height: 120px;"/>
+<img src="https://imgur.com/pDpAny3" style="width: 120px; height: 120px;"/>
+  
+</div>  
 ## Recursos
 Adicione Destinos: Insira e gerencie novos destinos de viagem.
 Defina Gastos: Acompanhe os gastos planejados para cada destino.
