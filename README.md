@@ -11,11 +11,10 @@ Thiago Serafina
 Murillo Cardoso
 Mateus Vinicius Soares
 
-<div  style="flex">
-<img src="https://i.imgur.com/JA4lFoI.jpeg" style="width: 240px; height: 120px;"/>
-<img src="https://i.imgur.com/pDpAny3.jpeg" style="width: 240px; height: 120px;"/>
-  
-</div>  
+<div style="display: flex;">
+  <img src="https://i.imgur.com/JA4lFoI.jpeg" style="width: 240px; height: 550px;"/>
+  <img src="https://i.imgur.com/pDpAny3.jpeg" style="width: 240px; height: 550px;"/>
+</div>
 ## Recursos
 Adicione Destinos: Insira e gerencie novos destinos de viagem.
 Defina Gastos: Acompanhe os gastos planejados para cada destino.
